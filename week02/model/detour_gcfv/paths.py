@@ -16,8 +16,8 @@ MODEL_DIR = Path(__file__).resolve().parent.parent      # week02/model
 WEEK02_DIR = MODEL_DIR.parent                            # week02
 REPO_ROOT = WEEK02_DIR.parent                            # 仓库根
 
-# 实验数据放在仓库根目录，不随本周目录调整而移动
-DATA_PATH = REPO_ROOT / "circle-10m-64-1.txt"
+# 原始数据统一放在仓库根的 datasets/ 下（ETH / UCY / circle 实验数据都在那里）
+DATA_PATH = REPO_ROOT / "datasets" / "circle-10m-64-1.txt"
 
 RESULTS_DIR = WEEK02_DIR / "results"
 FIGURES_DIR = RESULTS_DIR / "figures"                    # 所有出图

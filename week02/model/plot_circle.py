@@ -56,7 +56,7 @@ from matplotlib.lines import Line2D
 
 WEEK02_DIR = Path(__file__).resolve().parent.parent   # model/ 往上一级
 REPO_ROOT = WEEK02_DIR.parent
-DATA_PATH = REPO_ROOT / "circle-10m-64-1.txt"
+DATA_PATH = REPO_ROOT / "datasets" / "circle-10m-64-1.txt"
 
 # 坐标单位是厘米（圆环半径 ~1000），画图前换算成米。
 CM_PER_M = 100.0

@@ -36,6 +36,7 @@ from matplotlib.collections import LineCollection
 from matplotlib.colors import LinearSegmentedColormap, Normalize
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+DATA_ROOT = REPO_ROOT / "datasets"       # ETH / UCY 原始数据都在这里
 
 # 在范围内的五个场景，顺序按用户指定。五个都自带 obsmat.txt，
 # 所以读取路径统一，不需要分格式。
@@ -44,11 +45,11 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # 它和 obsmat.txt **不是同一套世界坐标**（实测两组点无一重合，范围也不同），
 # 这里是两份独立标注，不是换个原点。本脚本统一用 obsmat.txt。
 SCENES = [
-    ("zara01", REPO_ROOT / "UCY" / "zara01" / "obsmat.txt"),
-    ("zara02", REPO_ROOT / "UCY" / "zara02" / "obsmat.txt"),
-    ("students03", REPO_ROOT / "UCY" / "students03" / "obsmat.txt"),
-    ("seq_hotel", REPO_ROOT / "ETH" / "seq_hotel" / "obsmat.txt"),
-    ("seq_eth", REPO_ROOT / "ETH" / "seq_eth" / "obsmat.txt"),
+    ("zara01", DATA_ROOT / "UCY" / "zara01" / "obsmat.txt"),
+    ("zara02", DATA_ROOT / "UCY" / "zara02" / "obsmat.txt"),
+    ("students03", DATA_ROOT / "UCY" / "students03" / "obsmat.txt"),
+    ("seq_hotel", DATA_ROOT / "ETH" / "seq_hotel" / "obsmat.txt"),
+    ("seq_eth", DATA_ROOT / "ETH" / "seq_eth" / "obsmat.txt"),
 ]
 
 # 采样间隔。两个 info.txt 都写明标注为 2.5 fps，即每 0.4 s 一个采样点。
@@ -299,7 +300,7 @@ def main() -> None:
         }
     )
 
-    out_dir = Path(__file__).resolve().parent / "figures"
+    out_dir = Path(__file__).resolve().parent / "results" / "figures"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     modes = ("light", "dark") if args.mode == "all" else (args.mode,)

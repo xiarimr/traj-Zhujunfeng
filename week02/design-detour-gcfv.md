@@ -2,7 +2,7 @@
 
 - 日期：2026-09-18
 - 依据：[`Detour_aware_GCFV.md`](Detour_aware_GCFV.md)（模型设计意图）
-- 数据：[`circle-10m-64-1.txt`](../circle-10m-64-1.txt)（Circle Antipode 实验）
+- 数据：[`datasets/circle-10m-64-1.txt`](../datasets/circle-10m-64-1.txt)（Circle Antipode 实验）
 - 局部运动模型：Xu, Chraibi, Tordeux, Zhang, *Generalized collision-free velocity model for pedestrian
   dynamics*, Physica A **535**, 122521 (2019)；[arXiv:1908.10304](https://arxiv.org/abs/1908.10304)
 
