@@ -238,6 +238,19 @@ SimResult(positions, v0, arrival, routes)
 - **[rickyspy/Behavior-Model-Data](https://github.com/rickyspy/Behavior-Model-Data)**
   —— 该实验的公开数据与复现模型。
 
+**本仓库数据文件的格式**（2026-09-18 实测确认）：
+
+| 项 | 值 |
+|---|---|
+| 规模 | 64 人 × 425 帧（第 37–461 帧） |
+| 列序 | `行人ID 帧号 x y RUN_ID`，空格分隔 —— **与 Social-GAN 那套 `frame id x y` 相反** |
+| 单位 | **厘米**（圆环半径约 1000 = 10 m），与 ETH/UCY 的米不同 |
+| 采样率 | **25 fps**（Δt = 0.04 s），也不是 ETH/UCY 的 0.4 s |
+| 末态 | 64 人全部静止（都走到了正对径点停下） |
+
+列序读反了每步中位位移会从 5.4 cm 变成 6.6 m（约 165 m/s）—— 看速度就能判断读没读错。
+单位读错则会把 10 m 的场子画成 1 km。这两条已分别写进 `data.py` 与 `plot_circle.py` 的注释。
+
 > **数据出处待确认。** 仓库里没有记录 `datasets/circle-10m-64-1.txt` 的来历。文件名
 > `circle-10m-64-1`、5 列构成（行人ID/帧号/x/y/RUN_ID）与上述项目的 10m-64p 条件吻合，
 > 实测路径长 21–33 m 也落在该论文报告的 20–33 m 内；但**本文件的坐标单位是厘米**
