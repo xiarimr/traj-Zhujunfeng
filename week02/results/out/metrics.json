@@ -1,0 +1,48 @@
+{
+  "experiment": {
+    "label": "实验",
+    "rmse_m": 0.0,
+    "ade_m": 0.0,
+    "fde_m": 0.0,
+    "travel_time_mean_s": 12.07,
+    "travel_time_median_s": 12.76,
+    "path_length_mean_m": 23.59,
+    "mean_speed_median_mps": 1.37,
+    "d_center_median_m": 1.62,
+    "center_crossing_lt1m": 22,
+    "detouring_ge1m": 42
+  },
+  "models": {
+    "main": {
+      "label": "detour-aware",
+      "rmse_m": 2.807,
+      "ade_m": 1.979,
+      "fde_m": 0.399,
+      "travel_time_mean_s": 12.37,
+      "travel_time_median_s": 13.32,
+      "path_length_mean_m": 20.97,
+      "mean_speed_median_mps": 1.22,
+      "d_center_median_m": 0.46,
+      "center_crossing_lt1m": 52,
+      "detouring_ge1m": 12
+    },
+    "baseline1": {
+      "label": "baseline1 (no detour)",
+      "rmse_m": 2.912,
+      "ade_m": 2.124,
+      "fde_m": 0.47,
+      "travel_time_mean_s": 12.65,
+      "travel_time_median_s": 13.28,
+      "path_length_mean_m": 21.05,
+      "mean_speed_median_mps": 1.23,
+      "d_center_median_m": 0.56,
+      "center_crossing_lt1m": 57,
+      "detouring_ge1m": 7
+    }
+  },
+  "route_choice": {
+    "straight": 64,
+    "left": 0,
+    "right": 0
+  }
+}
