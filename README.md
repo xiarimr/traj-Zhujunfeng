@@ -37,6 +37,7 @@ pedestrian_dataset/
 │   └── circle-10m-64-1.txt        Circle Antipode 实验（64 人 × 425 帧）
 ├── week01/                        ETH/UCY 数据格式梳理 + 五场景轨迹可视化
 ├── week02/                        Circle Antipode：轨迹图 + Detour-aware GCFV 微观模型
+├── week03/                        TrajNet++：无交互、网格分辨率与池化规则对比
 ├── pyproject.toml / uv.lock       uv 环境定义
 └── .python-version
 ```
@@ -44,7 +45,8 @@ pedestrian_dataset/
 ## 环境
 
 用 [uv](https://docs.astral.sh/uv/) 管理，Python 3.9（见 `.python-version`）。
-依赖：`matplotlib`、`numpy`。
+week01 / week02 依赖：`matplotlib`、`numpy`；week03 的 TrajNet++ 实验依赖与运行说明见
+[week03/README.md](week03/README.md) 和 [requirements-classroom.txt](week03/model/requirements-classroom.txt)。
 
 ```bash
 uv sync --no-install-project
@@ -79,6 +81,20 @@ uv sync --no-install-project
 - **产物**：[week02/results/](week02/results/) 下 5 张图 + 2 份轨迹 CSV + `metrics.json`。
 - **入口**：`week02/model/detour_gcfv/run.py` ｜ 完整说明（模型思路、代码逻辑、参考文献）：
   [week02/README.md](week02/README.md)
+
+### week03 —— TrajNet++ 邻域与池化实验
+
+- **做了什么**：在圆形对穿课堂数据上，以 TrajNet++ social LSTM 为参照，对比无交互
+  vanilla LSTM、观察范围不变的 `8×8` 细网格，以及同格邻居特征求和池化。
+  四个模型使用相同数据划分、8 帧历史、12 帧预测和随机种子，均训练 10 轮。
+- **关键结论**：无交互模型在四个 LSTM 中表现最好，测试集 ADE/FDE 为 **0.5498 / 1.1583**，
+  相比 social baseline 分别下降约 **25.7% / 19.0%**；细网格与求和池化均未改善测试结果。
+  四个 LSTM 都弱于匀速外推；结论仅适用于当前小样本与训练配置，不能推广为邻居信息无用。
+  指标采用换算后的坐标单位，尚未确认可标为米。
+- **产物**：[week03/results/](week03/results/) 下 4 个最终模型、配置与 val/test 指标 JSON、
+  `summary.csv`，以及单模型轨迹图和综合对比图。
+- **入口**：`week03/model/run_classroom.py`、`week03/model/run_classroom_sum_pooling.py` ｜
+  完整说明（实验设计、评价口径、结果与限制）：[week03/README.md](week03/README.md)
 
 ---
 
