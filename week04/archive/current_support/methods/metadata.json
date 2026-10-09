@@ -1,0 +1,10 @@
+{
+  "section_position_m": 250.0,
+  "crossing_count": 355,
+  "axis_k_max": 60.0,
+  "axis_q_max": 3200.0,
+  "snapshot_rule": "piecewise constant average of adjacent frame counts and summed source velocities",
+  "section_speed": "interpolated source speed, harmonic mean across crossings",
+  "undefined_section_density": "NaN if no crossing or any nonpositive crossing speed",
+  "checks": "conserved area-method totals and identical section counts across windows"
+}

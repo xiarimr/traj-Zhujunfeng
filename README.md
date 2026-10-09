@@ -1,20 +1,21 @@
 # 行人轨迹数据集与建模实验
 
-行人轨迹研究用的原始数据集，以及基于这些数据逐周推进的工作。
+以行人轨迹研究为起点的数据集与逐周实验，week04 扩展到车辆轨迹的流量—密度分析。
 
-数据分两套：**ETH / UCY** 五场景基准（行人轨迹预测最常用的公开数据），
+行人数据包括 **ETH / UCY** 五场景基准（行人轨迹预测最常用的公开数据），
 以及**北京交通大学 Circle Antipode（圆环正对径穿越）实验**（64 人从半径 10 m 的圆环出发、
 同时走向各自的正对径点）。
+week04 使用 **NGSIM I-80 车辆轨迹**（2005-04-13 16:00–16:15），SI 单位输入与来源说明保存在 `week04/data/`。
 
 ---
 
 ## 仓库逻辑
 
-三条约定，后面每周都按它走：
+目录约定如下，week04 的数据与辅助归档位置单独说明：
 
-1. **原始数据只放在 `datasets/`，只读。** 不在原目录里改数据、不把中间结果混进去；
-   读取路径一律从代码里指向 `datasets/`。
-2. **每周一个 `weekNN/` 目录，内部固定三块**：
+1. **输入数据保持只读。** 行人原始数据放在 `datasets/`，week04 的车辆输入放在 `week04/data/`；
+   不在输入目录里改数据、不把中间结果混进去。
+2. **每周一个 `weekNN/` 目录，主要包含三块**：
 
    ```
    weekNN/
@@ -23,7 +24,8 @@
    └── results/     当周的产物：图、轨迹、指标 JSON
    ```
 
-   代码只读 `datasets/`、只写自己 `results/`，跨周不互相依赖。
+   代码读取对应输入，主要产物写入当周 `results/`，跨周不互相依赖。
+   week04 另有 `data/` 保存输入、`archive/` 保存辅助检查结果和历史分析。
 3. **每周的 README 是那一周的主文档。** 数据集格式的梳理属于做它的那一周（见 week01），
    本文件只讲仓库整体与每周工作的索引。
 
@@ -38,6 +40,7 @@ pedestrian_dataset/
 ├── week01/                        ETH/UCY 数据格式梳理 + 五场景轨迹可视化
 ├── week02/                        Circle Antipode：轨迹图 + Detour-aware GCFV 微观模型
 ├── week03/                        TrajNet++：无交互、网格分辨率与池化规则对比
+├── week04/                        NGSIM I-80：流量—密度基本图、时间窗口与计算方法对比
 ├── pyproject.toml / uv.lock       uv 环境定义
 └── .python-version
 ```
@@ -47,6 +50,7 @@ pedestrian_dataset/
 用 [uv](https://docs.astral.sh/uv/) 管理，Python 3.9（见 `.python-version`）。
 week01 / week02 依赖：`matplotlib`、`numpy`；week03 的 TrajNet++ 实验依赖与运行说明见
 [week03/README.md](week03/README.md) 和 [requirements-classroom.txt](week03/model/requirements-classroom.txt)。
+week04 依赖 `numpy`、`pandas`、`matplotlib`，运行说明见 [week04/README.md](week04/README.md)。
 
 ```bash
 uv sync --no-install-project
@@ -96,6 +100,23 @@ uv sync --no-install-project
 - **入口**：`week03/model/run_classroom.py`、`week03/model/run_classroom_sum_pooling.py` ｜
   完整说明（实验设计、评价口径、结果与限制）：[week03/README.md](week03/README.md)
 
+### week04 —— NGSIM I-80 车辆轨迹流量—密度分析
+
+- **做了什么**：固定 I-80 东向车道 1 的 200–300 m 路段，完成轨迹范围筛选与质量检查，
+  按 Edie 时空区域定义计算密度和流量，比较 **5、10、20、30、60 秒**五种聚合窗口；
+  同时对照逐帧路段平均法与断面计数估计法，并分析不同车道、路段的基本图差异。
+- **关键结论**：主范围各窗口总体呈正相关，短窗口保留更多波动，长窗口使点云范围收窄。
+  逐帧法与 Edie 接近；断面法在短窗口下受过车计数量化影响更明显，与 Edie 的流量平均绝对差
+  从 5 秒窗口约 **243 veh/h** 降至 60 秒窗口约 **23 veh/h**。这些是方法差异，不能视作真值误差；
+  断面无过车也不等于路段无车。车道 2、4 在观测时段呈负相关并伴随低速，不违反 `q=kv`，
+  但拥堵、排队波与换道等解释尚未完成因果验证。
+- **产物**：[week04/results/](week04/results/) 下 4 张对比图、360 条 Edie 窗口结果、
+  1,080 条三方法窗口记录、筛选轨迹、范围配置与质量检查说明；辅助结果及历史分析见
+  [week04/archive/](week04/archive/)。
+- **入口**：`week04/code/run_analysis.py`；在仓库根目录运行
+  `python week04/code/run_analysis.py --t 5 10 20 30 60` 可重建主结果。完整说明：
+  [week04/README.md](week04/README.md)。
+
 ---
 
 ## 数据集在哪
@@ -105,5 +126,6 @@ uv sync --no-install-project
 | ETH（2 场景） | [datasets/ETH/](datasets/ETH/) | [week01/README.md](week01/README.md#一数据集说明) |
 | UCY（3 场景） | [datasets/UCY/](datasets/UCY/) | 同上 |
 | Circle Antipode | [datasets/circle-10m-64-1.txt](datasets/circle-10m-64-1.txt) | [week02/README.md](week02/README.md#三参考文献与开源实现) |
+| NGSIM I-80（车辆轨迹） | [week04/data/](week04/data/) | [使用说明](week04/data/使用说明.txt) · [来源与校验元数据](week04/data/source_and_checks.json) |
 
-各数据集的原始出处、署名与许可见数据集目录下自带的 README。
+各数据集的原始出处、署名与许可见对应目录的 README 或来源说明。

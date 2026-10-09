@@ -1,0 +1,99 @@
+{
+  "source": {
+    "rows": 1226650,
+    "vehicles": 2052,
+    "missing_by_column": {
+      "vehicle_id": 0,
+      "frame_id": 0,
+      "time_s": 0,
+      "global_time_ms": 0,
+      "local_x_m": 0,
+      "local_y_m": 0,
+      "vehicle_length_m": 0,
+      "vehicle_class": 0,
+      "speed_m_s": 0,
+      "acceleration_m_s2": 0,
+      "lane_id": 0
+    },
+    "nonfinite_nonmissing_by_column": {
+      "vehicle_id": 0,
+      "frame_id": 0,
+      "time_s": 0,
+      "global_time_ms": 0,
+      "local_x_m": 0,
+      "local_y_m": 0,
+      "vehicle_length_m": 0,
+      "vehicle_class": 0,
+      "speed_m_s": 0,
+      "acceleration_m_s2": 0,
+      "lane_id": 0
+    },
+    "exact_duplicate_excess_rows": 0,
+    "vehicle_frame_duplicate_excess_rows": 0,
+    "vehicle_time_duplicate_excess_rows": 0,
+    "time_min_s": 0.0,
+    "time_max_s": 899.9,
+    "observed_time_ticks": 9000,
+    "off_100ms_grid_rows": 0,
+    "relative_time_mismatch_rows": 0,
+    "internal_gap_events": 0,
+    "negative_speed_rows": 0,
+    "nonpositive_vehicle_length_rows": 0,
+    "invalid_lane_rows": 0,
+    "missing_global_ticks": 0,
+    "sha256": "df86a98e490daba1bf6a2ff3a1ca2e346be1cf2bdaf66a037910b74f40695255",
+    "source_checksum_matches_metadata": true,
+    "actual_global_time_ms_range": [
+      1113433200000,
+      1113434099900
+    ],
+    "metadata_global_time_ms_range": [
+      1000000000,
+      1113434099900
+    ],
+    "metadata_time_range_matches": false
+  },
+  "scope": {
+    "rows": 50118,
+    "vehicles": 371,
+    "missing_by_column": {
+      "vehicle_id": 0,
+      "frame_id": 0,
+      "time_s": 0,
+      "global_time_ms": 0,
+      "local_x_m": 0,
+      "local_y_m": 0,
+      "vehicle_length_m": 0,
+      "vehicle_class": 0,
+      "speed_m_s": 0,
+      "acceleration_m_s2": 0,
+      "lane_id": 0
+    },
+    "nonfinite_nonmissing_by_column": {
+      "vehicle_id": 0,
+      "frame_id": 0,
+      "time_s": 0,
+      "global_time_ms": 0,
+      "local_x_m": 0,
+      "local_y_m": 0,
+      "vehicle_length_m": 0,
+      "vehicle_class": 0,
+      "speed_m_s": 0,
+      "acceleration_m_s2": 0,
+      "lane_id": 0
+    },
+    "exact_duplicate_excess_rows": 0,
+    "vehicle_frame_duplicate_excess_rows": 0,
+    "vehicle_time_duplicate_excess_rows": 0,
+    "time_min_s": 0.0,
+    "time_max_s": 899.9,
+    "observed_time_ticks": 9000,
+    "off_100ms_grid_rows": 0,
+    "relative_time_mismatch_rows": 0,
+    "negative_speed_rows": 0,
+    "nonpositive_vehicle_length_rows": 0,
+    "invalid_lane_rows": 0,
+    "filtered_sequence_breaks": 3,
+    "empty_scope_ticks": 0
+  }
+}

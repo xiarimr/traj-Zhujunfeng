@@ -1,0 +1,31 @@
+{
+  "source": "data\\NGSIM_I80_20050413_1600-1615_SI.csv",
+  "direction": "eastbound",
+  "direction_evidence": "data/使用说明.txt；CSV 没有独立的方向字段",
+  "lane_id": 2,
+  "longitudinal_coordinate": "local_y_m",
+  "spatial_start_m_inclusive": 200.0,
+  "spatial_end_m_exclusive": 300.0,
+  "segment_length_m": 100,
+  "time_start_s_inclusive": 0,
+  "time_end_s_exclusive": 900,
+  "source_local_time": "2005-04-13 16:00–16:15 PDT",
+  "nominal_sampling_interval_s": 0.1,
+  "units": {
+    "vehicle_id": "identifier",
+    "frame_id": "identifier",
+    "time_s": "s",
+    "global_time_ms": "ms (source timestamp)",
+    "local_x_m": "m",
+    "local_y_m": "m",
+    "vehicle_length_m": "m",
+    "vehicle_class": "category",
+    "speed_m_s": "m/s",
+    "acceleration_m_s2": "m/s^2",
+    "lane_id": "category"
+  },
+  "unit_policy": "输入已是 SI，保留原值不重复换算；global_time_ms 为追溯字段，分析使用 time_s。",
+  "lane_policy": "逐条记录按 lane_id 筛选，允许车辆在范围外换道。",
+  "missing_policy": "报告缺失，不插补；原始车辆首次出现之前和最后出现之后不视为缺帧。",
+  "duplicate_policy": "报告整行、车辆-帧、车辆-时间重复；本次无重复，不删除记录。"
+}

@@ -1,0 +1,33 @@
+{
+  "lanes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "segments_m": [
+    [
+      100,
+      200
+    ],
+    [
+      200,
+      300
+    ],
+    [
+      300,
+      400
+    ]
+  ],
+  "window_s": [
+    10.0,
+    60.0
+  ],
+  "axis_k_max": 140.0,
+  "axis_q_max": 2700.0,
+  "time_end_s": 899.9,
+  "original_scope_preserved": true,
+  "note": "OLS slope describes this sample only, not free-flow speed or capacity. Lane 7 not included because its observed longitudinal coverage is only about 82-203 m."
+}
