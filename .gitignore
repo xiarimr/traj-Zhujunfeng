@@ -1,4 +1,18 @@
+# Python 虚拟环境与缓存
 .venv/
+venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# 临时实验目录（正式 results/、归档与 NPZ 数据保留）
+temporary_*/
+
+# 本地工具与系统文件
 .claude
+.DS_Store
+Thumbs.db
+Desktop.ini

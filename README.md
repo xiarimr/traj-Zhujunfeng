@@ -1,6 +1,7 @@
 # 行人轨迹数据集与建模实验
 
-以行人轨迹研究为起点的数据集与逐周实验，week04 扩展到车辆轨迹的流量—密度分析。
+以行人轨迹研究为起点的数据集与逐周实验，week04 扩展到车辆轨迹的流量—密度分析，
+week05 进一步开展 OVM、FVDM、IDM 跟驰模型仿真与实测轨迹对比。
 
 行人数据包括 **ETH / UCY** 五场景基准（行人轨迹预测最常用的公开数据），
 以及**北京交通大学 Circle Antipode（圆环正对径穿越）实验**（64 人从半径 10 m 的圆环出发、
@@ -11,7 +12,7 @@ week04 使用 **NGSIM I-80 车辆轨迹**（2005-04-13 16:00–16:15），SI 单
 
 ## 仓库逻辑
 
-目录约定如下，week04 的数据与辅助归档位置单独说明：
+目录约定如下，week04 / week05 的数据、实验分组与归档位置单独说明：
 
 1. **输入数据保持只读。** 行人原始数据放在 `datasets/`，week04 的车辆输入放在 `week04/data/`；
    不在输入目录里改数据、不把中间结果混进去。
@@ -24,8 +25,10 @@ week04 使用 **NGSIM I-80 车辆轨迹**（2005-04-13 16:00–16:15），SI 单
    └── results/     当周的产物：图、轨迹、指标 JSON
    ```
 
-   代码读取对应输入，主要产物写入当周 `results/`，跨周不互相依赖。
+   代码读取对应输入，主要产物写入当周或实验子目录的 `results/`。
    week04 另有 `data/` 保存输入、`archive/` 保存辅助检查结果和历史分析。
+   week05 按车队、人工双车和实测双车分组，各自保存结果；实测双车默认只读复用
+   `week04/data/` 的 NGSIM 数据，也可用 `--source` 指定其他同结构文件。
 3. **每周的 README 是那一周的主文档。** 数据集格式的梳理属于做它的那一周（见 week01），
    本文件只讲仓库整体与每周工作的索引。
 
@@ -41,6 +44,7 @@ pedestrian_dataset/
 ├── week02/                        Circle Antipode：轨迹图 + Detour-aware GCFV 微观模型
 ├── week03/                        TrajNet++：无交互、网格分辨率与池化规则对比
 ├── week04/                        NGSIM I-80：流量—密度基本图、时间窗口与计算方法对比
+├── week05/                        OVM / FVDM / IDM：环道车队、人工双车与 NGSIM 跟驰对比
 ├── pyproject.toml / uv.lock       uv 环境定义
 └── .python-version
 ```
@@ -51,6 +55,8 @@ pedestrian_dataset/
 week01 / week02 依赖：`matplotlib`、`numpy`；week03 的 TrajNet++ 实验依赖与运行说明见
 [week03/README.md](week03/README.md) 和 [requirements-classroom.txt](week03/model/requirements-classroom.txt)。
 week04 依赖 `numpy`、`pandas`、`matplotlib`，运行说明见 [week04/README.md](week04/README.md)。
+week05 的依赖见 [week05/requirements.txt](week05/requirements.txt)，可在仓库根目录运行
+`python -m pip install -r week05/requirements.txt` 安装。
 
 ```bash
 uv sync --no-install-project
@@ -116,6 +122,40 @@ uv sync --no-install-project
 - **入口**：`week04/code/run_analysis.py`；在仓库根目录运行
   `python week04/code/run_analysis.py --t 5 10 20 30 60` 可重建主结果。完整说明：
   [week04/README.md](week04/README.md)。
+
+### week05 —— OVM、FVDM 与 IDM 跟驰模型实验
+
+- **做了什么**：比较三种模型的环道车队扰动演化、四种人工前车场景，以及三组各 30 秒的
+  NGSIM 实测车辆对；评价速度响应、净间距、轨迹误差和仿真完成情况，并进行积分步长复核。
+- **关键结论**：环道实验展示了微小扰动形成走停波的过程；FVDM 改善了部分人工场景中的
+  速度跟踪，但短间距急刹时仍发生碰撞。IDM 在三组实测案例的共同有效时段内位置、速度
+  RMSE 均最低，但在大幅变速案例中提前触发负速度，不能据此认定其停车行为最可靠。
+  人工短间距急刹场景中，三个模型均未完整、合理地完成仿真。结论限于当前默认参数与选样，
+  未进行个体参数标定；环道设置和量纲不同，也不能直接按波动幅度给模型排名。
+- **产物**：[车队结果](week05/platoon_experiments/results/)、
+  [人工双车结果](week05/two_vehicle_experiments/artificial/results/) 和
+  [实测双车结果](week05/two_vehicle_experiments/ngsim/results/) 中的对比图、统计与指标 JSON、
+  Markdown 报告；NPZ/NPY 时间序列仅在本地生成，已加入 Git 忽略规则。综合分析见 [week05/实验结论.md](week05/实验结论.md)。
+- **入口**：在仓库根目录分别运行
+  `python week05/platoon_experiments/run_experiments.py`、
+  `python week05/two_vehicle_experiments/artificial/run_experiments.py`、
+  `python week05/two_vehicle_experiments/ngsim/run_experiments.py`。
+  场景、参数与结果索引见 [week05/README.md](week05/README.md)。
+#### 车队仿真结果
+
+![OVM车队扰动演化](week05/platoon_experiments/results/ovm_unstable.png)
+
+![FVDM车队扰动演化](week05/platoon_experiments/results/fvdm.png)
+
+![IDM车队扰动演化](week05/platoon_experiments/results/idm.png)
+
+#### 双车实验：人工前车轨迹
+
+![人工前车轨迹双车实验](week05/two_vehicle_experiments/artificial/results/comparison.png)
+
+#### 双车实验：NGSIM 实测轨迹
+
+![NGSIM实测双车实验](week05/two_vehicle_experiments/ngsim/results/ngsim_comparison.png)
 
 ---
 

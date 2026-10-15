@@ -1,0 +1,27 @@
+{
+  "dt": 0.05,
+  "method": "RK4",
+  "dv_convention": "leader minus follower",
+  "idm": {
+    "min_gap": 2.2393719621995842,
+    "min_speed": 0.21223320834334705,
+    "max_speed": 20.964026365653243,
+    "final_speed_std": 5.8153300874010005,
+    "late_mean_speed_std": 5.883446341475149,
+    "max_ring_length_error": 4.547473508864641e-13,
+    "parameters": {
+      "v0": 33.333333333333336,
+      "T": 1.6,
+      "a": 0.73,
+      "b": 1.67,
+      "delta": 4.0,
+      "s0": 2.0,
+      "s1": 0.0,
+      "length": 5.0
+    },
+    "vehicle_count": 100,
+    "road_length": 2500.0,
+    "duration": 1000.0,
+    "scenario": "custom ring, uniform equilibrium speed, vehicle 0 shifted +1 m"
+  }
+}

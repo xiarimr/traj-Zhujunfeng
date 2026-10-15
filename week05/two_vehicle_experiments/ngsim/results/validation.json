@@ -1,0 +1,65 @@
+[
+  {
+    "case": "steady",
+    "model": "OVM",
+    "position_rmse_change": 1.3462653214446618e-10,
+    "speed_rmse_change": 3.145639304591441e-11,
+    "same_failure_class": true
+  },
+  {
+    "case": "steady",
+    "model": "FVDM",
+    "position_rmse_change": 9.555822799711677e-11,
+    "speed_rmse_change": 4.068856362948736e-11,
+    "same_failure_class": true
+  },
+  {
+    "case": "steady",
+    "model": "IDM",
+    "position_rmse_change": 1.800509075167156e-09,
+    "speed_rmse_change": 4.4825254619240695e-11,
+    "same_failure_class": true
+  },
+  {
+    "case": "decelerating",
+    "model": "OVM",
+    "position_rmse_change": 1.7544898867072334e-10,
+    "speed_rmse_change": 3.679234694686784e-11,
+    "same_failure_class": true
+  },
+  {
+    "case": "decelerating",
+    "model": "FVDM",
+    "position_rmse_change": 1.085060929995052e-10,
+    "speed_rmse_change": 1.0312906084664064e-10,
+    "same_failure_class": true
+  },
+  {
+    "case": "decelerating",
+    "model": "IDM",
+    "position_rmse_change": 6.169829092073087e-09,
+    "speed_rmse_change": 4.387357144253201e-10,
+    "same_failure_class": true
+  },
+  {
+    "case": "variable_speed",
+    "model": "OVM",
+    "position_rmse_change": 1.0820393470112322e-09,
+    "speed_rmse_change": 6.009992503663852e-10,
+    "same_failure_class": true
+  },
+  {
+    "case": "variable_speed",
+    "model": "FVDM",
+    "position_rmse_change": 6.347349312818551e-10,
+    "speed_rmse_change": 1.8980284011149706e-10,
+    "same_failure_class": true
+  },
+  {
+    "case": "variable_speed",
+    "model": "IDM",
+    "position_rmse_change": 1.1769619590040747e-07,
+    "speed_rmse_change": 1.611973976523018e-08,
+    "same_failure_class": true
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "parameters": {
+    "v0": 33.333333333333336,
+    "T": 1.6,
+    "a": 0.73,
+    "b": 1.67,
+    "delta": 4.0,
+    "s0": 2.0,
+    "s1": 0.0,
+    "length": 5.0
+  },
+  "initial_equilibrium_gap": 36.443449342783126,
+  "initial_acceleration": 0.0,
+  "min_gap": 9.260671674985929,
+  "min_speed": 4.870789087615662,
+  "max_speed": 22.31501891704753,
+  "min_acceleration": -1.5657937133203923,
+  "max_acceleration": 0.7235956124908944,
+  "final_speed_error": 0.006881107097633787,
+  "final_gap_error": 0.059518494639021924
+}

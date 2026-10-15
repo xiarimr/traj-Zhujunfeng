@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+temporary_*/
+
+# 仿真时间序列：本地保留，由运行脚本重新生成。
+*.npz
+*.npy
+
+# 阅读论文时生成的截图和提取文本，不参与实验。
+/论文/提取材料/
+
+# 早期实验重复验证输出；正式图像和统计摘要仍提交。
+/two_vehicle_experiments/artificial/archive/early_idm/validation_dt0025/
+
+.pytest_cache/
+.DS_Store
+Thumbs.db

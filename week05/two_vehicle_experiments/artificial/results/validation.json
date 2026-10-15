@@ -1,0 +1,90 @@
+{
+  "dt": 0.02,
+  "reference_dt": 0.01,
+  "checks": [
+    {
+      "case": "constant",
+      "model": "OVM",
+      "same_failure_class": true,
+      "min_net_gap_change": 1.2437453339231297e-05,
+      "speed_tracking_rmse_change": 1.030071543567379e-05
+    },
+    {
+      "case": "constant",
+      "model": "FVDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 5.910210774118241e-07,
+      "speed_tracking_rmse_change": 6.914164668359035e-06
+    },
+    {
+      "case": "constant",
+      "model": "IDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 9.995318350775051e-09,
+      "speed_tracking_rmse_change": 2.0551673589122577e-06
+    },
+    {
+      "case": "brake_recover",
+      "model": "OVM",
+      "same_failure_class": true,
+      "min_net_gap_change": 1.0680878403945826e-09,
+      "speed_tracking_rmse_change": 1.6571871279846828e-05
+    },
+    {
+      "case": "brake_recover",
+      "model": "FVDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 9.532641342957504e-11,
+      "speed_tracking_rmse_change": 1.3997418541189521e-05
+    },
+    {
+      "case": "brake_recover",
+      "model": "IDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 2.418687472527381e-10,
+      "speed_tracking_rmse_change": 2.2863463289835018e-05
+    },
+    {
+      "case": "stop_restart",
+      "model": "OVM",
+      "same_failure_class": true,
+      "min_net_gap_change": 3.2717331919229764e-06,
+      "speed_tracking_rmse_change": 7.895282755054911e-05
+    },
+    {
+      "case": "stop_restart",
+      "model": "FVDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 2.7284841053187847e-12,
+      "speed_tracking_rmse_change": 2.2286293375639588e-05
+    },
+    {
+      "case": "stop_restart",
+      "model": "IDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 3.142797879718273e-06,
+      "speed_tracking_rmse_change": 1.1719020173162065e-06
+    },
+    {
+      "case": "emergency_tight",
+      "model": "OVM",
+      "same_failure_class": true,
+      "min_net_gap_change": 4.135856102038815e-10,
+      "speed_tracking_rmse_change": 0.0009736254134515843
+    },
+    {
+      "case": "emergency_tight",
+      "model": "FVDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 1.5257750618502541e-10,
+      "speed_tracking_rmse_change": 0.0010698357037768336
+    },
+    {
+      "case": "emergency_tight",
+      "model": "IDM",
+      "same_failure_class": true,
+      "min_net_gap_change": 5.078778286815577e-09,
+      "speed_tracking_rmse_change": 0.0009108648751771087
+    }
+  ]
+}

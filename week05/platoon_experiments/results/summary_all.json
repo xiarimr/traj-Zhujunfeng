@@ -1,0 +1,59 @@
+{
+  "dt": 0.05,
+  "method": "RK4",
+  "dv_convention": "leader minus follower",
+  "ovm": {
+    "unstable": {
+      "min_gap": 0.32283093080695835,
+      "min_speed": 0.0,
+      "max_speed": 1.8964988559899623,
+      "final_speed_std": 0.8521288228380073,
+      "late_mean_speed_std": 0.8519285595219447,
+      "max_ring_length_error": 2.842170943040401e-14,
+      "V_prime_at_mean_headway": 1.0,
+      "stability_threshold": 0.5
+    },
+    "stable_control": {
+      "min_gap": 3.9,
+      "min_speed": 0.0,
+      "max_speed": 1.9297192214298038,
+      "final_speed_std": 1.1019064503320293e-05,
+      "late_mean_speed_std": 1.1460680795016494e-05,
+      "max_ring_length_error": 5.684341886080802e-14,
+      "V_prime_at_mean_headway": 0.07065082485316443,
+      "stability_threshold": 0.5
+    }
+  },
+  "fvdm": {
+    "min_gap": 2.8914020805932523,
+    "min_speed": 0.17005606748881072,
+    "max_speed": 13.32801846997499,
+    "final_speed_std": 5.798666886001663,
+    "late_mean_speed_std": 5.798667392086552,
+    "max_ring_length_error": 2.2737367544323206e-13,
+    "V_prime_at_mean_headway": 0.9568351511975135,
+    "stability_threshold": 0.705
+  },
+  "idm": {
+    "min_gap": 2.2393719621995842,
+    "min_speed": 0.21223320834334705,
+    "max_speed": 20.964026365653243,
+    "final_speed_std": 5.8153300874010005,
+    "late_mean_speed_std": 5.883446341475149,
+    "max_ring_length_error": 4.547473508864641e-13,
+    "parameters": {
+      "v0": 33.333333333333336,
+      "T": 1.6,
+      "a": 0.73,
+      "b": 1.67,
+      "delta": 4.0,
+      "s0": 2.0,
+      "s1": 0.0,
+      "length": 5.0
+    },
+    "vehicle_count": 100,
+    "road_length": 2500.0,
+    "duration": 1000.0,
+    "scenario": "custom ring, uniform equilibrium speed, vehicle 0 shifted +1 m"
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "dt": 0.02,
+  "parameters": {
+    "OVM": {
+      "kappa": 0.85,
+      "V1": 6.75,
+      "V2": 7.91,
+      "C1": 0.13,
+      "C2": 1.57
+    },
+    "FVDM": {
+      "kappa": 0.41,
+      "lambda": 0.5,
+      "cutoff_headway": 100.0,
+      "V1": 6.75,
+      "V2": 7.91,
+      "C1": 0.13,
+      "C2": 1.57
+    },
+    "IDM": {
+      "v0": 33.333333333333336,
+      "T": 1.6,
+      "a": 0.73,
+      "b": 1.67,
+      "delta": 4,
+      "s0": 2,
+      "s1": 0
+    }
+  },
+  "vehicle_length": 5.0,
+  "scenarios": {
+    "constant": {
+      "segments": [
+        [
+          120,
+          0
+        ]
+      ],
+      "gap": 20,
+      "initial_v": 10,
+      "event": null
+    },
+    "brake_recover": {
+      "segments": [
+        [
+          30,
+          0
+        ],
+        [
+          5,
+          -1
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          60,
+          0
+        ]
+      ],
+      "gap": 20,
+      "initial_v": 10,
+      "event": [
+        30,
+        35,
+        10,
+        5
+      ]
+    },
+    "stop_restart": {
+      "segments": [
+        [
+          30,
+          0
+        ],
+        [
+          10,
+          -1
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          50,
+          0
+        ]
+      ],
+      "gap": 20,
+      "initial_v": 10,
+      "event": [
+        30,
+        40,
+        10,
+        0
+      ]
+    },
+    "emergency_tight": {
+      "segments": [
+        [
+          2,
+          -5
+        ],
+        [
+          30,
+          0
+        ]
+      ],
+      "gap": 4,
+      "initial_v": 10,
+      "event": [
+        0,
+        2,
+        10,
+        0
+      ]
+    }
+  },
+  "results": {
+    "constant": {
+      "OVM": {
+        "completed": true,
+        "failure_event": null,
+        "following_failed": false,
+        "failure_reason": null,
+        "simulated_until": 120.0,
+        "coverage_fraction": 1.0,
+        "speed_tracking_rmse": 0.24724065724792882,
+        "max_speed_difference": 1.8013201420241778,
+        "min_net_gap": 14.84464564130996,
+        "min_gap_is_pre_failure": false,
+        "min_ttc": 9.830668294956633,
+        "min_acceleration": -0.7876277304084167,
+        "max_acceleration": 2.440872723020753,
+        "final_speed_difference": -1.4264145420384011e-12,
+        "final_10s_speed_mae": 1.3867142076456573e-12,
+        "recovered": true,
+        "response_delay": null,
+        "response_delay_status": "not_applicable",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "FVDM": {
+        "completed": true,
+        "failure_event": null,
+        "following_failed": false,
+        "failure_reason": null,
+        "simulated_until": 120.0,
+        "coverage_fraction": 1.0,
+        "speed_tracking_rmse": 0.16595529802888617,
+        "max_speed_difference": 0.9656730258014292,
+        "min_net_gap": 15.372329213539274,
+        "min_gap_is_pre_failure": false,
+        "min_ttc": 19.014677227478554,
+        "min_acceleration": -0.20907806898031148,
+        "max_acceleration": 1.177362136986481,
+        "final_speed_difference": -1.4157564010019996e-12,
+        "final_10s_speed_mae": 1.3896889848677268e-12,
+        "recovered": true,
+        "response_delay": null,
+        "response_delay_status": "not_applicable",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "IDM": {
+        "completed": true,
+        "failure_event": null,
+        "following_failed": false,
+        "failure_reason": null,
+        "simulated_until": 120.0,
+        "coverage_fraction": 1.0,
+        "speed_tracking_rmse": 0.04932912175808812,
+        "max_speed_difference": 0.21238005906585755,
+        "min_net_gap": 18.067311626602304,
+        "min_gap_is_pre_failure": false,
+        "min_ttc": 91.30704733098078,
+        "min_acceleration": -0.023836572751147474,
+        "max_acceleration": 0.13278699999999996,
+        "final_speed_difference": -1.3926637620897964e-12,
+        "final_10s_speed_mae": 1.0178453777314757e-12,
+        "recovered": true,
+        "response_delay": null,
+        "response_delay_status": "not_applicable",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      }
+    },
+    "brake_recover": {
+      "OVM": {
+        "completed": true,
+        "failure_event": null,
+        "following_failed": false,
+        "failure_reason": null,
+        "simulated_until": 120.0,
+        "coverage_fraction": 1.0,
+        "speed_tracking_rmse": 0.42180688455288085,
+        "max_speed_difference": 1.8013201420241778,
+        "min_net_gap": 9.52096027187497,
+        "min_gap_is_pre_failure": false,
+        "min_ttc": 8.855777138431444,
+        "min_acceleration": -1.245056916360614,
+        "max_acceleration": 2.440872723020753,
+        "final_speed_difference": -7.338130103562435e-12,
+        "final_10s_speed_mae": 1.288736462854926e-10,
+        "recovered": true,
+        "response_delay": 1.2377564034470225,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "FVDM": {
+        "completed": true,
+        "failure_event": null,
+        "following_failed": false,
+        "failure_reason": null,
+        "simulated_until": 120.0,
+        "coverage_fraction": 1.0,
+        "speed_tracking_rmse": 0.3677538607884091,
+        "max_speed_difference": 1.2849593594838922,
+        "min_net_gap": 9.476719998485976,
+        "min_gap_is_pre_failure": false,
+        "min_ttc": 8.803853819866896,
+        "min_acceleration": -1.086821725624974,
+        "max_acceleration": 1.177362136986481,
+        "final_speed_difference": 4.4586556668946287e-13,
+        "final_10s_speed_mae": 2.3933586095460963e-11,
+        "recovered": true,
+        "response_delay": 1.2676338233537976,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "IDM": {
+        "completed": true,
+        "failure_event": null,
+        "following_failed": false,
+        "failure_reason": null,
+        "simulated_until": 120.0,
+        "coverage_fraction": 1.0,
+        "speed_tracking_rmse": 0.586533220075622,
+        "max_speed_difference": 2.6994122951767974,
+        "min_net_gap": 9.30561347114218,
+        "min_gap_is_pre_failure": false,
+        "min_ttc": 6.770253439319203,
+        "min_acceleration": -1.0077420212049948,
+        "max_acceleration": 0.6777263108138081,
+        "final_speed_difference": 4.55140947863697e-06,
+        "final_10s_speed_mae": 6.380644313023202e-06,
+        "recovered": true,
+        "response_delay": 1.714319010164843,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      }
+    },
+    "stop_restart": {
+      "OVM": {
+        "completed": false,
+        "failure_event": {
+          "reason": "reverse_motion",
+          "first_detected_time": 44.47,
+          "sampled_gap": 2.028451888923996,
+          "last_valid_time": 44.46,
+          "note": "Detected at an RK4 stage; event time is approximate, refine dt."
+        },
+        "following_failed": true,
+        "failure_reason": "reverse_motion",
+        "simulated_until": 44.46,
+        "coverage_fraction": 0.3705,
+        "speed_tracking_rmse": 0.7132332001587159,
+        "max_speed_difference": 1.8013201420241778,
+        "min_net_gap": 2.02844527875277,
+        "min_gap_is_pre_failure": true,
+        "min_ttc": 2.7461614576055675,
+        "min_acceleration": -1.245056916360614,
+        "max_acceleration": 2.440872723020753,
+        "final_speed_difference": -0.0006610171200769623,
+        "final_10s_speed_mae": null,
+        "recovered": null,
+        "response_delay": 0.934462879305741,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "FVDM": {
+        "completed": true,
+        "failure_event": null,
+        "following_failed": false,
+        "failure_reason": null,
+        "simulated_until": 120.0,
+        "coverage_fraction": 1.0,
+        "speed_tracking_rmse": 0.5559749345674175,
+        "max_speed_difference": 1.8282939992528817,
+        "min_net_gap": 2.346062881738135,
+        "min_gap_is_pre_failure": false,
+        "min_ttc": 3.499556499661445,
+        "min_acceleration": -1.086821725624974,
+        "max_acceleration": 1.2336982693882335,
+        "final_speed_difference": -1.4597212327771558e-10,
+        "final_10s_speed_mae": 3.2637533075343045e-09,
+        "recovered": true,
+        "response_delay": 1.097519513056632,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "IDM": {
+        "completed": false,
+        "failure_event": {
+          "reason": "reverse_motion",
+          "first_detected_time": 43.28,
+          "sampled_gap": 1.8891750707580854,
+          "last_valid_time": 43.26,
+          "note": "Detected at an RK4 stage; event time is approximate, refine dt."
+        },
+        "following_failed": true,
+        "failure_reason": "reverse_motion",
+        "simulated_until": 43.26,
+        "coverage_fraction": 0.3605,
+        "speed_tracking_rmse": 0.7509472498537223,
+        "max_speed_difference": 1.7257962374369606,
+        "min_net_gap": 1.8891726335712065,
+        "min_gap_is_pre_failure": true,
+        "min_ttc": 2.319319303882355,
+        "min_acceleration": -1.0498453072051996,
+        "max_acceleration": 0.13278699999999996,
+        "final_speed_difference": 0.0007580840755151072,
+        "final_10s_speed_mae": null,
+        "recovered": null,
+        "response_delay": 1.6706487630977875,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      }
+    },
+    "emergency_tight": {
+      "OVM": {
+        "completed": false,
+        "failure_event": {
+          "reason": "reverse_motion",
+          "first_detected_time": 4.970000000000001,
+          "sampled_gap": 1.176881492925692,
+          "last_valid_time": 4.96,
+          "note": "Detected at an RK4 stage; event time is approximate, refine dt."
+        },
+        "following_failed": true,
+        "failure_reason": "reverse_motion",
+        "simulated_until": 4.96,
+        "coverage_fraction": 0.155,
+        "speed_tracking_rmse": 1.026378120253145,
+        "max_speed_difference": 2.386860502831489,
+        "min_net_gap": 1.1768785549171934,
+        "min_gap_is_pre_failure": true,
+        "min_ttc": 1.5340768633637578,
+        "min_acceleration": -8.018975045382593,
+        "max_acceleration": -0.2392577082812246,
+        "final_speed_difference": -0.0002938008498346639,
+        "final_10s_speed_mae": null,
+        "recovered": null,
+        "response_delay": -0.09607715787085735,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "FVDM": {
+        "completed": false,
+        "failure_event": {
+          "reason": "collision",
+          "first_detected_time": 2.33,
+          "sampled_gap": -0.008855063970949928,
+          "last_valid_time": 2.32,
+          "note": "Detected at an RK4 stage; event time is approximate, refine dt."
+        },
+        "following_failed": true,
+        "failure_reason": "collision",
+        "simulated_until": 2.32,
+        "coverage_fraction": 0.0725,
+        "speed_tracking_rmse": 1.9902504700661559,
+        "max_speed_difference": 3.2962322342643233,
+        "min_net_gap": 0.015291188960500968,
+        "min_gap_is_pre_failure": true,
+        "min_ttc": 0.0063327378388322005,
+        "min_acceleration": -3.8679761983610152,
+        "max_acceleration": -2.402787938200638,
+        "final_speed_difference": 2.4146252931450523,
+        "final_10s_speed_mae": null,
+        "recovered": null,
+        "response_delay": 0.4610039400639412,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      },
+      "IDM": {
+        "completed": false,
+        "failure_event": {
+          "reason": "reverse_motion",
+          "first_detected_time": 4.550000000000001,
+          "sampled_gap": 1.8281051194831353,
+          "last_valid_time": 4.54,
+          "note": "Detected at an RK4 stage; event time is approximate, refine dt."
+        },
+        "following_failed": true,
+        "failure_reason": "reverse_motion",
+        "simulated_until": 4.54,
+        "coverage_fraction": 0.141875,
+        "speed_tracking_rmse": 0.8889841991680314,
+        "max_speed_difference": 2.1274252942756786,
+        "min_net_gap": 1.8281002123008285,
+        "min_gap_is_pre_failure": true,
+        "min_ttc": 1.5955522971898657,
+        "min_acceleration": -14.058412999999998,
+        "max_acceleration": -0.14305549022209557,
+        "final_speed_difference": -0.0004907182307217089,
+        "final_10s_speed_mae": null,
+        "recovered": null,
+        "response_delay": 0.032070303881629236,
+        "response_delay_status": "midpoint_crossing",
+        "observed_position_rmse": null,
+        "observed_speed_rmse": null,
+        "observed_gap_rmse": null,
+        "observed_status": "no_measured_trajectory"
+      }
+    }
+  }
+}
