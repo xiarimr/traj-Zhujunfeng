@@ -141,22 +141,6 @@ uv sync --no-install-project
   `python week05/two_vehicle_experiments/artificial/run_experiments.py`、
   `python week05/two_vehicle_experiments/ngsim/run_experiments.py`。
   场景、参数与结果索引见 [week05/README.md](week05/README.md)。
-#### 车队仿真结果
-
-![OVM车队扰动演化](week05/platoon_experiments/results/ovm_unstable.png)
-
-![FVDM车队扰动演化](week05/platoon_experiments/results/fvdm.png)
-
-![IDM车队扰动演化](week05/platoon_experiments/results/idm.png)
-
-#### 双车实验：人工前车轨迹
-
-![人工前车轨迹双车实验](week05/two_vehicle_experiments/artificial/results/comparison.png)
-
-#### 双车实验：NGSIM 实测轨迹
-
-![NGSIM实测双车实验](week05/two_vehicle_experiments/ngsim/results/ngsim_comparison.png)
-
 ---
 
 ## 数据集在哪
