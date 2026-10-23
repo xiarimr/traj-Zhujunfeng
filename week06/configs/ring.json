@@ -1,6 +1,6 @@
 {
-  "type": "ring",
-  "scenario": {"width": 3.2, "circumference": 80.0, "duration": 180.0,
-    "pedestrians": 3, "vehicles": 2, "seed": 0},
-  "settings": {"dt": 0.05, "record_every": 10}
+  "type": "circle_crossing",
+  "scenario": {"radius": 12.0, "pairs": 4, "duration": 120.0,
+    "vehicle_lateral_speed": 0.0, "passing_offset": 2.5, "seed": 0},
+  "settings": {"dt": 0.05, "record_every": 4}
 }

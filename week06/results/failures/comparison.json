@@ -152,33 +152,5 @@
     "min_wall_gap_m": 0.09999999999999998,
     "total_agent_waiting_s": 0.0,
     "safety_margins_satisfied": true
-  },
-  {
-    "case": "ring_sfm",
-    "label": "圆环：纯 SFM",
-    "policy": "social_force",
-    "status": "boundary_violation",
-    "completion_time_s": null,
-    "collision_pairs": 0,
-    "boundary_violations": 1,
-    "pair_passages": 0,
-    "min_pair_gap_m": 0.354748288935788,
-    "min_wall_gap_m": -0.0012087577713601472,
-    "total_agent_waiting_s": 13.299999999999978,
-    "safety_margins_satisfied": false
-  },
-  {
-    "case": "ring_repair",
-    "label": "圆环：SFM 加规则修正",
-    "policy": "sfm_guided",
-    "status": "sustained",
-    "completion_time_s": null,
-    "collision_pairs": 0,
-    "boundary_violations": 0,
-    "pair_passages": 30,
-    "min_pair_gap_m": 0.5999999699985743,
-    "min_wall_gap_m": 0.09999999999999998,
-    "total_agent_waiting_s": 0.9500000000000003,
-    "safety_margins_satisfied": true
   }
 ]

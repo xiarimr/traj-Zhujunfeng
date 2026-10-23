@@ -1,8 +1,12 @@
 # 窄路人车交互模型
 
-这个项目研究少量行人和车辆相向进入窄路时，如何通过侧移、减速和等待完成交会。人车共用运动方程与交互策略，差异由尺寸和运动能力参数表达。场景包括等宽直路、局部缩窄道路和周期圆环，并提供社会力模型对照。
+这个项目研究少量行人和车辆相向进入窄路时，如何通过侧移、减速和等待完成交会。人车共用运动方程与交互策略，差异由尺寸和运动能力参数表达。场景包括等宽直路、局部缩窄道路和圆环向心穿越，并提供社会力模型对照。
 
-**交互回放：** [直路与缩窄道路](results/demo/replay.html) · [三模型与圆环](results/benchmark/replay.html) · [失败案例与修正](results/failures/replay.html)
+**动态主页：[打开 index.html](index.html)** — 首页直接显示人车交替围成一圈、向中心穿越的回放。
+
+**网页文档：[文档导航](docs/index.html) · [本说明的网页版](README.html)** — 模型、规则、参数与实验已渲染为可离线浏览的 HTML，各页通过统一导航互相连接。
+
+**其他回放：** [向心实验独立页面](results/circle_crossing/replay.html) · [直路与缩窄道路](results/demo/replay.html) · [直路三模型对比](results/benchmark/replay.html) · [失败案例与修正](results/failures/replay.html)
 
 回放可离线打开，切换已保存的场景、播放/暂停、拖动进度和调整播放速度。它播放仿真轨迹；修改道路、人数等参数后，需要重新运行仿真。
 
@@ -12,7 +16,7 @@
 
 每个主体的状态为 `z = (s, y, u, w)`：`s` 是纵向位置，`y` 是横向位置，`u ≥ 0` 是沿行进方向的速度，`w` 是横向速度。`d = +1 / −1` 表示相反的行进方向。代码中的 `x` 对应这里的 `s`。
 
-行人和车辆都用长 `l`、宽 `b` 的矩形包络表示，包络不随运动旋转。道路由长度和宽度函数 `W(s)` 描述，边界为 `±W(s)/2`。缩窄道路使用分段线性宽度；圆环使用周期坐标。
+行人和车辆都用长 `l`、宽 `b` 的矩形包络表示，包络不随运动旋转。道路由长度和宽度函数 `W(s)` 描述，边界为 `±W(s)/2`。缩窄道路使用分段线性宽度；向心实验中各主体朝向由初始圆周位置确定。
 
 | 参数 | 行人默认值 | 车辆默认值 | 对行为的影响 |
 |---|---:|---:|---|
@@ -131,7 +135,9 @@ y_next = y + w_next × Δt
 
 ## 5. 圆环和社会力模型怎样接入
 
-**圆环**保持同一状态和控制器，沿纵向使用 `s mod L` 寻找周期近邻，并检查接缝两侧的接触。默认周长 80 m、观察 180 s。圆环没有出口，改看完整观察率、互过次数、检测线通过次数、累计圈数和等待；提前失败的效率统计使用计划观察时长作为分母。当前圆环是周期展开道路，不包含真实车身转向、曲率扫掠或不同半径下的实际路程。
+**圆环向心穿越**：默认4辆车、4个行人交替均匀排列在半径12 m圆周上，同时朝圆心出发，目标是各自圆周对侧。原速度、侧移和制动公式在每个主体自己的局部朝向坐标中计算；位置用二维向量更新，接触用固定朝向矩形的连续SAT检查。每个主体初始朝向固定，保留原模型的小幅侧移近似，不引入车身转向。到达对径目标0.35 m范围并停稳才计为完成，已经到达的主体仍占据物理空间。
+
+这个场景没有环形道路或周期接缝。虚拟路径带只限定侧移目标，不作为实体墙；原道路断面阈值不能直接套用。默认4人4车在现有规则下出现僵持；单人单车的规则模型与修正版可通过。具体适配、120次结果及限制见[向心实验说明](docs/CIRCLE.md)。
 
 **社会力模型（SFM）**将交互项换成期望速度松弛、主体指数排斥和软墙排斥，仍使用同样的尺寸、运动上限、更新器与碰撞检测：
 
@@ -158,11 +164,11 @@ README 说明模型与规则，实验数值、图表和逐次运行记录放在�
 | 实验设置、主要结论、圆环对比、失败原因与修正对照 | [实验报告](docs/REPORT.md) |
 | 宽度、速度、尺寸、初始距离、人数、间距、侧移能力等完整扫描 | [灵敏度结果](docs/SENSITIVITY.md) |
 | 默认参数、单位、扫描取值 | [参数表](docs/PARAMETERS.md) |
-| 700 次运行指标、完整模型说明及可提取源码 | [综合记录](docs/week06_人车交互模型与实验.md) |
-| 统一规则 360 次运行 / 三模型 270 次运行 | [规则原始表](results/experiments/runs.csv) · [模型对照原始表](results/benchmark/runs.csv) |
+| 668 次运行指标、完整模型说明及可提取源码 | [综合记录](docs/week06_人车交互模型与实验.md) |
+| 统一规则 360 次运行 / 直路三模型 120 次运行 | [规则原始表](results/experiments/runs.csv) · [模型对照原始表](results/benchmark/runs.csv) |
 | 社会力参数探索 / 失败修正 | [参数探索](results/sfm_parameters/sfm_parameters.csv) · [失败对照表](results/failures/comparison.csv) |
 
-700 次包括演示和重复配置，不等于 700 个独立样本。各正式配置仅有 5 个配对种子，模型尚未经过真实人车轨迹标定。
+668 次包括演示和重复配置，不等于 668 个独立样本。各正式配置仅有 5 个配对种子，模型尚未经过真实人车轨迹标定。
 
 ## 7. 运行与扩展
 
@@ -171,7 +177,7 @@ README 说明模型与规则，实验数值、图表和逐次运行记录放在�
 ```powershell
 # 直路 / 圆环
 python -m pvsim run --config configs/default.json --out results/custom
-python -m pvsim run --config configs/ring.json --out results/custom_ring
+python -m pvsim run --config configs/ring.json --out results/custom_circle
 # 社会力对照；将 social_force 换成 sfm_guided 可运行修正版
 python -m pvsim run --config configs/default.json --policy social_force --out results/custom_sfm
 # 全部实验与测试
@@ -181,13 +187,22 @@ python -m unittest discover -s tests -v
 
 单次运行输出 `result.json`、`trajectory.csv` 和 `replay.html`。修改 [默认配置](configs/default.json) 调整宽度、速度、数量等；任意主体起点与尺寸参照 [自定义布局](configs/custom_layout.json)。统计绘图需先安装 `requirements-plot.txt`，再为全部实验命令添加 `--plots`。重跑后可用 `python -m pvsim.report --root .` 更新 `docs` 中的实验报告和灵敏度表。
 
+修改 Markdown 后，使用以下命令重新渲染网页文档。该步骤不运行仿真；已生成的 HTML 可以直接离线打开，无需安装依赖或启动服务器。
+
+```powershell
+python -m pip install -r requirements-docs.txt
+python -m pvsim.render_docs --root .
+```
+
 ```text
 README.md       模型、规则、回放及实验入口
-docs/           详细模型、规则、参数、实验与综合记录
+README.html     模型与规则的网页版
+docs/           文档导航、详细 Markdown 及对应 HTML
+index.html      向心穿越动态主页
 configs/        场景配置
 pvsim/          仿真代码与回放模板
 results/        原始数据、统计图与交互回放
 tests/          自动验证
 ```
 
-新场景在 `scenarios.py` 中构造 `Scenario`；新策略实现 `Policy.control`。`domain.py` 管状态，`topology.py` 管开放/周期空间，`simulation.py` 管同步推进，`geometry.py` 管接触与边界。扩展场景或策略时可复用同一套积分与评价模块。
+直路场景在 `scenarios.py` 构造 `Scenario`，向心场景在 `radial.py` 构造 `RadialScenario`；新策略实现 `Policy.control`。`domain.py` 管状态，`topology.py` 管开放/周期空间，`simulation.py` 管同步推进，`geometry.py` 管接触与边界。扩展场景或策略时可复用同一套积分与评价模块。

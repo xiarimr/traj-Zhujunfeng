@@ -1,7 +1,7 @@
 import copy
 from dataclasses import replace
 import unittest
-from pvsim.scenarios import ring, corridor
+from pvsim.scenarios import periodic_corridor as ring, corridor
 from pvsim.simulation import simulate, validate
 from pvsim.domain import Settings
 from pvsim.topology import pair_images, neighbor_images

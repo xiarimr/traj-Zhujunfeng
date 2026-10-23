@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>窄路人车交互模型 · 人车交互实验</title><style>
+:root{color-scheme:light;--ink:#243b47;--muted:#586e7b;--line:#dce6e9}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;color:var(--ink);background:#f3f6f7;font:15px/1.85 system-ui,"Microsoft YaHei",sans-serif}
+a{color:#086f83;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:3px solid #e8a745;outline-offset:3px}
+.skip{position:absolute;top:-80px;background:white;padding:12px;z-index:5}.skip:focus{top:10px}
+.top{background:#103c48;color:white;padding:20px max(24px,calc((100vw - 1440px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{font-size:19px;font-weight:700;color:white}.top nav{display:flex;gap:22px;flex-wrap:wrap}.top a{color:white}
+.layout{max-width:1440px;margin:auto;display:grid;grid-template-columns:236px minmax(0,1fr);gap:28px;padding:30px 24px 80px}
+.sidebar{align-self:start;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;padding:6px 10px 12px 0}
+.sidebar h2{font-size:12px;letter-spacing:1px;color:var(--muted);margin:20px 12px 8px}.sidebar h2:first-child{margin-top:0}
+.sidebar a{display:block;padding:8px 12px;border-radius:6px;font-size:14px;color:var(--ink)}.sidebar a[aria-current=page]{background:#dceef0;color:#055f65;font-weight:700}
+main{min-width:0;background:white;border:1px solid var(--line);border-radius:10px;padding:34px 42px 48px;box-shadow:0 4px 20px #17364206}
+.meta{color:var(--muted);font-size:13px;display:flex;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:26px}
+h1{font-size:30px;line-height:1.5;margin:0 0 22px}h2{font-size:23px;line-height:1.6;margin:40px 0 16px;color:#146677}h3{font-size:18px;margin:30px 0 12px}h4{font-size:16px}p{margin:14px 0}li{margin:6px 0}
+code{background:#edf3f5;border-radius:4px;padding:2px 5px;font:13px/1.65 Consolas,monospace;overflow-wrap:anywhere}pre{background:#f0f5f6;border:1px solid var(--line);border-radius:7px;padding:18px;overflow:auto;line-height:1.65}pre code{padding:0;background:none;overflow-wrap:normal}
+.table-wrap{max-width:100%;overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:6px}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.75}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf2f4;font-weight:650;white-space:nowrap}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafb}
+img{display:block;max-width:100%;height:auto;margin:24px auto}blockquote{border-left:4px solid #5aa1a7;padding:4px 18px;margin:20px 0;background:#f2f8f8}
+.toc{background:#f6f9fa;border:1px solid var(--line);border-radius:7px;padding:14px 18px;margin:24px 0}.toc summary{cursor:pointer;font-weight:650}.toc ul{padding-left:20px;max-height:340px;overflow:auto}.toc li{margin:3px 0;font-size:14px}.toc .level-3{margin-left:16px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:8px;padding:20px;display:block;color:var(--ink)}.card:hover{border-color:#298892;background:#f5fafb;text-decoration:none}.card strong{display:block;font-size:17px;color:#096e7b}.card span{display:block;font-size:14px;color:var(--muted);margin-top:8px}
+footer{border-top:1px solid var(--line);margin-top:38px;padding-top:18px;font-size:13px;color:var(--muted)}
+@media(max-width:900px){.layout{grid-template-columns:190px minmax(0,1fr);gap:16px;padding:20px 16px}main{padding:26px 22px}.cards{grid-template-columns:1fr}}
+@media(max-width:650px){.top{padding:18px}.layout{display:block;padding:14px}.sidebar{position:static;max-height:none;padding:0 0 18px}.sidebar nav{display:flex;flex-wrap:wrap;gap:4px}.sidebar a{font-size:13px;padding:6px 9px}.sidebar h2{margin:12px 8px 6px}main{padding:24px 18px}h1{font-size:25px}h2{font-size:21px}}
+@media print{body{background:white}.top,.sidebar,.toc,.skip,.meta{display:none}.layout{display:block;padding:0}main{border:0;padding:0;box-shadow:none}.table-wrap,pre{overflow:visible}pre{white-space:pre-wrap}h1,h2,h3{break-after:avoid}tr,img{break-inside:avoid}a{color:inherit}}
+</style></head>
+<body><a class="skip" href="#content">跳转到正文</a>
+<header class="top"><a class="brand" href="docs/index.html">Week06 · 人车交互实验</a>
+<nav aria-label="主要入口"><a href="index.html">动态主页</a><a href="docs/index.html">文档导航</a><a href="docs/REPORT.html">实验报告</a></nav></header>
+<div class="layout"><aside class="sidebar" aria-label="文档导航"><h2>模型与实验</h2><nav><a href="docs/index.html">文档导航</a><a href="README.html" aria-current="page">模型与规则概览</a><a href="docs/MODEL.html">模型方程</a><a href="docs/RULES.html">规则与指标</a><a href="docs/PARAMETERS.html">参数表</a><a href="docs/REPORT.html">实验报告</a><a href="docs/SENSITIVITY.html">灵敏度结果</a><a href="docs/CIRCLE.html">圆环向心实验</a><a href="docs/DELIVERY.html">文件与数据索引</a><a href="docs/week06_%E4%BA%BA%E8%BD%A6%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AE%9E%E9%AA%8C.html">完整综合记录</a></nav><h2>交互回放</h2><nav><a href="index.html">动态主页 · 向心穿越</a><a href="results/demo/replay.html">直路与缩窄道路</a><a href="results/benchmark/replay.html">直路三模型对比</a><a href="results/failures/replay.html">失败案例与修正</a></nav></aside>
+<main id="content"><div class="meta"><span>本地离线文档</span><a href="README.md">查看 Markdown 源文档</a></div><h1 id="窄路人车交互模型">窄路人车交互模型</h1><details class="toc" open><summary>本页目录</summary><ul><li class="level-2"><a href="#1-%E4%BA%BA%E5%92%8C%E8%BD%A6%E5%A6%82%E4%BD%95%E7%94%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9E%8B%E6%8F%8F%E8%BF%B0">1. 人和车如何用同一个模型描述</a></li><li class="level-3"><a href="#%E7%8A%B6%E6%80%81%E4%B8%8E%E4%B8%BB%E4%BD%93%E5%B0%BA%E5%AF%B8">状态与主体尺寸</a></li><li class="level-3"><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%90%8C%E4%B8%80%E6%A8%A1%E5%9E%8B%E4%BC%9A%E8%A1%A8%E7%8E%B0%E4%B8%BA%E4%BA%BA%E7%BB%95%E8%A1%8C%E8%BD%A6%E5%87%8F%E9%80%9F">为什么同一模型会表现为“人绕行、车减速”</a></li><li class="level-2"><a href="#2-%E4%B8%80%E6%AC%A1%E7%9B%B8%E5%90%91%E4%BA%A4%E4%BC%9A%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86">2. 一次相向交会如何处理</a></li><li class="level-3"><a href="#%E2%91%A0-%E8%AF%86%E5%88%AB%E5%86%B2%E7%AA%81%E5%B9%B6%E5%86%B3%E5%AE%9A%E6%A8%AA%E5%90%91%E7%9B%AE%E6%A0%87">① 识别冲突，并决定横向目标</a></li><li class="level-3"><a href="#%E2%91%A1-%E7%A9%BA%E9%97%B4%E8%B6%8A%E7%B4%A7%E4%BA%A4%E4%BC%9A%E7%9B%AE%E6%A0%87%E9%80%9F%E5%BA%A6%E8%B6%8A%E4%BD%8E">② 空间越紧，交会目标速度越低</a></li><li class="level-3"><a href="#%E2%91%A2-%E6%A8%AA%E5%90%91%E5%B0%9A%E6%9C%AA%E5%88%86%E5%BC%80%E6%97%B6%E5%8F%8C%E6%96%B9%E5%90%8C%E6%97%B6%E5%87%8F%E9%80%9F">③ 横向尚未分开时，双方同时减速</a></li><li class="level-3"><a href="#%E2%91%A3-%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E5%B0%B1%E7%AD%89%E5%BE%85%E9%80%9A%E8%BF%87%E5%90%8E%E6%81%A2%E5%A4%8D">④ 空间不足就等待，通过后恢复</a></li><li class="level-2"><a href="#3-%E4%BD%8D%E7%BD%AE%E6%80%8E%E6%A0%B7%E6%9B%B4%E6%96%B0%E6%80%8E%E6%A0%B7%E6%A3%80%E6%9F%A5%E7%A2%B0%E6%92%9E">3. 位置怎样更新，怎样检查碰撞</a></li><li class="level-2"><a href="#4-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%90%86%E8%AE%BA%E6%94%BE%E5%BE%97%E4%B8%8B%E5%8D%B4%E4%BB%8D%E5%8F%AF%E8%83%BD%E8%BF%87%E4%B8%8D%E5%8E%BB">4. 为什么理论放得下，却仍可能过不去</a></li><li class="level-2"><a href="#5-%E5%9C%86%E7%8E%AF%E5%92%8C%E7%A4%BE%E4%BC%9A%E5%8A%9B%E6%A8%A1%E5%9E%8B%E6%80%8E%E6%A0%B7%E6%8E%A5%E5%85%A5">5. 圆环和社会力模型怎样接入</a></li><li class="level-2"><a href="#6-%E5%AE%9E%E9%AA%8C%E4%B8%8E%E7%BB%93%E6%9E%9C%E5%85%A5%E5%8F%A3">6. 实验与结果入口</a></li><li class="level-2"><a href="#7-%E8%BF%90%E8%A1%8C%E4%B8%8E%E6%89%A9%E5%B1%95">7. 运行与扩展</a></li></ul></details>
+<p>这个项目研究少量行人和车辆相向进入窄路时，如何通过侧移、减速和等待完成交会。人车共用运动方程与交互策略，差异由尺寸和运动能力参数表达。场景包括等宽直路、局部缩窄道路和圆环向心穿越，并提供社会力模型对照。</p>
+<p><strong>动态主页：<a href="index.html">打开 index.html</a></strong> — 首页直接显示人车交替围成一圈、向中心穿越的回放。</p>
+<p><strong>网页文档：<a href="docs/index.html">文档导航</a> · <a href="README.html">本说明的网页版</a></strong> — 模型、规则、参数与实验已渲染为可离线浏览的 HTML，各页通过统一导航互相连接。</p>
+<p><strong>其他回放：</strong> <a href="results/circle_crossing/replay.html">向心实验独立页面</a> · <a href="results/demo/replay.html">直路与缩窄道路</a> · <a href="results/benchmark/replay.html">直路三模型对比</a> · <a href="results/failures/replay.html">失败案例与修正</a></p>
+<p>回放可离线打开，切换已保存的场景、播放/暂停、拖动进度和调整播放速度。它播放仿真轨迹；修改道路、人数等参数后，需要重新运行仿真。</p>
+<h2 id="1-人和车如何用同一个模型描述">1. 人和车如何用同一个模型描述</h2>
+<h3 id="状态与主体尺寸">状态与主体尺寸</h3>
+<p>每个主体的状态为 <code>z = (s, y, u, w)</code>：<code>s</code> 是纵向位置，<code>y</code> 是横向位置，<code>u ≥ 0</code> 是沿行进方向的速度，<code>w</code> 是横向速度。<code>d = +1 / −1</code> 表示相反的行进方向。代码中的 <code>x</code> 对应这里的 <code>s</code>。</p>
+<p>行人和车辆都用长 <code>l</code>、宽 <code>b</code> 的矩形包络表示，包络不随运动旋转。道路由长度和宽度函数 <code>W(s)</code> 描述，边界为 <code>±W(s)/2</code>。缩窄道路使用分段线性宽度；向心实验中各主体朝向由初始圆周位置确定。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:right">行人默认值</th>
+<th style="text-align:right">车辆默认值</th>
+<th>对行为的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>长 × 宽</td>
+<td style="text-align:right">0.5 × 0.6 m</td>
+<td style="text-align:right">4.5 × 1.8 m</td>
+<td>决定占用空间和接触判定</td>
+</tr>
+<tr>
+<td>期望/初始速度基值</td>
+<td style="text-align:right">1.3 m/s</td>
+<td style="text-align:right">3.0 m/s</td>
+<td>决定自由行走与行驶速度</td>
+</tr>
+<tr>
+<td>最大纵向加速度</td>
+<td style="text-align:right">1.2 m/s²</td>
+<td style="text-align:right">1.5 m/s²</td>
+<td>限制恢复速度</td>
+</tr>
+<tr>
+<td>最大制动减速度</td>
+<td style="text-align:right">2.0 m/s²</td>
+<td style="text-align:right">3.0 m/s²</td>
+<td>决定停车所需空间</td>
+</tr>
+<tr>
+<td>横向速度上限</td>
+<td style="text-align:right">0.7 m/s</td>
+<td style="text-align:right">默认 0；侧移对照为 0.2 m/s</td>
+<td>决定是否、以及多快能靠边</td>
+</tr>
+<tr>
+<td>横向加速度上限</td>
+<td style="text-align:right">1.0 m/s²</td>
+<td style="text-align:right">0.4 m/s²</td>
+<td>防止横向速度瞬间变化</td>
+</tr>
+<tr>
+<td>纵向/横向松弛时间</td>
+<td style="text-align:right">0.7 / 0.8 s</td>
+<td style="text-align:right">0.7 / 0.8 s</td>
+<td>控制接近期望速度、横向目标的快慢</td>
+</tr>
+<tr>
+<td>质量</td>
+<td style="text-align:right">70 kg</td>
+<td style="text-align:right">1500 kg</td>
+<td>当前仅保存为元数据</td>
+</tr>
+</tbody>
+</table></div>
+<p>初始速度在基值上作 ±8% 的种子控制扰动。完整默认值、单位和扫描范围见<a href="docs/PARAMETERS.html">参数表</a>。</p>
+<h3 id="为什么同一模型会表现为人绕行车减速">为什么同一模型会表现为“人绕行、车减速”</h3>
+<p>模型读取每个主体的尺寸、制动能力、横向速度上限和指定避让侧，不根据“行人/车辆”标签切换运动方程。行人横向能力较强，可以较快移到另一侧；车横向能力较弱或为零，主要通过减速、停车留出时间。双方都计算避碰响应，不假设另一方必定让路。</p>
+<p>把车辆的 <code>vehicle_lateral_speed</code> 从 <code>0</code> 改为 <code>0.2</code>，同一控制器就允许车辆缓慢靠边。默认实验中车辆根据道路最窄宽度预先靠边，行人从与车相同的横向位置迎面走来；“车辆居中不动”和“居中后允许侧移”另做对照。</p>
+<p>质量不直接决定谁让谁，也没有“轻者必须避让重者”的路权规则。当前加速度、制动和侧移能力已经直接给定；若以后引入驱动力，可用 <code>a_max = F_max / m</code> 表达质量对机动能力的影响。</p>
+<h2 id="2-一次相向交会如何处理">2. 一次相向交会如何处理</h2>
+<p>主模型 <code>reciprocal</code> 由期望运动、固定选边、宽度相关慢行和互惠制动组成。两边执行同一套规则。</p>
+<h3 id="①-识别冲突并决定横向目标">① 识别冲突，并决定横向目标</h3>
+<p>控制器检查附近的相向主体，探测距离由双方期望速度与 6 s 前瞻时间计算，最小为 8 m。使用期望速度是为了避免减速后探测范围缩小、反复丢失同一冲突。</p>
+<p>发生交互时，主体按预设的 <code>side</code> 移向前方可预见窄断面的安全边界：默认行人取 <code>+y</code> 侧、车辆取 <code>−y</code> 侧。选边保持到对方尾部和纵向间距都通过；若仍有其他相向主体，则继续保持。没有相向交互后，恢复初始横向路径 <code>home_y</code>。</p>
+<p>横向目标速度为：</p>
+<pre><code class="language-text">w_des = clip((y_target − y) / tau_y, −w_max, +w_max)
+</code></pre>
+<p>随后施加横向加速度限制，以及接近目标时的停止距离限制，防止横向速度跳变和越过目标。<code>w_max = 0</code> 时保持当前横向位置。</p>
+<h3 id="②-空间越紧交会目标速度越低">② 空间越紧，交会目标速度越低</h3>
+<p>设前方最窄宽度为 <code>W_look</code>，两主体宽度为 <code>b_i、b_j</code>，每侧墙边裕度为 <code>m_wall</code>，双方侧向间距为 <code>g_lat</code>，则额外空间为：</p>
+<pre><code class="language-text">q = W_look − b_i − b_j − 2 m_wall − g_lat
+f(q) = 0.35 + 0.65 × clip(q / 0.60 m, 0, 1)
+u_target ≤ encounter_speed × f(q)
+</code></pre>
+<p>默认 <code>encounter_speed = 1.0 m/s</code>。目标纵向速度还受总速度预算约束，侧移时不会把完整期望速度同时用在纵向和横向。这里的“窄路慢行”是显式行为假设，因此临界宽度附近变慢不能全部解释为实验自行发现的规律。</p>
+<h3 id="③-横向尚未分开时双方同时减速">③ 横向尚未分开时，双方同时减速</h3>
+<p>横向净间距为 <code>|y_i − y_j| − (b_i+b_j)/2</code>。只有当前净间距与下一步外推净间距都达到 <code>g_lat</code>，才解除该对主体的相向停车约束；不会因为“已经打算绕行”就提前放行。</p>
+<p>对尚未分离的相向主体，<code>D</code> 表示前向包络之间的纵向净距再减去静止间距，双方各使用一半剩余距离规划停车：</p>
+<pre><code class="language-text">u T + u² / (2 a_brake) ≤ 0.5 × max(D, 0)
+u_safe = sqrt((a_brake T)² + a_brake × max(D, 0)) − a_brake T
+T = 0.6 s + Δt
+</code></pre>
+<p>遇到多个主体时，取所有安全速度上限中的最小值。同向跟随使用把前车视为静止障碍的保守限制，此时可使用完整剩余距离，而非一半。<code>T</code> 是规划余量，本版没有实现独立的感知延迟。</p>
+<p>实际减速仍不能超过 <code>a_brake</code>：若起点太近或初速太高，控制器会尽力制动，但仍可能发生碰撞。模型不通过瞬间停车或搬动位置掩盖失败。</p>
+<h3 id="④-空间不足就等待通过后恢复">④ 空间不足就等待，通过后恢复</h3>
+<p>当纵向和横向都无法继续推进时，主体可以停车等待；横向分离达到要求后，再受加速度限制恢复通行。模型不包含倒退、掉头、路外借道、交替放行协议或避车港，因此某些场景会持续等待或形成僵持。</p>
+<p><code>FREE、BRAKE、SIDESTEP、WAIT、PASS、RECOVER、FOLLOW</code> 是对当前动作的记录标签，分别表示自由运动、制动、侧移、等待、交会、回归路径和跟随；控制量始终来自上述共同方程。</p>
+<h2 id="3-位置怎样更新怎样检查碰撞">3. 位置怎样更新，怎样检查碰撞</h2>
+<p>默认时间步 <code>Δt = 0.05 s</code>。每一步先让所有主体读取同一个旧状态计算控制量，再一起更新，避免后计算的主体看到别人已经更新的位置。</p>
+<pre><code class="language-text">u_next = clip(控制器速度, max(0, u − a_brake Δt), u + a_accel Δt)
+w_next = 满足横向速度、加速度及目标停止距离限制的控制量
+s_next = s + d × u_next × Δt
+y_next = y + w_next × Δt
+</code></pre>
+<p>这是半隐式 Euler 更新，每个时间步内按新速度线性移动。更新后检查整段运动中的矩形接触和道路边界，不能只看两端是否重叠，否则快速相向运动可能互相穿过而漏检。</p>
+<ul>
+<li>两个实体包络接触或重叠，记为碰撞；包络越过道路边界，记为越界。</li>
+<li>安全间距与实体尺寸分开记录。“没有接触”不等于“满足全部安全裕度”。</li>
+<li>开放道路中，主体尾部全部离开目标端才计为通过；最后一个主体离开的时刻才是总完成时间。</li>
+<li>默认直路最长观察 160 s。未完成时总完成时间为 <code>null</code>，不能用等待或失败发生时刻替代。</li>
+</ul>
+<h2 id="4-为什么理论放得下却仍可能过不去">4. 为什么理论放得下，却仍可能过不去</h2>
+<p>需要区分三个层次：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>层次</th>
+<th>默认尺寸下的条件</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>几何极限</td>
+<td><code>W_geom = 1.8 + 0.6 = 2.4 m</code></td>
+<td>恰好等于时没有裕度；贴合接触仍会被判碰撞</td>
+</tr>
+<tr>
+<td>安全断面</td>
+<td><code>W_safe = 1.8 + 0.6 + 2×0.1 + 0.2 = 2.8 m</code></td>
+<td>同时容纳实体、两侧墙边裕度和双方间距</td>
+</tr>
+<tr>
+<td>给定位置和能力下可达</td>
+<td>还需检查固定车道位置、侧移能力和制动距离</td>
+<td>总宽度够，不代表当前姿态或局部控制一定能通过</td>
+</tr>
+</tbody>
+</table></div>
+<p>例如车宽 1.8 m 且固定在道路正中，行人只能从指定一侧绕行时，需要 <code>W ≥ 3.6 m</code> 才能保留上述安全间距；允许车辆靠边，可以释放这部分空间。宽度扫描从 5 m 降到 2.4 m，不低于默认几何下限。</p>
+<p>只有所有未退出主体的二维速度都小于 <code>0.025 m/s</code>，并持续 <code>8 s</code>，才触发全体停滞诊断：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>结果标签</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>waiting_geometry</code></td>
+<td>最窄断面不足以容纳两者实体宽度</td>
+</tr>
+<tr>
+<td><code>waiting_clearance</code></td>
+<td>实体可放下，但设定安全裕度不足</td>
+</tr>
+<tr>
+<td><code>waiting_alignment</code></td>
+<td>安全总宽足够，固定主体的位置堵住指定侧通道</td>
+</tr>
+<tr>
+<td><code>deadlock_policy</code></td>
+<td>上述条件未解释停滞，需要检查选边、机动能力或排斥作用</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>直路达到观察上限仍未全部离开；不直接等同于死锁</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些标签提供候选原因，断面条件不是整条道路可达性证明。缩窄道路还受会车位置、进入顺序影响；当前全体停滞检测也不能识别所有局部等待问题。详细事件定义和指标见<a href="docs/RULES.html">规则与评价口径</a>。</p>
+<h2 id="5-圆环和社会力模型怎样接入">5. 圆环和社会力模型怎样接入</h2>
+<p><strong>圆环向心穿越</strong>：默认4辆车、4个行人交替均匀排列在半径12 m圆周上，同时朝圆心出发，目标是各自圆周对侧。原速度、侧移和制动公式在每个主体自己的局部朝向坐标中计算；位置用二维向量更新，接触用固定朝向矩形的连续SAT检查。每个主体初始朝向固定，保留原模型的小幅侧移近似，不引入车身转向。到达对径目标0.35 m范围并停稳才计为完成，已经到达的主体仍占据物理空间。</p>
+<p>这个场景没有环形道路或周期接缝。虚拟路径带只限定侧移目标，不作为实体墙；原道路断面阈值不能直接套用。默认4人4车在现有规则下出现僵持；单人单车的规则模型与修正版可通过。具体适配、120次结果及限制见<a href="docs/CIRCLE.html">向心实验说明</a>。</p>
+<p>**社会力模型（SFM）**将交互项换成期望速度松弛、主体指数排斥和软墙排斥，仍使用同样的尺寸、运动上限、更新器与碰撞检测：</p>
+<pre><code class="language-text">a = (v_des − v) / tau + Σ A exp(−g/B) ω n + a_wall
+</code></pre>
+<p>其中 <code>g</code> 是按矩形包络适配的间距，<code>n</code> 是中心连线方向，<code>ω</code> 是方向权重；默认 <code>A = 8 m/s²、B = 1.5 m</code>，未用实测数据标定。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>策略</th>
+<th>主要处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reciprocal</code></td>
+<td>显式选边、窄路慢行、互惠制动</td>
+</tr>
+<tr>
+<td><code>social_force</code></td>
+<td>期望运动与指数排斥，不加入主模型的选边和制动包络</td>
+</tr>
+<tr>
+<td><code>sfm_guided</code></td>
+<td>在 SFM 上加入横向规划和规则速度上限，解除已横向分离的相向主体排斥</td>
+</tr>
+</tbody>
+</table></div>
+<p>另保留 <code>sfm_guided_ungated</code> 作为中间修正：已有选边和制动，但仍保留已分离主体间的排斥。比较使用相同初态和种子，研究这些具体实现的差异。更完整的方程、假设和参考文献见<a href="docs/MODEL.html">模型说明</a>。</p>
+<h2 id="6-实验与结果入口">6. 实验与结果入口</h2>
+<p>README 说明模型与规则，实验数值、图表和逐次运行记录放在以下文档及数据中：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实验设置、主要结论、圆环对比、失败原因与修正对照</td>
+<td><a href="docs/REPORT.html">实验报告</a></td>
+</tr>
+<tr>
+<td>宽度、速度、尺寸、初始距离、人数、间距、侧移能力等完整扫描</td>
+<td><a href="docs/SENSITIVITY.html">灵敏度结果</a></td>
+</tr>
+<tr>
+<td>默认参数、单位、扫描取值</td>
+<td><a href="docs/PARAMETERS.html">参数表</a></td>
+</tr>
+<tr>
+<td>668 次运行指标、完整模型说明及可提取源码</td>
+<td><a href="docs/week06_%E4%BA%BA%E8%BD%A6%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AE%9E%E9%AA%8C.html">综合记录</a></td>
+</tr>
+<tr>
+<td>统一规则 360 次运行 / 直路三模型 120 次运行</td>
+<td><a href="results/experiments/runs.csv">规则原始表</a> · <a href="results/benchmark/runs.csv">模型对照原始表</a></td>
+</tr>
+<tr>
+<td>社会力参数探索 / 失败修正</td>
+<td><a href="results/sfm_parameters/sfm_parameters.csv">参数探索</a> · <a href="results/failures/comparison.csv">失败对照表</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>668 次包括演示和重复配置，不等于 668 个独立样本。各正式配置仅有 5 个配对种子，模型尚未经过真实人车轨迹标定。</p>
+<h2 id="7-运行与扩展">7. 运行与扩展</h2>
+<p>需要 Python 3.9+；核心仿真、数据导出和回放只使用标准库。在本文件所在目录执行：</p>
+<pre><code class="language-powershell"># 直路 / 圆环
+python -m pvsim run --config configs/default.json --out results/custom
+python -m pvsim run --config configs/ring.json --out results/custom_circle
+# 社会力对照；将 social_force 换成 sfm_guided 可运行修正版
+python -m pvsim run --config configs/default.json --policy social_force --out results/custom_sfm
+# 全部实验与测试
+python -m pvsim all --seeds 5 --out results
+python -m unittest discover -s tests -v
+</code></pre>
+<p>单次运行输出 <code>result.json</code>、<code>trajectory.csv</code> 和 <code>replay.html</code>。修改 <a href="configs/default.json">默认配置</a> 调整宽度、速度、数量等；任意主体起点与尺寸参照 <a href="configs/custom_layout.json">自定义布局</a>。统计绘图需先安装 <code>requirements-plot.txt</code>，再为全部实验命令添加 <code>--plots</code>。重跑后可用 <code>python -m pvsim.report --root .</code> 更新 <code>docs</code> 中的实验报告和灵敏度表。</p>
+<p>修改 Markdown 后，使用以下命令重新渲染网页文档。该步骤不运行仿真；已生成的 HTML 可以直接离线打开，无需安装依赖或启动服务器。</p>
+<pre><code class="language-powershell">python -m pip install -r requirements-docs.txt
+python -m pvsim.render_docs --root .
+</code></pre>
+<pre><code class="language-text">README.md       模型、规则、回放及实验入口
+README.html     模型与规则的网页版
+docs/           文档导航、详细 Markdown 及对应 HTML
+index.html      向心穿越动态主页
+configs/        场景配置
+pvsim/          仿真代码与回放模板
+results/        原始数据、统计图与交互回放
+tests/          自动验证
+</code></pre>
+<p>直路场景在 <code>scenarios.py</code> 构造 <code>Scenario</code>，向心场景在 <code>radial.py</code> 构造 <code>RadialScenario</code>；新策略实现 <code>Policy.control</code>。<code>domain.py</code> 管状态，<code>topology.py</code> 管开放/周期空间，<code>simulation.py</code> 管同步推进，<code>geometry.py</code> 管接触与边界。扩展场景或策略时可复用同一套积分与评价模块。</p>
+
+<footer>Markdown 为源文档；修改后运行 <code>python -m pvsim.render_docs --root .</code> 更新网页。回放与实验数据由仿真代码另行生成。</footer></main></div></body></html>

@@ -61,6 +61,7 @@ class Road:
     length: float
     profile: Tuple[Tuple[float, float], ...]
     periodic: bool = False
+    physical_walls: bool = True
 
     def __post_init__(self):
         if self.length <= 0 or len(self.profile) < 2:

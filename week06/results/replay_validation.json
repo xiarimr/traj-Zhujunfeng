@@ -1,0 +1,63 @@
+{
+  "method": "Offline isolated JavaScript with simulated DOM and numeric canvas validation; no real browser rendering",
+  "date": "2026-10-23",
+  "results": [
+    {
+      "file": "results\\demo\\replay.html",
+      "cases": 9,
+      "circleCases": 0,
+      "frameCount": 2240,
+      "seekChecks": 45,
+      "rateChecks": 27,
+      "drawCalls": 91076,
+      "status": "passed",
+      "sha256": "5b1a52c73d2c91340642e097e5e34a5615e31c72e2758f7066083d6b19e896aa"
+    },
+    {
+      "file": "results\\benchmark\\replay.html",
+      "cases": 12,
+      "circleCases": 0,
+      "frameCount": 1163,
+      "seekChecks": 60,
+      "rateChecks": 36,
+      "drawCalls": 58308,
+      "status": "passed",
+      "sha256": "c3d4dae332ff2446493a5cc9d8dffea19a8cf12d5289513dc46b88eedd6610a8"
+    },
+    {
+      "file": "results\\failures\\replay.html",
+      "cases": 11,
+      "circleCases": 0,
+      "frameCount": 2308,
+      "seekChecks": 55,
+      "rateChecks": 33,
+      "drawCalls": 91146,
+      "status": "passed",
+      "sha256": "e2d605ac510ea68d2b88bdfcb9d5d1d90cf1619092ac5250659ffed7266b9721"
+    },
+    {
+      "file": "results\\circle_crossing\\replay.html",
+      "cases": 24,
+      "circleCases": 24,
+      "frameCount": 2430,
+      "seekChecks": 120,
+      "rateChecks": 72,
+      "drawCalls": 243954,
+      "status": "passed",
+      "sha256": "491c6631642f09e14bf6b6282060b57503e29ab7b4a85f586c90bc2b8a636749"
+    },
+    {
+      "file": "index.html",
+      "cases": 24,
+      "circleCases": 24,
+      "frameCount": 2430,
+      "seekChecks": 120,
+      "rateChecks": 72,
+      "drawCalls": 243954,
+      "status": "passed",
+      "sha256": "5f989995648fe3fca561a29ddabd2d8cce0e42f6368df1f644c8fed4f69ada95"
+    }
+  ],
+  "totalCases": 80,
+  "totalFrames": 10571
+}

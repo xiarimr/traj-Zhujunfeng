@@ -15,7 +15,7 @@ canvas{display:block;width:100%}#road{height:230px}#speed{height:210px}.timeline
 </style>
 </head>
 <body><main>
-<header><div class="eyebrow">PEDESTRIAN × VEHICLE / RESEARCH PROTOTYPE</div><h1>窄路中的相向通行</h1><p>同一运动模型，不同运动能力。观察侧移、减速、通行与等待。</p></header>
+<header><div class="eyebrow">PEDESTRIAN × VEHICLE / RESEARCH PROTOTYPE</div><h1 id="heading">窄路中的相向通行</h1><p id="intro">同一运动模型，不同运动能力。观察侧移、减速、通行与等待。</p></header>
 <div class="toolbar">
   <div class="field grow"><label for="scenario">实验场景</label><select id="scenario"></select></div>
   <div class="field"><label for="rate">回放速度</label><select id="rate"><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option></select></div>
@@ -28,7 +28,7 @@ canvas{display:block;width:100%}#road{height:230px}#speed{height:210px}.timeline
 <div class="panel"><div class="panelhead"><h2>本次运行结果</h2><span id="threshold" class="badge"></span></div><div class="metrics" id="metrics"></div><div class="notes" id="reason"></div></div>
 <div class="panel"><div class="panelhead"><h2>纵向速度 · m/s</h2><span class="badge">实线 V1 / 虚线 P1 · 竖线为当前时刻</span></div><canvas id="speed" aria-label="车辆和行人速度随时间变化曲线"></canvas></div>
 <div class="panel"><div class="panelhead"><h2>主体状态</h2><span class="badge">当前记录帧</span></div><div class="tablewrap"><table><thead><tr><th>主体</th><th>状态</th><th>x / m</th><th>y / m</th><th>纵向 / m·s⁻¹</th><th>横向 / m·s⁻¹</th></tr></thead><tbody id="rows"></tbody></table></div></div>
-<footer>回放来自保存的 Python 计算结果。通过数以整个主体离开道路为准；等待诊断时刻不是完成时间。此原型尚未用实测轨迹标定。</footer>
+<footer id="footnote">回放来自保存的 Python 计算结果。通过数以整个主体离开道路为准；等待诊断时刻不是完成时间。此原型尚未用实测轨迹标定。</footer>
 </main>
 <script id="data" type="application/json">__SIMULATION_DATA__</script>
 <script>
@@ -40,6 +40,7 @@ const descriptions={completed:'全部主体已通过；请结合最小间距和�
 data.forEach((d,i)=>{const o=document.createElement('option');o.value=i;o.textContent=d.label;el('scenario').append(o);});
 let index=0,t=0,playing=false,last=0;
 function current(){return data[index]}function end(){const tr=current().trace;return tr[tr.length-1].time}
+function isCircle(){return current().scenario.metadata?.type==='circle_crossing'}
 function frame(){const tr=current().trace;let lo=0,hi=tr.length-1;while(lo<hi){const mid=Math.ceil((lo+hi)/2);if(tr[mid].time<=t)lo=mid;else hi=mid-1;}return tr[lo]}
 function setup(canvas){const r=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return [ctx,r.width,r.height]}
 function ringRoad(){const [c,w,h]=setup(el('road')),d=current(),r=d.scenario.road,roadWidth=r.profile[0][1],R=r.length/(2*Math.PI),scale=Math.min(w-100,h-64)/(2*(R+roadWidth/2)),cx=w/2,cy=h/2;
@@ -48,7 +49,14 @@ c.strokeStyle='#bbcbd5';c.setLineDash([4,5]);c.beginPath();c.arc(cx,cy,radial(0)
 c.strokeStyle='#5a6e7d';c.beginPath();c.moveTo(cx,cy-radial(-roadWidth/2));c.lineTo(cx,cy-radial(roadWidth/2)-8);c.stroke();c.fillText('s = 0 检测线',cx,cy-radial(roadWidth/2)-14);
 for(const a of frame().agents){const p=d.scenario.agents.find(p=>p.id===a.id),angle=(a.x%r.length)/R-Math.PI/2,half=p.length/(2*R),outer=radial(a.y+p.width/2),inner=radial(a.y-p.width/2);c.fillStyle=p.kind==='vehicle'?'#197b92':'#c46e24';c.beginPath();c.arc(cx,cy,outer,angle-half,angle+half);c.arc(cx,cy,inner,angle+half,angle-half,true);c.closePath();c.fill();c.fillStyle='#172b3a';const rr=radial(a.y)+(p.kind==='vehicle'?-17:17);c.fillText(a.id,cx+rr*Math.cos(angle),cy+rr*Math.sin(angle)+4)}
 }
-function road(){if(current().scenario.road.periodic){ringRoad();return;}const [c,w,h]=setup(el('road')),d=current(),f=frame(),r=d.scenario.road,near=el('zoom').value==='near',lo=near?18:-3,hi=near?44:r.length+3;
+function circleRoad(){const [c,w,h]=setup(el('road')),d=current(),s=d.scenario,f=frame(),extent=s.radius+4,scale=Math.min(w-70,h-65)/(2*extent),X=x=>w/2+x*scale,Y=y=>h/2-y*scale;
+c.fillStyle='#ffffff';c.fillRect(0,0,w,h);c.strokeStyle='#bdcbd4';c.setLineDash([5,5]);c.beginPath();c.arc(X(0),Y(0),s.radius*scale,0,2*Math.PI);c.stroke();c.setLineDash([]);c.font='12px "Microsoft YaHei",sans-serif';c.textAlign='center';c.fillStyle='#5a6e7d';c.fillText('初始圆周 R = '+s.radius+' m',w/2,22);
+c.strokeStyle='#c2ccd3';c.beginPath();c.moveTo(X(-.4),Y(0));c.lineTo(X(.4),Y(0));c.moveTo(X(0),Y(-.4));c.lineTo(X(0),Y(.4));c.stroke();
+for(const p of s.agents){const color=p.kind==='vehicle'?'#197b92':'#c46e24',goal=s.goals[p.id];c.strokeStyle=color;c.globalAlpha=.25;c.setLineDash([2,4]);c.beginPath();let started=false;for(const fr of d.trace){if(fr.time>t)break;const a=fr.agents.find(x=>x.id===p.id);if(!a)continue;started?c.lineTo(X(a.x),Y(a.y)):c.moveTo(X(a.x),Y(a.y));started=true}c.stroke();c.setLineDash([]);c.globalAlpha=.55;c.beginPath();c.arc(X(goal[0]),Y(goal[1]),4,0,2*Math.PI);c.stroke();c.globalAlpha=1;}
+for(const a of f.agents){const p=s.agents.find(p=>p.id===a.id),angle=s.headings[a.id],e=[Math.cos(angle),Math.sin(angle)],n=[-e[1],e[0]];c.fillStyle=p.kind==='vehicle'?'#197b92':'#c46e24';c.globalAlpha=a.done?.45:1;c.beginPath();[[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([i,j],k)=>{const x=a.x+i*p.length/2*e[0]+j*p.width/2*n[0],y=a.y+i*p.length/2*e[1]+j*p.width/2*n[1];k?c.lineTo(X(x),Y(y)):c.moveTo(X(x),Y(y))});c.closePath();c.fill();c.globalAlpha=1;c.fillStyle='#172b3a';c.fillText(a.id,X(a.x),Y(a.y)-p.width*scale/2-7);}
+c.fillStyle='#5a6e7d';c.fillText('空心点：对径终点 · 轨迹线：已行走路径 · 虚线圆不是道路边界',w/2,h-12);
+}
+function road(){if(isCircle()){circleRoad();return;}if(current().scenario.road.periodic){ringRoad();return;}const [c,w,h]=setup(el('road')),d=current(),f=frame(),r=d.scenario.road,near=el('zoom').value==='near',lo=near?18:-3,hi=near?44:r.length+3;
 const scale=(w-44)/(hi-lo),X=x=>22+(x-lo)*scale,Y=y=>h/2-y*scale;
 c.fillStyle='#ffffff';c.fillRect(0,0,w,h);c.fillStyle='#edf2f5';c.beginPath();r.profile.forEach((p,i)=>i?c.lineTo(X(p[0]),Y(p[1]/2)):c.moveTo(X(p[0]),Y(p[1]/2)));[...r.profile].reverse().forEach(p=>c.lineTo(X(p[0]),Y(-p[1]/2)));c.closePath();c.fill();
 c.strokeStyle='#8eabb9';c.lineWidth=1.5;[-1,1].forEach(sign=>{c.beginPath();r.profile.forEach((p,i)=>i?c.lineTo(X(p[0]),Y(sign*p[1]/2)):c.moveTo(X(p[0]),Y(sign*p[1]/2)));c.stroke()});
@@ -70,10 +78,13 @@ c.setLineDash([]);c.lineWidth=1;c.strokeStyle='#5a6e7d';c.beginPath();c.moveTo(X
 }
 function draw(){road();speed();el('time').textContent=t.toFixed(1)+' / '+end().toFixed(1)+' s';el('scrub').value=t/end()*1000;const f=frame();el('rows').replaceChildren();for(const a of f.agents){const tr=document.createElement('tr');[a.id,modes[a.mode]||a.mode,a.x.toFixed(2),a.y.toFixed(2),a.done?'—':a.speed.toFixed(2),a.done?'—':a.vy.toFixed(2)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td)});el('rows').append(tr)}}
 function select(){index=Number(el('scenario').value);t=0;playing=false;el('play').textContent='播放';const d=current(),m=d.metrics;
-el('road').style.height=d.scenario.road.periodic?'400px':'230px';el('zoom').disabled=!!d.scenario.road.periodic;
-el('status').textContent='终局：'+(labels[m.status]||m.status);el('threshold').textContent='几何 '+d.feasibility.physical_width_threshold_m.toFixed(2)+' m / 安全 '+d.feasibility.safe_width_threshold_m.toFixed(2)+' m';
+el('road').style.height=isCircle()?'580px':d.scenario.road.periodic?'400px':'230px';el('zoom').disabled=isCircle()||!!d.scenario.road?.periodic;
+el('heading').textContent=isCircle()?'圆环向心穿越 · 人车交替出发':'窄路中的相向通行';el('intro').textContent=isCircle()?'人和车交替均布在圆周上，同时向中心移动，目标是各自的圆周对侧。':'同一运动模型，不同运动能力。观察侧移、减速、通行与等待。';
+el('footnote').textContent=isCircle()?'全部轨迹来自 Python 仿真。到达对径终点并停稳才计为完成；已到达主体仍占据物理空间。没有用位置投影隐藏碰撞。':'回放来自保存的 Python 计算结果。通过数以整个主体离开道路为准；等待诊断时刻不是完成时间。此原型尚未用实测轨迹标定。';
+el('status').textContent='终局：'+(labels[m.status]||m.status);el('threshold').textContent=isCircle()?'初始半径 '+d.scenario.radius+' m / '+d.scenario.metadata.pairs+' 人 + '+d.scenario.metadata.pairs+' 车':'几何 '+d.feasibility.physical_width_threshold_m.toFixed(2)+' m / 安全 '+d.feasibility.safe_width_threshold_m.toFixed(2)+' m';
 el('reason').textContent=descriptions[m.status]||'';el('metrics').replaceChildren();const values=[['通过人数 / 车数',m.pedestrians_passed+'/'+m.pedestrians_total+' 人 · '+m.vehicles_passed+'/'+m.vehicles_total+' 车'],['全部完成用时',m.completion_time_s===null?'未完成':m.completion_time_s.toFixed(2)+' s'],['最小主体间距',m.min_pair_gap_m.toFixed(3)+' m'],['碰撞对数 / 越界主体数',m.collision_pairs+' / '+m.boundary_violations]];
-if(d.scenario.road.periodic){values[0]=['互相通过事件',String(m.pair_passages)];values[1]=['累计检测线通过人 / 车次',Object.entries(m.detector_crossings).filter(([id])=>d.scenario.agents.find(p=>p.id===id).kind==='pedestrian').reduce((s,[,v])=>s+v,0)+' / '+Object.entries(m.detector_crossings).filter(([id])=>d.scenario.agents.find(p=>p.id===id).kind==='vehicle').reduce((s,[,v])=>s+v,0)];el('reason').textContent=(descriptions[m.status]||'观察期内未检测到碰撞、越界或全体持续停滞；不代表无限时域稳定性。')+' 圆环使用周期展开坐标，不模拟真实刚体转弯扫掠。'}
+if(isCircle()){values[0][0]='到达对径终点的人 / 车';values[2][0]='全步间距保守下界';values[3]=['碰撞主体对数',String(m.collision_pairs)];el('reason').textContent=m.status==='deadlock_policy'?'多方向汇聚后全体低速持续8秒，当前局部策略未解除冲突。现有模型没有倒退、协商或多路交叉口通行顺序规划。':m.status==='completed'?'全部主体到达各自对径终点并停稳。':descriptions[m.status]||'';}
+else if(d.scenario.road.periodic){values[0]=['互相通过事件',String(m.pair_passages)];values[1]=['累计检测线通过人 / 车次',Object.entries(m.detector_crossings).filter(([id])=>d.scenario.agents.find(p=>p.id===id).kind==='pedestrian').reduce((s,[,v])=>s+v,0)+' / '+Object.entries(m.detector_crossings).filter(([id])=>d.scenario.agents.find(p=>p.id===id).kind==='vehicle').reduce((s,[,v])=>s+v,0)];el('reason').textContent=(descriptions[m.status]||'观察期内未检测到碰撞、越界或全体持续停滞；不代表无限时域稳定性。')+' 周期道路使用展开坐标。'}
 for(const [name,value]of values){const box=document.createElement('div');box.className='metric';const small=document.createElement('small'),strong=document.createElement('strong');small.textContent=name;strong.textContent=value;box.append(small,strong);el('metrics').append(box)}draw()}
 el('scenario').addEventListener('change',select);el('play').addEventListener('click',()=>{if(t>=end())t=0;playing=!playing;el('play').textContent=playing?'暂停':'播放'});el('restart').addEventListener('click',()=>{t=0;playing=false;el('play').textContent='播放';draw()});el('scrub').addEventListener('input',()=>{t=Number(el('scrub').value)/1000*end();draw()});el('zoom').addEventListener('change',draw);new ResizeObserver(draw).observe(el('road'));
 function tick(now){if(playing){t=Math.min(end(),t+Math.min((now-last)/1000,.1)*Number(el('rate').value));if(t>=end()){playing=false;el('play').textContent='播放'}draw()}last=now;requestAnimationFrame(tick)}select();requestAnimationFrame(tick);

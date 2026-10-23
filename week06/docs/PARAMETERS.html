@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>参数表 · 人车交互实验</title><style>
+:root{color-scheme:light;--ink:#243b47;--muted:#586e7b;--line:#dce6e9}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;color:var(--ink);background:#f3f6f7;font:15px/1.85 system-ui,"Microsoft YaHei",sans-serif}
+a{color:#086f83;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:3px solid #e8a745;outline-offset:3px}
+.skip{position:absolute;top:-80px;background:white;padding:12px;z-index:5}.skip:focus{top:10px}
+.top{background:#103c48;color:white;padding:20px max(24px,calc((100vw - 1440px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{font-size:19px;font-weight:700;color:white}.top nav{display:flex;gap:22px;flex-wrap:wrap}.top a{color:white}
+.layout{max-width:1440px;margin:auto;display:grid;grid-template-columns:236px minmax(0,1fr);gap:28px;padding:30px 24px 80px}
+.sidebar{align-self:start;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;padding:6px 10px 12px 0}
+.sidebar h2{font-size:12px;letter-spacing:1px;color:var(--muted);margin:20px 12px 8px}.sidebar h2:first-child{margin-top:0}
+.sidebar a{display:block;padding:8px 12px;border-radius:6px;font-size:14px;color:var(--ink)}.sidebar a[aria-current=page]{background:#dceef0;color:#055f65;font-weight:700}
+main{min-width:0;background:white;border:1px solid var(--line);border-radius:10px;padding:34px 42px 48px;box-shadow:0 4px 20px #17364206}
+.meta{color:var(--muted);font-size:13px;display:flex;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:26px}
+h1{font-size:30px;line-height:1.5;margin:0 0 22px}h2{font-size:23px;line-height:1.6;margin:40px 0 16px;color:#146677}h3{font-size:18px;margin:30px 0 12px}h4{font-size:16px}p{margin:14px 0}li{margin:6px 0}
+code{background:#edf3f5;border-radius:4px;padding:2px 5px;font:13px/1.65 Consolas,monospace;overflow-wrap:anywhere}pre{background:#f0f5f6;border:1px solid var(--line);border-radius:7px;padding:18px;overflow:auto;line-height:1.65}pre code{padding:0;background:none;overflow-wrap:normal}
+.table-wrap{max-width:100%;overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:6px}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.75}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf2f4;font-weight:650;white-space:nowrap}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafb}
+img{display:block;max-width:100%;height:auto;margin:24px auto}blockquote{border-left:4px solid #5aa1a7;padding:4px 18px;margin:20px 0;background:#f2f8f8}
+.toc{background:#f6f9fa;border:1px solid var(--line);border-radius:7px;padding:14px 18px;margin:24px 0}.toc summary{cursor:pointer;font-weight:650}.toc ul{padding-left:20px;max-height:340px;overflow:auto}.toc li{margin:3px 0;font-size:14px}.toc .level-3{margin-left:16px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:8px;padding:20px;display:block;color:var(--ink)}.card:hover{border-color:#298892;background:#f5fafb;text-decoration:none}.card strong{display:block;font-size:17px;color:#096e7b}.card span{display:block;font-size:14px;color:var(--muted);margin-top:8px}
+footer{border-top:1px solid var(--line);margin-top:38px;padding-top:18px;font-size:13px;color:var(--muted)}
+@media(max-width:900px){.layout{grid-template-columns:190px minmax(0,1fr);gap:16px;padding:20px 16px}main{padding:26px 22px}.cards{grid-template-columns:1fr}}
+@media(max-width:650px){.top{padding:18px}.layout{display:block;padding:14px}.sidebar{position:static;max-height:none;padding:0 0 18px}.sidebar nav{display:flex;flex-wrap:wrap;gap:4px}.sidebar a{font-size:13px;padding:6px 9px}.sidebar h2{margin:12px 8px 6px}main{padding:24px 18px}h1{font-size:25px}h2{font-size:21px}}
+@media print{body{background:white}.top,.sidebar,.toc,.skip,.meta{display:none}.layout{display:block;padding:0}main{border:0;padding:0;box-shadow:none}.table-wrap,pre{overflow:visible}pre{white-space:pre-wrap}h1,h2,h3{break-after:avoid}tr,img{break-inside:avoid}a{color:inherit}}
+</style></head>
+<body><a class="skip" href="#content">跳转到正文</a>
+<header class="top"><a class="brand" href="index.html">Week06 · 人车交互实验</a>
+<nav aria-label="主要入口"><a href="../index.html">动态主页</a><a href="index.html">文档导航</a><a href="REPORT.html">实验报告</a></nav></header>
+<div class="layout"><aside class="sidebar" aria-label="文档导航"><h2>模型与实验</h2><nav><a href="index.html">文档导航</a><a href="../README.html">模型与规则概览</a><a href="MODEL.html">模型方程</a><a href="RULES.html">规则与指标</a><a href="PARAMETERS.html" aria-current="page">参数表</a><a href="REPORT.html">实验报告</a><a href="SENSITIVITY.html">灵敏度结果</a><a href="CIRCLE.html">圆环向心实验</a><a href="DELIVERY.html">文件与数据索引</a><a href="week06_%E4%BA%BA%E8%BD%A6%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AE%9E%E9%AA%8C.html">完整综合记录</a></nav><h2>交互回放</h2><nav><a href="../index.html">动态主页 · 向心穿越</a><a href="../results/demo/replay.html">直路与缩窄道路</a><a href="../results/benchmark/replay.html">直路三模型对比</a><a href="../results/failures/replay.html">失败案例与修正</a></nav></aside>
+<main id="content"><div class="meta"><span>本地离线文档</span><a href="PARAMETERS.md">查看 Markdown 源文档</a></div><h1 id="参数表">参数表</h1><details class="toc" open><summary>本页目录</summary><ul><li class="level-2"><a href="#%E4%B8%BB%E4%BD%93%E5%8F%82%E6%95%B0">主体参数</a></li><li class="level-2"><a href="#%E5%9C%BA%E6%99%AF%E4%B8%8E%E7%AE%97%E6%B3%95%E5%8F%82%E6%95%B0">场景与算法参数</a></li><li class="level-2"><a href="#%E7%A4%BE%E4%BC%9A%E5%8A%9B%E5%8F%82%E6%95%B0">社会力参数</a></li><li class="level-2"><a href="#%E5%B7%B2%E6%89%A7%E8%A1%8C%E7%9A%84%E7%81%B5%E6%95%8F%E5%BA%A6%E8%AE%BE%E8%AE%A1">已执行的灵敏度设计</a></li><li class="level-2"><a href="#%E5%90%91%E5%BF%83%E7%A9%BF%E8%B6%8A%E5%8F%82%E6%95%B0">向心穿越参数</a></li></ul></details>
+<p>除文献模型结构外，下列数值均为本原型的工程假设；没有以现场数据标定。单位统一为 m、s、kg。随机种子控制速度扰动，不引入随时间的随机行走噪声。</p>
+<h2 id="主体参数">主体参数</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>参数 / 代码键</th>
+<th style="text-align:right">行人</th>
+<th style="text-align:right">车辆</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>长度 <code>length</code></td>
+<td style="text-align:right">0.5 m</td>
+<td style="text-align:right">4.5 m</td>
+<td>纵向矩形包络长度</td>
+</tr>
+<tr>
+<td>宽度 <code>width</code></td>
+<td style="text-align:right">0.6 m</td>
+<td style="text-align:right">1.8 m</td>
+<td>横向实体宽度，不包含安全裕度</td>
+</tr>
+<tr>
+<td>期望/初始速度基值</td>
+<td style="text-align:right">1.3 m/s</td>
+<td style="text-align:right">3.0 m/s</td>
+<td>同一种子在两种/三种模型中相同</td>
+</tr>
+<tr>
+<td>速度扰动 <code>speed_jitter</code></td>
+<td style="text-align:right">±8%</td>
+<td style="text-align:right">±8%</td>
+<td>均匀分布，初始速度等于扰动后的期望速度</td>
+</tr>
+<tr>
+<td>纵向最大加速度 <code>max_accel</code></td>
+<td style="text-align:right">1.2 m/s²</td>
+<td style="text-align:right">1.5 m/s²</td>
+<td>两侧使用同一限幅公式</td>
+</tr>
+<tr>
+<td>最大制动 <code>max_brake</code></td>
+<td style="text-align:right">2.0 m/s²</td>
+<td style="text-align:right">3.0 m/s²</td>
+<td>不允许瞬间停车</td>
+</tr>
+<tr>
+<td>横向最大速度 <code>lateral_speed</code></td>
+<td style="text-align:right">0.7 m/s</td>
+<td style="text-align:right">0 m/s；对照0.2</td>
+<td>车辆默认固定横向位置</td>
+</tr>
+<tr>
+<td>横向最大加速度 <code>lateral_accel</code></td>
+<td style="text-align:right">1.0 m/s²</td>
+<td style="text-align:right">0.4 m/s²</td>
+<td>小幅侧移的机动限制</td>
+</tr>
+<tr>
+<td>纵向松弛时间 <code>speed_tau</code></td>
+<td style="text-align:right">0.7 s</td>
+<td style="text-align:right">0.7 s</td>
+<td>不等于感知反应时间</td>
+</tr>
+<tr>
+<td>横向松弛时间 <code>lateral_tau</code></td>
+<td style="text-align:right">0.8 s</td>
+<td style="text-align:right">0.8 s</td>
+<td>跟踪横向目标</td>
+</tr>
+<tr>
+<td>交会速度上限 <code>encounter_speed</code></td>
+<td style="text-align:right">1.0 m/s</td>
+<td style="text-align:right">1.0 m/s</td>
+<td>主规则按宽度再乘0.35～1系数；纯SFM不用该规则</td>
+</tr>
+<tr>
+<td>意图方向 <code>direction</code></td>
+<td style="text-align:right">−1</td>
+<td style="text-align:right">+1</td>
+<td>相向运动</td>
+</tr>
+<tr>
+<td>避让侧 <code>side</code></td>
+<td style="text-align:right">+1</td>
+<td style="text-align:right">−1</td>
+<td>默认固定选边，保持到错车完成</td>
+</tr>
+<tr>
+<td>质量 <code>mass</code></td>
+<td style="text-align:right">70 kg</td>
+<td style="text-align:right">1500 kg</td>
+<td>元数据；质量×0.1/1/10为无影响对照</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="场景与算法参数">场景与算法参数</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>参数 / 代码键</th>
+<th style="text-align:right">默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直路长度</td>
+<td style="text-align:right">60 m</td>
+<td>目标是主体尾部离开道路</td>
+</tr>
+<tr>
+<td>基础宽度</td>
+<td style="text-align:right">3.2 m</td>
+<td>主宽度扫描5.0→2.4 m</td>
+</tr>
+<tr>
+<td>行人数 / 车数</td>
+<td style="text-align:right">3 / 2</td>
+<td>不是连续到达过程，所有主体t=0已在路中</td>
+</tr>
+<tr>
+<td>车辆起点s</td>
+<td style="text-align:right">16、7 m</td>
+<td>车中心间隔9 m</td>
+</tr>
+<tr>
+<td>行人起点s</td>
+<td style="text-align:right">44、46.5、49 m</td>
+<td>人中心间隔2.5 m</td>
+</tr>
+<tr>
+<td>初始相向中心距 <code>initial_gap</code></td>
+<td style="text-align:right">28 m</td>
+<td>主扫描12、20、28、34 m；不是表面净距</td>
+</tr>
+<tr>
+<td>初始车道位置</td>
+<td style="text-align:right">−W_min/2 + 0.1 + 1.8/2</td>
+<td>根据最窄宽度提前靠边；居中另作对照</td>
+</tr>
+<tr>
+<td>行人初始y / home_y</td>
+<td style="text-align:right">同车辆初始y</td>
+<td>初始确实存在迎面冲突</td>
+</tr>
+<tr>
+<td>缩窄道路宽度节点</td>
+<td style="text-align:right">(0,5),(12,5),(18,W),(42,W),(48,5),(60,5)</td>
+<td>按s线性插值，静态空间缩窄</td>
+</tr>
+<tr>
+<td>步长 <code>dt</code></td>
+<td style="text-align:right">0.05 s</td>
+<td>收敛对照0.1、0.05、0.025 s</td>
+</tr>
+<tr>
+<td>直路最长观察 <code>max_time</code></td>
+<td style="text-align:right">160 s</td>
+<td>未完成返回timeout</td>
+</tr>
+<tr>
+<td>交互前瞻 <code>horizon</code></td>
+<td style="text-align:right">6 s</td>
+<td>基于名义速度构造探测范围，最小8 m</td>
+</tr>
+<tr>
+<td>制动规划余量 <code>reaction_buffer</code></td>
+<td style="text-align:right">0.6 s</td>
+<td>本版不模拟信息延迟</td>
+</tr>
+<tr>
+<td>人车侧向间距 <code>lateral_clearance</code></td>
+<td style="text-align:right">0.2 m</td>
+<td>扫描0、0.1、0.2、0.3、0.4 m</td>
+</tr>
+<tr>
+<td>道路边界裕度 <code>wall_clearance</code></td>
+<td style="text-align:right">每侧0.1 m</td>
+<td>与实体宽度分开</td>
+</tr>
+<tr>
+<td>纵向静止间距 <code>longitudinal_clearance</code></td>
+<td style="text-align:right">0.6 m</td>
+<td>制动包络与互过判据使用</td>
+</tr>
+<tr>
+<td>临界宽度速度比例 <code>squeeze_speed_fraction</code></td>
+<td style="text-align:right">0.35</td>
+<td>透明的窄路慢行假设</td>
+</tr>
+<tr>
+<td>舒适额外横向余量 <code>comfort_extra_gap</code></td>
+<td style="text-align:right">0.60 m</td>
+<td>达到该余量后交会速度比例为1</td>
+</tr>
+<tr>
+<td>持续停滞时长 <code>stall_time</code></td>
+<td style="text-align:right">8 s</td>
+<td>所有未退出主体同时低速</td>
+</tr>
+<tr>
+<td>低速阈值 <code>stop_speed</code></td>
+<td style="text-align:right">0.025 m/s</td>
+<td>使用二维速度模长</td>
+</tr>
+<tr>
+<td>数值裕度容差 <code>clearance_tolerance</code></td>
+<td style="text-align:right">1e−5 m</td>
+<td>不代表额外实体空间</td>
+</tr>
+<tr>
+<td>回放采样间隔</td>
+<td style="text-align:right">0.20 s；批量对照0.50 s</td>
+<td>只影响保存与显示，不影响0.05 s仿真</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="社会力参数">社会力参数</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:right">默认值</th>
+<th>探索范围 / 含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align:right">8 m/s²</td>
+<td>{2,4,8,16}，主体排斥幅值</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align:right">1.5 m</td>
+<td>{0.4,0.8,1.5,2.5}，排斥衰减距离</td>
+</tr>
+<tr>
+<td>wall_A</td>
+<td style="text-align:right">3 m/s²</td>
+<td>软墙排斥幅值</td>
+</tr>
+<tr>
+<td>wall_B</td>
+<td style="text-align:right">0.2 m</td>
+<td>软墙作用距离</td>
+</tr>
+<tr>
+<td>anisotropy</td>
+<td style="text-align:right">0.3</td>
+<td>后方作用权重下限</td>
+</tr>
+</tbody>
+</table></div>
+<p>A、B 探索在3.2 m、单人单车、种子100–102上完成；模型对照在少量多人多车、种子0–4上完成。只探索了有限参数，没有声称求得全局最优值。wall_A、wall_B、各向异性和行人个体差异尚未全面标定或搜索。</p>
+<h2 id="已执行的灵敏度设计">已执行的灵敏度设计</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>分组</th>
+<th>取值</th>
+<th>保持不变/注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>道路宽度</td>
+<td>5,4.5,4,3.5,3.2,3,2.9,2.8,2.7,2.6,2.4 m</td>
+<td>默认几何下限2.4 m</td>
+</tr>
+<tr>
+<td>缩窄最小宽度</td>
+<td>3.4,3.2,3,2.9,2.8,2.7,2.6,2.4 m</td>
+<td>两端5 m</td>
+</tr>
+<tr>
+<td>车辆期望/初始速度</td>
+<td>1.5,3,4.5,6 m/s</td>
+<td>初始速度与期望速度一起变化</td>
+</tr>
+<tr>
+<td>行人横向速度</td>
+<td>0.15,0.3,0.7,1.0 m/s</td>
+<td>横向加速度保持1.0 m/s²</td>
+</tr>
+<tr>
+<td>侧向间距</td>
+<td>0,0.1,0.2,0.3,0.4 m</td>
+<td>道路固定2.8 m</td>
+</tr>
+<tr>
+<td>初始相向中心距</td>
+<td>12,20,28,34 m</td>
+<td>车起点不变，行人起点移动</td>
+</tr>
+<tr>
+<td>行人宽度</td>
+<td>0.45,0.6,0.75,0.9 m</td>
+<td>道路3.0 m</td>
+</tr>
+<tr>
+<td>车辆宽度</td>
+<td>1.6,1.8,2.0,2.2 m</td>
+<td>道路3.0 m</td>
+</tr>
+<tr>
+<td>行人数</td>
+<td>1,2,3,5</td>
+<td>车辆保持2辆</td>
+</tr>
+<tr>
+<td>数值步长</td>
+<td>0.1,0.05,0.025 s</td>
+<td>道路2.9 m</td>
+</tr>
+<tr>
+<td>质量倍率</td>
+<td>0.1,1,10</td>
+<td>验证元数据不会偷偷改变行为</td>
+</tr>
+<tr>
+<td>车道位置/横向能力</td>
+<td>靠边固定、居中固定、居中可侧移</td>
+<td>道路2.9 m</td>
+</tr>
+<tr>
+<td>宽度×车速</td>
+<td>{2.7,2.8,2.9,3.2,4.0}×{1.5,3,4.5}</td>
+<td>检查交互效应，不只做单因素</td>
+</tr>
+<tr>
+<td>三模型直路比较</td>
+<td>宽度5,4,3.2,2.9,2.8,2.6 m</td>
+<td>相同种子和初态</td>
+</tr>
+<tr>
+<td>三模型缩窄比较</td>
+<td>3.2,2.6 m</td>
+<td>相同缩窄节点</td>
+</tr>
+</tbody>
+</table></div>
+<p>每个正式配置使用5个配对种子。重复次数有限，完成率附Wilson区间，不能把5/5解释为真实系统100%安全。</p>
+<h2 id="向心穿越参数">向心穿越参数</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:right">默认值</th>
+<th>对照</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始半径 radius</td>
+<td style="text-align:right">12 m</td>
+<td>8、12、16 m</td>
+</tr>
+<tr>
+<td>人车对数 pairs</td>
+<td style="text-align:right">4，即4人4车交替排布</td>
+<td>1、2、4、6</td>
+</tr>
+<tr>
+<td>观察时长 duration</td>
+<td style="text-align:right">120 s</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>侧移目标 passing_offset</td>
+<td style="text-align:right">2.5 m</td>
+<td>固定；局部+n方向</td>
+</tr>
+<tr>
+<td>终点容差 goal_tolerance</td>
+<td style="text-align:right">0.35 m</td>
+<td>进入范围并停稳才完成</td>
+</tr>
+<tr>
+<td>车横向速度上限</td>
+<td style="text-align:right">0 m/s</td>
+<td>0.2 m/s</td>
+</tr>
+<tr>
+<td>车初始/期望速度</td>
+<td style="text-align:right">3 m/s</td>
+<td>1.5 m/s</td>
+</tr>
+<tr>
+<td>圆周整体旋转 rotation</td>
+<td style="text-align:right">0 rad</td>
+<td>旋转不变性测试0.371 rad</td>
+</tr>
+</tbody>
+</table></div>
+<p>向心实验复用主体尺寸、加减速、时间步及速度扰动；没有实体环道或墙力。8个配对设计共120次，详见<a href="CIRCLE.html">CIRCLE.md</a>。</p>
+
+<footer>Markdown 为源文档；修改后运行 <code>python -m pvsim.render_docs --root .</code> 更新网页。回放与实验数据由仿真代码另行生成。</footer></main></div></body></html>

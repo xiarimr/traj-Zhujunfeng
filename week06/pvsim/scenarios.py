@@ -44,7 +44,7 @@ def load_scenario(path):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     settings = Settings(**data.get("settings", {}))
     if "agents" not in data:
-        factory = ring if data.get("type") == "ring" else corridor
+        factory = ring if data.get("type") in ("ring", "circle_crossing") else corridor
         return factory(settings=settings, **data.get("scenario", {}))
     road = Road(data["road"]["length"], tuple(tuple(p) for p in data["road"]["profile"]), data["road"].get("periodic", False))
     agents = []
@@ -54,7 +54,7 @@ def load_scenario(path):
     return Scenario(data.get("name", "custom"), road, agents, settings, data.get("seed", 0))
 
 
-def ring(width=3.2, circumference=80.0, duration=180.0, settings=None, **kwargs):
+def periodic_corridor(width=3.2, circumference=80.0, duration=180.0, settings=None, **kwargs):
     if circumference < 60:
         raise ValueError("Default initial layout needs circumference >=60 m")
     c = replace(settings or Settings(), max_time=duration)
@@ -64,3 +64,9 @@ def ring(width=3.2, circumference=80.0, duration=180.0, settings=None, **kwargs)
     scenario.metadata.update({"topology": "periodic_unrolled_strip", "circumference_m": circumference,
                               "duration_s": duration, "rigid_body_curvature": False})
     return scenario
+
+
+def ring(**kwargs):
+    """Alternating agents on a circle crossing to antipodal destinations."""
+    from .radial import circle_crossing
+    return circle_crossing(**kwargs)

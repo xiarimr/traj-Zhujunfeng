@@ -1,3 +1,11 @@
+test_alternating_inward_start_and_antipodal_goals (test_circle_crossing.CircleCrossingTests) ... ok
+test_arrived_body_remains_an_obstacle (test_circle_crossing.CircleCrossingTests) ... ok
+test_crossing_obb_collision_between_nonoverlapping_endpoints (test_circle_crossing.CircleCrossingTests) ... ok
+test_dt_convergence_single_pair (test_circle_crossing.CircleCrossingTests) ... ok
+test_fixed_vehicle_has_no_lateral_drift (test_circle_crossing.CircleCrossingTests) ... ok
+test_one_pair_arrives_without_teleporting (test_circle_crossing.CircleCrossingTests) ... ok
+test_rotation_covariance (test_circle_crossing.CircleCrossingTests) ... ok
+test_type_and_mass_do_not_change_policy (test_circle_crossing.CircleCrossingTests) ... ok
 test_hybrid_releases_resolved_conflict (test_ring_and_sfm.RingAndSFMTests) ... ok
 test_ring_repeated_encounters_and_no_exits (test_ring_and_sfm.RingAndSFMTests) ... ok
 test_seam_initial_overlap_rejected (test_ring_and_sfm.RingAndSFMTests) ... ok
@@ -20,6 +28,6 @@ test_type_labels_and_mass_do_not_change_motion (test_simulation.SimulationTests)
 test_unsafe_initial_speed_is_not_hidden_by_position_projection (test_simulation.SimulationTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 20 tests in 8.139s
+Ran 28 tests in 7.911s
 
 OK

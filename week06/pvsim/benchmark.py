@@ -3,7 +3,7 @@ from dataclasses import replace
 from pathlib import Path
 import json
 import statistics
-from .scenarios import corridor, ring
+from .scenarios import corridor
 from .simulation import simulate
 from .social_force import make_policy, SocialForceParameters, SocialForcePolicy
 from .domain import Settings
@@ -19,12 +19,6 @@ def benchmark_designs():
         yield "straight", w, corridor, {"width": w}
     for w in (3.2, 2.6):
         yield "bottleneck", w, corridor, {"width": w, "bottleneck": True}
-    for w in (5, 3.2, 2.8, 2.6):
-        yield "ring_width", w, ring, {"width": w}
-    for length in (60, 80, 120):
-        yield "ring_circumference", length, ring, {"circumference": length}
-    for count in (1, 3, 5):
-        yield "ring_pedestrians", count, ring, {"pedestrians": count}
 
 
 def benchmark(directory, seeds=5, plots=False):
@@ -37,7 +31,7 @@ def benchmark(directory, seeds=5, plots=False):
             for seed in range(seeds):
                 scene = factory(seed=seed, settings=Settings(record_every=10), **params)
                 for policy in POLICIES:
-                    record = seed == 0 and group in ("straight", "ring_width") and value in (5, 3.2, 2.8, 2.6)
+                    record = seed == 0 and group == "straight" and value in (5, 3.2, 2.8, 2.6)
                     result = simulate(scene, make_policy(policy), record=record)
                     m = result["metrics"]
                     row = {"group": group, "value": value, "seed": seed, "policy": policy,
@@ -53,7 +47,7 @@ def benchmark(directory, seeds=5, plots=False):
                     if record:
                         slug = f"{group}_{value}_{policy}"
                         save_result(result, out / "trajectories" / slug)
-                        label = f"{'圆环' if group=='ring_width' else '直路'} {value} m · {policy}"
+                        label = f"直路 {value} m · {policy}"
                         replay.append((label, result))
                     log.write(json.dumps({"design": {"group": group, "value": value}, "result": dict(result, trace=[])}, ensure_ascii=False) + "\n")
             print(f"benchmark {group}={value}: {seeds} paired seeds x 3 policies", flush=True)
@@ -118,8 +112,6 @@ def failures(directory):
         ("sfm_narrow", "SFM：3.2 m 窄路软边界不足", corridor(width=3.2), "social_force", None),
         ("sfm_partial", "部分修正：选边与制动，仍可能僵持", corridor(width=3.2), "sfm_guided_ungated", None),
         ("sfm_full", "完整修正：解除已消除的冲突力", corridor(width=3.2), "sfm_guided", None),
-        ("ring_sfm", "圆环：纯 SFM", ring(), "social_force", None),
-        ("ring_repair", "圆环：SFM 加规则修正", ring(), "sfm_guided", None),
     ]
     replay, rows = [], []
     for slug, label, scene, policy, params in cases:
@@ -141,27 +133,22 @@ def benchmark_plots(summary, out):
     import matplotlib.pyplot as plt
     colors = {"reciprocal": "#197b92", "social_force": "#c46e24", "sfm_guided": "#8066ad"}
     names = {"reciprocal": "Shared rules", "social_force": "SFM baseline", "sfm_guided": "SFM + rules + release"}
-    fig, axes = plt.subplots(2, 2, figsize=(12, 8.4), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4.4), constrained_layout=True)
     for policy in POLICIES:
         straight = sorted([r for r in summary if r["group"] == "straight" and r["policy"] == policy], key=lambda r:r["value"])
-        ring_rows = sorted([r for r in summary if r["group"] == "ring_width" and r["policy"] == policy], key=lambda r:r["value"])
         kw = dict(color=colors[policy], marker="o", label=names[policy])
-        axes[0,0].plot([r["value"] for r in straight], [r["success_rate"] for r in straight], **kw)
+        axes[0].plot([r["value"] for r in straight], [r["success_rate"] for r in straight], **kw)
         valid = [r for r in straight if r["completion_mean_s"] is not None]
-        axes[0,1].plot([r["value"] for r in valid], [r["completion_mean_s"] for r in valid], **kw)
-        axes[1,0].plot([r["value"] for r in ring_rows], [r["success_rate"] for r in ring_rows], **kw)
-        axes[1,1].plot([r["value"] for r in ring_rows], [r["mean_passages_per_min"] for r in ring_rows], **kw)
-    axes[0,0].set(title="A  Straight-road completion", ylabel="Completed fraction", ylim=(-.05,1.08))
-    axes[0,1].set(title="B  Conditional completion time", ylabel="Mean time among completed runs (s)")
-    axes[1,0].set(title="C  Ring: survived full 180 s observation", ylabel="Full observation fraction", ylim=(-.05,1.08))
-    axes[1,1].set(title="D  Ring: throughput over fixed 180 s horizon", ylabel="Pair passages per minute")
+        axes[1].plot([r["value"] for r in valid], [r["completion_mean_s"] for r in valid], **kw)
+    axes[0].set(title="A  Straight-road completion", ylabel="Completed fraction", ylim=(-.05,1.08))
+    axes[1].set(title="B  Conditional completion time", ylabel="Mean time among completed runs (s)")
     for a in axes.flat:
         a.set_xlabel("Road width (m)")
         a.grid(axis="y", alpha=.2)
         a.axvline(2.8, ls="--", lw=1, color="#667c8b")
         a.spines['top'].set_visible(False)
         a.spines['right'].set_visible(False)
-    axes[0,0].legend(frameon=False, fontsize=8, loc="lower right")
+    axes[0].legend(frameon=False, fontsize=8, loc="lower right")
     fig.suptitle("Matched initial states and limits | Uncalibrated social-force baseline", fontsize=14)
     fig.savefig(Path(out) / "model_comparison.png", dpi=180)
     fig.savefig(Path(out) / "model_comparison.svg")

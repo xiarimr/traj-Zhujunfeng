@@ -62,7 +62,8 @@ class SocialForcePolicy:
         width = road.min_width(agent.x - p.length / 2, agent.x + p.length / 2)
         lower = agent.y + width / 2 - p.width / 2
         upper = width / 2 - agent.y - p.width / 2
-        ay += q.wall_A * (math.exp(clip(-lower / q.wall_B, -50, 10)) - math.exp(clip(-upper / q.wall_B, -50, 10)))
+        if road.physical_walls:
+            ay += q.wall_A * (math.exp(clip(-lower / q.wall_B, -50, 10)) - math.exp(clip(-upper / q.wall_B, -50, 10)))
         speed = clip(agent.speed + clip(p.direction * ax, -p.max_brake, p.max_accel) * c.dt, 0, p.desired_speed)
         vy = clip(agent.vy + clip(ay, -p.lateral_accel, p.lateral_accel) * c.dt, -p.lateral_speed, p.lateral_speed)
         if math.hypot(speed, vy) < c.stop_speed:

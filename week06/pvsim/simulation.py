@@ -38,6 +38,9 @@ def validate(scenario):
 
 
 def simulate(scenario, policy=None, record=True):
+    from .radial import RadialScenario, simulate_circle
+    if isinstance(scenario, RadialScenario):
+        return simulate_circle(scenario, policy, record)
     validate(scenario)
     policy = policy or ReciprocalPolicy()
     agents = copy.deepcopy(scenario.agents)

@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>圆环向心穿越实验 · 人车交互实验</title><style>
+:root{color-scheme:light;--ink:#243b47;--muted:#586e7b;--line:#dce6e9}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;color:var(--ink);background:#f3f6f7;font:15px/1.85 system-ui,"Microsoft YaHei",sans-serif}
+a{color:#086f83;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:3px solid #e8a745;outline-offset:3px}
+.skip{position:absolute;top:-80px;background:white;padding:12px;z-index:5}.skip:focus{top:10px}
+.top{background:#103c48;color:white;padding:20px max(24px,calc((100vw - 1440px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{font-size:19px;font-weight:700;color:white}.top nav{display:flex;gap:22px;flex-wrap:wrap}.top a{color:white}
+.layout{max-width:1440px;margin:auto;display:grid;grid-template-columns:236px minmax(0,1fr);gap:28px;padding:30px 24px 80px}
+.sidebar{align-self:start;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;padding:6px 10px 12px 0}
+.sidebar h2{font-size:12px;letter-spacing:1px;color:var(--muted);margin:20px 12px 8px}.sidebar h2:first-child{margin-top:0}
+.sidebar a{display:block;padding:8px 12px;border-radius:6px;font-size:14px;color:var(--ink)}.sidebar a[aria-current=page]{background:#dceef0;color:#055f65;font-weight:700}
+main{min-width:0;background:white;border:1px solid var(--line);border-radius:10px;padding:34px 42px 48px;box-shadow:0 4px 20px #17364206}
+.meta{color:var(--muted);font-size:13px;display:flex;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:26px}
+h1{font-size:30px;line-height:1.5;margin:0 0 22px}h2{font-size:23px;line-height:1.6;margin:40px 0 16px;color:#146677}h3{font-size:18px;margin:30px 0 12px}h4{font-size:16px}p{margin:14px 0}li{margin:6px 0}
+code{background:#edf3f5;border-radius:4px;padding:2px 5px;font:13px/1.65 Consolas,monospace;overflow-wrap:anywhere}pre{background:#f0f5f6;border:1px solid var(--line);border-radius:7px;padding:18px;overflow:auto;line-height:1.65}pre code{padding:0;background:none;overflow-wrap:normal}
+.table-wrap{max-width:100%;overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:6px}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.75}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf2f4;font-weight:650;white-space:nowrap}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafb}
+img{display:block;max-width:100%;height:auto;margin:24px auto}blockquote{border-left:4px solid #5aa1a7;padding:4px 18px;margin:20px 0;background:#f2f8f8}
+.toc{background:#f6f9fa;border:1px solid var(--line);border-radius:7px;padding:14px 18px;margin:24px 0}.toc summary{cursor:pointer;font-weight:650}.toc ul{padding-left:20px;max-height:340px;overflow:auto}.toc li{margin:3px 0;font-size:14px}.toc .level-3{margin-left:16px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:8px;padding:20px;display:block;color:var(--ink)}.card:hover{border-color:#298892;background:#f5fafb;text-decoration:none}.card strong{display:block;font-size:17px;color:#096e7b}.card span{display:block;font-size:14px;color:var(--muted);margin-top:8px}
+footer{border-top:1px solid var(--line);margin-top:38px;padding-top:18px;font-size:13px;color:var(--muted)}
+@media(max-width:900px){.layout{grid-template-columns:190px minmax(0,1fr);gap:16px;padding:20px 16px}main{padding:26px 22px}.cards{grid-template-columns:1fr}}
+@media(max-width:650px){.top{padding:18px}.layout{display:block;padding:14px}.sidebar{position:static;max-height:none;padding:0 0 18px}.sidebar nav{display:flex;flex-wrap:wrap;gap:4px}.sidebar a{font-size:13px;padding:6px 9px}.sidebar h2{margin:12px 8px 6px}main{padding:24px 18px}h1{font-size:25px}h2{font-size:21px}}
+@media print{body{background:white}.top,.sidebar,.toc,.skip,.meta{display:none}.layout{display:block;padding:0}main{border:0;padding:0;box-shadow:none}.table-wrap,pre{overflow:visible}pre{white-space:pre-wrap}h1,h2,h3{break-after:avoid}tr,img{break-inside:avoid}a{color:inherit}}
+</style></head>
+<body><a class="skip" href="#content">跳转到正文</a>
+<header class="top"><a class="brand" href="index.html">Week06 · 人车交互实验</a>
+<nav aria-label="主要入口"><a href="../index.html">动态主页</a><a href="index.html">文档导航</a><a href="REPORT.html">实验报告</a></nav></header>
+<div class="layout"><aside class="sidebar" aria-label="文档导航"><h2>模型与实验</h2><nav><a href="index.html">文档导航</a><a href="../README.html">模型与规则概览</a><a href="MODEL.html">模型方程</a><a href="RULES.html">规则与指标</a><a href="PARAMETERS.html">参数表</a><a href="REPORT.html">实验报告</a><a href="SENSITIVITY.html">灵敏度结果</a><a href="CIRCLE.html" aria-current="page">圆环向心实验</a><a href="DELIVERY.html">文件与数据索引</a><a href="week06_%E4%BA%BA%E8%BD%A6%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AE%9E%E9%AA%8C.html">完整综合记录</a></nav><h2>交互回放</h2><nav><a href="../index.html">动态主页 · 向心穿越</a><a href="../results/demo/replay.html">直路与缩窄道路</a><a href="../results/benchmark/replay.html">直路三模型对比</a><a href="../results/failures/replay.html">失败案例与修正</a></nav></aside>
+<main id="content"><div class="meta"><span>本地离线文档</span><a href="CIRCLE.md">查看 Markdown 源文档</a></div><h1 id="圆环向心穿越实验">圆环向心穿越实验</h1><details class="toc" open><summary>本页目录</summary><ul><li class="level-2"><a href="#%E5%9C%BA%E6%99%AF%E5%AE%9A%E4%B9%89">场景定义</a></li><li class="level-2"><a href="#%E7%8E%B0%E6%9C%89%E7%AE%97%E6%B3%95%E5%A6%82%E4%BD%95%E7%94%A8%E4%BA%8E%E5%A4%9A%E6%96%B9%E5%90%91%E8%BF%90%E5%8A%A8">现有算法如何用于多方向运动</a></li><li class="level-2"><a href="#%E7%A2%B0%E6%92%9E%E5%AE%8C%E6%88%90%E4%B8%8E%E5%81%9C%E6%BB%9E">碰撞、完成与停滞</a></li><li class="level-2"><a href="#%E5%B7%B2%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AF%B9%E7%85%A7">已运行的对照</a></li><li class="level-2"><a href="#%E7%BB%93%E6%9E%9C%E4%B8%8E%E5%8E%9F%E5%9B%A0%E8%BE%B9%E7%95%8C">结果与原因边界</a></li><li class="level-2"><a href="#%E5%A4%8D%E7%8E%B0">复现</a></li></ul></details>
+<p><a href="../index.html">打开动态主页</a> · <a href="../results/circle_crossing/replay.html">独立回放</a> · <a href="../results/circle_crossing/runs.csv">逐次指标</a> · <a href="../README.html">回到模型首页</a></p>
+<h2 id="场景定义">场景定义</h2>
+<p>人和车交替、等角度排列在圆周上，同时朝圆心方向出发，并以各自初始位置的对径点为终点。默认4人4车、初始半径12 m，观察120 s。初始圆周只是排布参考线，不是实体边界，也没有圆环道路。相邻类别交替不意味着同直径两端必定异类：4对主体时，同直径两端是同类。</p>
+<p>主体中心进入终点0.35 m范围并停稳才计为到达。已经到达的主体保持原位置并继续作为实体障碍；没有到一个就删除一个，也没有把位置吸附到终点。终点停车同样受纵横向减速度约束。</p>
+<h2 id="现有算法如何用于多方向运动">现有算法如何用于多方向运动</h2>
+<p>原控制器只认识沿路纵向和横向。本次没有为人车分别设计控制器，而是在每个主体的固定初始朝向上建立局部坐标，再复用原来的期望运动、选边、速度限制和互惠制动公式。</p>
+<pre><code class="language-text">初始位置 p_i(0) = R (cos θ_i, sin θ_i)
+目标位置 g_i = −p_i(0)
+纵向单位向量 e_i = (−cos θ_i, −sin θ_i)
+横向单位向量 n_i = (−e_iy, e_ix)
+p_i(k+1) = p_i(k) + Δt [u_i(k+1)e_i + w_i(k+1)n_i]
+</code></pre>
+<p>计算主体i的控制时，将所有位置、速度投影到(e_i,n_i)。其他主体的旋转矩形投影为该坐标系中的包围矩形：投影长度/宽度由两轴上的支撑半径计算。其他主体朝向在e_i方向的分量大于1e−8时归为同向，其余归为相向；这是对原二方向规则的明确适配，不能称为已有完整多方向规划能力。</p>
+<p>默认全体在各自局部坐标取同一侧(+n_i)，避免给不同全局朝向硬指定同一个世界坐标侧。交互目标侧移量为2.5 m；代码用宽度 <code>2×2.5 + 主体宽度 + 2×墙边裕度</code> 的虚拟路径带复用原横向目标和慢行公式。这里没有实体墙，SFM墙力关闭。无交互时恢复各自直径路径。</p>
+<p>车辆横向速度默认0 m/s，另用0.2 m/s作对照；行人0.7 m/s。车速基值3 m/s，人速1.3 m/s；加速度、制动能力、松弛时间、0.2 m侧向间距和0.6 m纵向间距沿用原参数。随机性仍仅为速度±8%扰动，每配置种子0–4，三模型配对使用相同初态。</p>
+<p>本次必要改动是坐标适配、对径终点停车和不同朝向的碰撞几何。主体初始朝向固定，侧移不引起车身转向，尚无转向角或自行车模型。投影包围矩形对斜向邻居较保守，可能增加停车；因此僵持既反映局部策略限制，也可能受到这项近似影响。</p>
+<h2 id="碰撞完成与停滞">碰撞、完成与停滞</h2>
+<ul>
+<li>所有主体同步计算控制、同步推进，步长0.05 s。</li>
+<li>物理检测使用固定朝向矩形的分离轴定理（SAT），计算整个步内的接触时刻，避免只查帧端漏掉交叉穿越。</li>
+<li><code>min_pair_gap_m</code>在此场景为全步SAT间距的保守下界，不是原直路的精确欧氏间距。下界不足只能说没有证实裕度足够，不能据此声称发生接触；碰撞由独立连续SAT检测确定。</li>
+<li>全体到达且停稳为completed；检测到实体接触为collision；所有未到达主体二维速度低于0.025 m/s持续8 s为deadlock_policy；120 s未结束为timeout。</li>
+<li>本场景不使用窄路的2.4/2.8 m断面阈值，也不使用圈数、检测线通量或周期接缝指标。</li>
+</ul>
+<h2 id="已运行的对照">已运行的对照</h2>
+<p>8组配置 × 3个模型 × 5个种子，共120次。除列出的变化外保持默认参数：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>配置</th>
+<th>变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline</td>
+<td>4人4车，R=12 m，车辆横向能力0</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>车辆横向速度上限改为0.2 m/s</td>
+</tr>
+<tr>
+<td>one_pair</td>
+<td>1人1车，对向穿越复核</td>
+</tr>
+<tr>
+<td>two_pairs</td>
+<td>2人2车，十字汇聚</td>
+</tr>
+<tr>
+<td>dense</td>
+<td>6人6车</td>
+</tr>
+<tr>
+<td>radius_8 / radius_16</td>
+<td>初始半径改为8 / 16 m</td>
+</tr>
+<tr>
+<td>slow_vehicle</td>
+<td>车辆初始/期望速度基值改为1.5 m/s</td>
+</tr>
+</tbody>
+</table></div>
+<p>半径变化同时改变起点距离和总路程；车速变化同时改变初始与期望速度。尚未扫描侧移目标带宽、目标容差或所有朝向排列。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>配置</th>
+<th>策略</th>
+<th>全部到达率</th>
+<th>条件完成时间/s</th>
+<th>平均到达主体数</th>
+<th>碰撞运行/5</th>
+<th>终局</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline</td>
+<td>统一规则</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>社会力+完整修正</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>统一规则</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>社会力+完整修正</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>one_pair</td>
+<td>统一规则</td>
+<td>100%</td>
+<td>21.98</td>
+<td>2.0</td>
+<td>0</td>
+<td>全部通过 5</td>
+</tr>
+<tr>
+<td>one_pair</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>one_pair</td>
+<td>社会力+完整修正</td>
+<td>100%</td>
+<td>21.98</td>
+<td>2.0</td>
+<td>0</td>
+<td>全部通过 5</td>
+</tr>
+<tr>
+<td>two_pairs</td>
+<td>统一规则</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>two_pairs</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>5</td>
+<td>碰撞 5</td>
+</tr>
+<tr>
+<td>two_pairs</td>
+<td>社会力+完整修正</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>dense</td>
+<td>统一规则</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>dense</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>dense</td>
+<td>社会力+完整修正</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>radius_8</td>
+<td>统一规则</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>radius_8</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>radius_8</td>
+<td>社会力+完整修正</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>radius_16</td>
+<td>统一规则</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>radius_16</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>radius_16</td>
+<td>社会力+完整修正</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>slow_vehicle</td>
+<td>统一规则</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>slow_vehicle</td>
+<td>社会力基线</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+<tr>
+<td>slow_vehicle</td>
+<td>社会力+完整修正</td>
+<td>0%</td>
+<td>—</td>
+<td>0.0</td>
+<td>0</td>
+<td>策略僵持 5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="结果与原因边界">结果与原因边界</h2>
+<ol>
+<li>单人单车中，统一规则和修正版均5/5完成，说明向心坐标、终点和回归路径能形成完整穿越；纯SFM在该组均僵持。</li>
+<li>默认4人4车中，三模型均5/5僵持，未发生碰撞；车辆允许0.2 m/s侧移后仍未全部通过。未通过不能写成“理论上没有空间”。</li>
+<li>2人2车中，纯SFM均发生碰撞；规则和修正版均等待。其余已测多主体设置也未全部到达。</li>
+<li>当前主体依据局部投影和独立停止空间限制行动，没有全局预约、倒退或交叉口交替放行。多个径向路径可能互相约束；不同朝向包围矩形投影又会放大占用。因此这是现有规则迁移后的失败结果，不是已证明真实场景必然无解。</li>
+</ol>
+<p>没有为了获得成功曲线取消碰撞或把主体挪开，也没有把新增协调算法混入本次基线。后续若加入通行顺序或二维路径规划，应作为另一组明确标记的修正实验。</p>
+<h2 id="复现">复现</h2>
+<p>从项目根目录运行：</p>
+<pre><code class="language-powershell">python -m pvsim run --config configs/ring.json --out results/custom_circle
+python -m pvsim circle --seeds 5 --out results/circle_crossing
+</code></pre>
+<p>原沿环周期运动的150次对照及2个失败案例已从结果集合中删除。当前总计668次：360次原规则扫描、120次直路/缩窄三模型对照、48次SFM参数探索、11次失败修正、9次基础演示、120次向心穿越。数量包含演示和重复配置，不表示668个独立样本。</p>
+
+<footer>Markdown 为源文档；修改后运行 <code>python -m pvsim.render_docs --root .</code> 更新网页。回放与实验数据由仿真代码另行生成。</footer></main></div></body></html>

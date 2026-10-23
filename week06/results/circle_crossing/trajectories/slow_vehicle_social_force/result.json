@@ -1,0 +1,7443 @@
+{
+  "policy": {
+    "name": "social_force",
+    "parameters": {
+      "A": 8.0,
+      "B": 1.5,
+      "wall_A": 3.0,
+      "wall_B": 0.2,
+      "anisotropy": 0.3
+    }
+  },
+  "scenario": {
+    "name": "circle_crossing",
+    "seed": 0,
+    "settings": {
+      "dt": 0.05,
+      "max_time": 120.0,
+      "horizon": 6.0,
+      "reaction_buffer": 0.6,
+      "lateral_clearance": 0.2,
+      "wall_clearance": 0.1,
+      "longitudinal_clearance": 0.6,
+      "stall_time": 8.0,
+      "stop_speed": 0.025,
+      "record_every": 4,
+      "clearance_tolerance": 1e-05,
+      "squeeze_speed_fraction": 0.35,
+      "comfort_extra_gap": 0.6
+    },
+    "agents": [
+      {
+        "id": "V1",
+        "kind": "vehicle",
+        "length": 4.5,
+        "width": 1.8,
+        "desired_speed": 1.5826612443660115,
+        "max_accel": 1.5,
+        "max_brake": 3.0,
+        "lateral_speed": 0.0,
+        "lateral_accel": 0.4,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 1500,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "P1",
+        "kind": "pedestrian",
+        "length": 0.5,
+        "width": 0.6,
+        "desired_speed": 1.353654515811583,
+        "max_accel": 1.2,
+        "max_brake": 2.0,
+        "lateral_speed": 0.7,
+        "lateral_accel": 1.0,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 70,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "V2",
+        "kind": "vehicle",
+        "length": 4.5,
+        "width": 1.8,
+        "desired_speed": 1.4809371793994028,
+        "max_accel": 1.5,
+        "max_brake": 3.0,
+        "lateral_speed": 0.0,
+        "lateral_accel": 0.4,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 1500,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "P2",
+        "kind": "pedestrian",
+        "length": 0.5,
+        "width": 0.6,
+        "desired_speed": 1.2498546840609364,
+        "max_accel": 1.2,
+        "max_brake": 2.0,
+        "lateral_speed": 0.7,
+        "lateral_accel": 1.0,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 70,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "V3",
+        "kind": "vehicle",
+        "length": 4.5,
+        "width": 1.8,
+        "desired_speed": 1.5027059331284658,
+        "max_accel": 1.5,
+        "max_brake": 3.0,
+        "lateral_speed": 0.0,
+        "lateral_accel": 0.4,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 1500,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "P3",
+        "kind": "pedestrian",
+        "length": 0.5,
+        "width": 0.6,
+        "desired_speed": 1.2802263005896861,
+        "max_accel": 1.2,
+        "max_brake": 2.0,
+        "lateral_speed": 0.7,
+        "lateral_accel": 1.0,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 70,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "V4",
+        "kind": "vehicle",
+        "length": 4.5,
+        "width": 1.8,
+        "desired_speed": 1.5681116613683455,
+        "max_accel": 1.5,
+        "max_brake": 3.0,
+        "lateral_speed": 0.0,
+        "lateral_accel": 0.4,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 1500,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "P4",
+        "kind": "pedestrian",
+        "length": 0.5,
+        "width": 0.6,
+        "desired_speed": 1.259089047024417,
+        "max_accel": 1.2,
+        "max_brake": 2.0,
+        "lateral_speed": 0.7,
+        "lateral_accel": 1.0,
+        "direction": 1,
+        "side": 1,
+        "home_y": 0.0,
+        "mass": 70,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      }
+    ],
+    "initial_states": [
+      {
+        "spec": {
+          "id": "V1",
+          "kind": "vehicle",
+          "length": 4.5,
+          "width": 1.8,
+          "desired_speed": 1.5826612443660115,
+          "max_accel": 1.5,
+          "max_brake": 3.0,
+          "lateral_speed": 0.0,
+          "lateral_accel": 0.4,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 1500,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 12.0,
+        "y": 0.0,
+        "speed": 1.5826612443660115,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "P1",
+          "kind": "pedestrian",
+          "length": 0.5,
+          "width": 0.6,
+          "desired_speed": 1.353654515811583,
+          "max_accel": 1.2,
+          "max_brake": 2.0,
+          "lateral_speed": 0.7,
+          "lateral_accel": 1.0,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 70,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 8.485281374238571,
+        "y": 8.485281374238571,
+        "speed": 1.353654515811583,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "V2",
+          "kind": "vehicle",
+          "length": 4.5,
+          "width": 1.8,
+          "desired_speed": 1.4809371793994028,
+          "max_accel": 1.5,
+          "max_brake": 3.0,
+          "lateral_speed": 0.0,
+          "lateral_accel": 0.4,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 1500,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 7.347880794884119e-16,
+        "y": 12.0,
+        "speed": 1.4809371793994028,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "P2",
+          "kind": "pedestrian",
+          "length": 0.5,
+          "width": 0.6,
+          "desired_speed": 1.2498546840609364,
+          "max_accel": 1.2,
+          "max_brake": 2.0,
+          "lateral_speed": 0.7,
+          "lateral_accel": 1.0,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 70,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": -8.48528137423857,
+        "y": 8.485281374238571,
+        "speed": 1.2498546840609364,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "V3",
+          "kind": "vehicle",
+          "length": 4.5,
+          "width": 1.8,
+          "desired_speed": 1.5027059331284658,
+          "max_accel": 1.5,
+          "max_brake": 3.0,
+          "lateral_speed": 0.0,
+          "lateral_accel": 0.4,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 1500,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": -12.0,
+        "y": 1.4695761589768238e-15,
+        "speed": 1.5027059331284658,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "P3",
+          "kind": "pedestrian",
+          "length": 0.5,
+          "width": 0.6,
+          "desired_speed": 1.2802263005896861,
+          "max_accel": 1.2,
+          "max_brake": 2.0,
+          "lateral_speed": 0.7,
+          "lateral_accel": 1.0,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 70,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": -8.485281374238571,
+        "y": -8.48528137423857,
+        "speed": 1.2802263005896861,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "V4",
+          "kind": "vehicle",
+          "length": 4.5,
+          "width": 1.8,
+          "desired_speed": 1.5681116613683455,
+          "max_accel": 1.5,
+          "max_brake": 3.0,
+          "lateral_speed": 0.0,
+          "lateral_accel": 0.4,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 1500,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": -2.204364238465236e-15,
+        "y": -12.0,
+        "speed": 1.5681116613683455,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "P4",
+          "kind": "pedestrian",
+          "length": 0.5,
+          "width": 0.6,
+          "desired_speed": 1.259089047024417,
+          "max_accel": 1.2,
+          "max_brake": 2.0,
+          "lateral_speed": 0.7,
+          "lateral_accel": 1.0,
+          "direction": 1,
+          "side": 1,
+          "home_y": 0.0,
+          "mass": 70,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 8.485281374238568,
+        "y": -8.485281374238571,
+        "speed": 1.259089047024417,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      }
+    ],
+    "metadata": {
+      "type": "circle_crossing",
+      "pairs": 4,
+      "vehicle_lateral_speed": 0.0,
+      "vehicle_speed": 1.5,
+      "speed_jitter": 0.08,
+      "rotation": 0.0,
+      "goal": "antipodal_point",
+      "orientation": "fixed_initial_inward_heading",
+      "interaction": "original_policy_in_agent_local_frame",
+      "walls": false
+    },
+    "radius": 12.0,
+    "headings": {
+      "V1": 3.141592653589793,
+      "P1": 3.9269908169872414,
+      "V2": 4.71238898038469,
+      "P2": 5.497787143782138,
+      "V3": 6.283185307179586,
+      "P3": 7.0685834705770345,
+      "V4": 7.853981633974483,
+      "P4": 8.63937979737193
+    },
+    "goals": {
+      "V1": [
+        -12.0,
+        -0.0
+      ],
+      "P1": [
+        -8.485281374238571,
+        -8.485281374238571
+      ],
+      "V2": [
+        -7.347880794884119e-16,
+        -12.0
+      ],
+      "P2": [
+        8.48528137423857,
+        -8.485281374238571
+      ],
+      "V3": [
+        12.0,
+        -1.4695761589768238e-15
+      ],
+      "P3": [
+        8.485281374238571,
+        8.48528137423857
+      ],
+      "V4": [
+        2.204364238465236e-15,
+        12.0
+      ],
+      "P4": [
+        -8.485281374238568,
+        8.485281374238571
+      ]
+    },
+    "passing_offset": 2.5,
+    "goal_tolerance": 0.35
+  },
+  "metrics": {
+    "status": "deadlock_policy",
+    "observation_time_s": 17.450000000000113,
+    "completion_time_s": null,
+    "pedestrians_passed": 0,
+    "vehicles_passed": 0,
+    "pedestrians_total": 4,
+    "vehicles_total": 4,
+    "collision_pairs": 0,
+    "boundary_violations": 0,
+    "pair_passages": null,
+    "arrived_total": 0,
+    "total_agent_waiting_s": 89.05000000000018,
+    "min_pair_gap_m": 1.4057558308446547,
+    "gap_definition": "conservative whole-step SAT lower bound; not exact Euclidean distance",
+    "min_wall_gap_m": null,
+    "safety_margins_satisfied": true,
+    "speed_ceiling_unreachable_agent_steps": 0,
+    "closest_radius_by_agent_m": {
+      "V1": 4.410189932956014,
+      "P1": 7.269162658849036,
+      "V2": 4.898629698071727,
+      "P2": 7.666800049744577,
+      "V3": 4.755634156925593,
+      "P3": 7.656783749777696,
+      "V4": 4.5601740091365235,
+      "P4": 7.868677853567813
+    },
+    "agents": [
+      {
+        "id": "V1",
+        "arrival_time_s": null,
+        "goal_error_m": 16.410189932956015,
+        "waiting_time_s": 11.150000000000023,
+        "path_length_m": 7.589810067043986,
+        "peak_decel_m_s2": 0.7098432107898689
+      },
+      {
+        "id": "P1",
+        "arrival_time_s": null,
+        "goal_error_m": 19.270542124517757,
+        "waiting_time_s": 8.899999999999991,
+        "path_length_m": 5.156342952932861,
+        "peak_decel_m_s2": 1.0049343605497247
+      },
+      {
+        "id": "V2",
+        "arrival_time_s": null,
+        "goal_error_m": 16.898629698071726,
+        "waiting_time_s": 11.100000000000023,
+        "path_length_m": 7.101370301928273,
+        "peak_decel_m_s2": 0.6242661324599419
+      },
+      {
+        "id": "P2",
+        "arrival_time_s": null,
+        "goal_error_m": 19.66686584217358,
+        "waiting_time_s": 11.250000000000025,
+        "path_length_m": 4.428857735505524,
+        "peak_decel_m_s2": 0.8701768294617386
+      },
+      {
+        "id": "V3",
+        "arrival_time_s": null,
+        "goal_error_m": 16.755634156925595,
+        "waiting_time_s": 11.100000000000023,
+        "path_length_m": 7.244365843074407,
+        "peak_decel_m_s2": 0.6592213831001659
+      },
+      {
+        "id": "P3",
+        "arrival_time_s": null,
+        "goal_error_m": 19.656891505149876,
+        "waiting_time_s": 11.150000000000023,
+        "path_length_m": 4.519404393488017,
+        "peak_decel_m_s2": 0.9418618199485393
+      },
+      {
+        "id": "V4",
+        "arrival_time_s": null,
+        "goal_error_m": 16.560174009136524,
+        "waiting_time_s": 11.350000000000026,
+        "path_length_m": 7.4398259908634765,
+        "peak_decel_m_s2": 0.759381663677523
+      },
+      {
+        "id": "P4",
+        "arrival_time_s": null,
+        "goal_error_m": 19.86871565678455,
+        "waiting_time_s": 13.05000000000005,
+        "path_length_m": 4.1853334269668,
+        "peak_decel_m_s2": 0.9351466647333179
+      }
+    ]
+  },
+  "events": [
+    {
+      "time": 17.450000000000113,
+      "type": "stall",
+      "classification": "deadlock_policy"
+    }
+  ],
+  "trace": [
+    {
+      "time": 0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 12.0,
+          "y": 0.0,
+          "speed": 1.582661,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 8.485281,
+          "y": 8.485281,
+          "speed": 1.353655,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 12.0,
+          "speed": 1.480937,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -8.485281,
+          "y": 8.485281,
+          "speed": 1.249855,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -12.0,
+          "y": 0.0,
+          "speed": 1.502706,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -8.485281,
+          "y": -8.485281,
+          "speed": 1.280226,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -12.0,
+          "speed": 1.568112,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 8.485281,
+          "y": -8.485281,
+          "speed": 1.259089,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 0.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 11.684172,
+          "y": 0.0,
+          "speed": 1.577117,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 8.294967,
+          "y": 8.294972,
+          "speed": 1.341119,
+          "vy": -4.2e-05,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 11.704517,
+          "speed": 1.475393,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -8.309647,
+          "y": 8.309648,
+          "speed": 1.237333,
+          "vy": 9e-06,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -11.700162,
+          "y": 0.0,
+          "speed": 1.497171,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -8.305356,
+          "y": -8.305353,
+          "speed": 1.26768,
+          "vy": 2.7e-05,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -11.687081,
+          "speed": 1.562576,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 8.308345,
+          "y": -8.308345,
+          "speed": 1.246515,
+          "vy": 6e-06,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 0.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 11.369377,
+          "y": 0.0,
+          "speed": 1.572144,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 8.10631,
+          "y": 8.106351,
+          "speed": 1.329616,
+          "vy": -0.000196,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 11.410067,
+          "speed": 1.470415,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -8.135678,
+          "y": 8.135687,
+          "speed": 1.225883,
+          "vy": 4.1e-05,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -11.401353,
+          "y": 0.0,
+          "speed": 1.492229,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -8.127118,
+          "y": -8.127091,
+          "speed": 1.256138,
+          "vy": 0.000125,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -11.375191,
+          "speed": 1.557633,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 8.133094,
+          "y": -8.1331,
+          "speed": 1.234868,
+          "vy": 2.8e-05,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 0.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 11.055536,
+          "y": 0.0,
+          "speed": 1.567463,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 7.919207,
+          "y": 7.919349,
+          "speed": 1.318497,
+          "vy": -0.000467,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 11.116573,
+          "speed": 1.465725,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -7.963278,
+          "y": 7.963307,
+          "speed": 1.214859,
+          "vy": 9.7e-05,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -11.103488,
+          "y": 0.0,
+          "speed": 1.487603,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -7.950495,
+          "y": -7.950404,
+          "speed": 1.244946,
+          "vy": 0.000297,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -11.064246,
+          "speed": 1.553005,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 7.959456,
+          "y": -7.959476,
+          "speed": 1.223482,
+          "vy": 6.7e-05,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 0.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 10.74262,
+          "y": 0.0,
+          "speed": 1.562845,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 7.733638,
+          "y": 7.733978,
+          "speed": 1.307208,
+          "vy": -0.000858,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 10.824007,
+          "speed": 1.461089,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -7.792431,
+          "y": 7.792502,
+          "speed": 1.203716,
+          "vy": 0.000178,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -10.806535,
+          "y": 0.0,
+          "speed": 1.483066,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -7.775498,
+          "y": -7.775282,
+          "speed": 1.233545,
+          "vy": 0.000544,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -10.754212,
+          "speed": 1.548466,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 7.787443,
+          "y": -7.787492,
+          "speed": 1.211783,
+          "vy": 0.000122,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 1.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 10.430641,
+          "y": 0.0,
+          "speed": 1.558093,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 7.549651,
+          "y": 7.550323,
+          "speed": 1.295257,
+          "vy": -0.001375,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 10.532383,
+          "speed": 1.456305,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -7.623195,
+          "y": 7.623334,
+          "speed": 1.191968,
+          "vy": 0.000283,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -10.510499,
+          "y": 0.0,
+          "speed": 1.47842,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -7.602214,
+          "y": -7.601788,
+          "speed": 1.221431,
+          "vy": 0.000867,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -10.445097,
+          "speed": 1.54382,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 7.617144,
+          "y": -7.617239,
+          "speed": 1.199244,
+          "vy": 0.000194,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 1.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 10.11965,
+          "y": 0.0,
+          "speed": 1.553025,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 7.367365,
+          "y": 7.368538,
+          "speed": 1.282175,
+          "vy": -0.002023,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 10.241755,
+          "speed": 1.451189,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -7.455692,
+          "y": 7.455933,
+          "speed": 1.179162,
+          "vy": 0.000413,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -10.215426,
+          "y": 0.0,
+          "speed": 1.473489,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -7.430795,
+          "y": -7.430054,
+          "speed": 1.208125,
+          "vy": 0.00127,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -10.136943,
+          "speed": 1.538889,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 7.44872,
+          "y": -7.448886,
+          "speed": 1.185356,
+          "vy": 0.000284,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 1.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 9.809731,
+          "y": 0.0,
+          "speed": 1.547467,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 7.186961,
+          "y": 7.188842,
+          "speed": 1.267499,
+          "vy": -0.002813,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 9.952211,
+          "speed": 1.445559,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -7.290106,
+          "y": 7.290492,
+          "speed": 1.164853,
+          "vy": 0.00057,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -9.921393,
+          "y": 0.0,
+          "speed": 1.468101,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -7.261464,
+          "y": -7.260281,
+          "speed": 1.193147,
+          "vy": 0.001756,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -9.82983,
+          "speed": 1.533503,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 7.282405,
+          "y": -7.282669,
+          "speed": 1.169602,
+          "vy": 0.000391,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 1.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 9.501004,
+          "y": 0.0,
+          "speed": 1.541237,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 7.008685,
+          "y": 7.011525,
+          "speed": 1.250743,
+          "vy": -0.003755,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 9.663879,
+          "speed": 1.439228,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -7.126689,
+          "y": 7.127268,
+          "speed": 1.148576,
+          "vy": 0.000756,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -9.628514,
+          "y": 0.0,
+          "speed": 1.462082,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -7.094515,
+          "y": -7.092736,
+          "speed": 1.175992,
+          "vy": 0.00233,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -9.523871,
+          "speed": 1.527482,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 7.118508,
+          "y": -7.118905,
+          "speed": 1.151427,
+          "vy": 0.000517,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 1.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 9.193629,
+          "y": 0.0,
+          "speed": 1.534139,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 6.832856,
+          "y": 6.83695,
+          "speed": 1.231379,
+          "vy": -0.004861,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 9.376921,
+          "speed": 1.431993,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -6.965757,
+          "y": 6.966587,
+          "speed": 1.129834,
+          "vy": 0.000972,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -9.336938,
+          "y": 0.0,
+          "speed": 1.455241,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -6.930317,
+          "y": -6.927762,
+          "speed": 1.156107,
+          "vy": 0.002997,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -9.219216,
+          "speed": 1.520635,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 6.957423,
+          "y": -6.957992,
+          "speed": 1.130218,
+          "vy": 0.000662,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 2.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 8.887805,
+          "y": 0.0,
+          "speed": 1.52595,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 6.65987,
+          "y": 6.665561,
+          "speed": 1.208814,
+          "vy": -0.006144,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 9.091549,
+          "speed": 1.423625,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -6.807701,
+          "y": 6.80885,
+          "speed": 1.108074,
+          "vy": 0.001221,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -9.046857,
+          "y": 0.0,
+          "speed": 1.447364,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -6.769322,
+          "y": -6.765786,
+          "speed": 1.132869,
+          "vy": 0.003764,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -8.916058,
+          "speed": 1.512739,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 6.799638,
+          "y": -6.800422,
+          "speed": 1.105275,
+          "vy": 0.000826,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 2.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 8.583785,
+          "y": 0.0,
+          "speed": 1.516405,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 6.490211,
+          "y": 6.497896,
+          "speed": 1.18237,
+          "vy": -0.007617,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 8.808021,
+          "speed": 1.413858,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -6.653,
+          "y": 6.654544,
+          "speed": 1.082669,
+          "vy": 0.001506,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -8.758507,
+          "y": 0.0,
+          "speed": 1.438201,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -6.612082,
+          "y": -6.607331,
+          "speed": 1.105565,
+          "vy": 0.004633,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -8.614638,
+          "speed": 1.503531,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 6.645746,
+          "y": -6.646797,
+          "speed": 1.075791,
+          "vy": 0.001009,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 2.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 8.281877,
+          "y": 0.0,
+          "speed": 1.505188,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 6.324469,
+          "y": 6.3346,
+          "speed": 1.151261,
+          "vy": -0.009289,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 8.526655,
+          "speed": 1.402374,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -6.502225,
+          "y": 6.504251,
+          "speed": 1.052901,
+          "vy": 0.00183,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -8.472183,
+          "y": 0.0,
+          "speed": 1.427452,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -6.459259,
+          "y": -6.453027,
+          "speed": 1.073365,
+          "vy": 0.005608,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -8.315259,
+          "speed": 1.49269,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 6.496471,
+          "y": -6.497842,
+          "speed": 1.040821,
+          "vy": 0.00121,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 2.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 7.982464,
+          "y": 0.0,
+          "speed": 1.491912,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 6.163355,
+          "y": 6.17644,
+          "speed": 1.114568,
+          "vy": -0.011163,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 0.0,
+          "y": 8.247842,
+          "speed": 1.388795,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -6.356059,
+          "y": 6.358667,
+          "speed": 1.017939,
+          "vy": 0.002195,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -8.188246,
+          "y": 0.0,
+          "speed": 1.414755,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -6.311643,
+          "y": -6.303637,
+          "speed": 1.035298,
+          "vy": 0.006685,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -8.018294,
+          "speed": 1.479819,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 6.352681,
+          "y": -6.354432,
+          "speed": 0.999255,
+          "vy": 0.001426,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 2.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 7.686014,
+          "y": 0.0,
+          "speed": 1.476098,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 6.007724,
+          "y": 6.024328,
+          "speed": 1.071211,
+          "vy": -0.01323,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 7.972055,
+          "speed": 1.372666,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -6.215315,
+          "y": 6.218615,
+          "speed": 0.976822,
+          "vy": 0.002603,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -7.90714,
+          "y": 0.0,
+          "speed": 1.399664,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -6.170177,
+          "y": -6.160075,
+          "speed": 0.990229,
+          "vy": 0.007856,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -7.724211,
+          "speed": 1.464422,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 6.21542,
+          "y": -6.217615,
+          "speed": 0.949787,
+          "vy": 0.001653,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 3.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 7.393109,
+          "y": 0.0,
+          "speed": 1.457152,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.858603,
+          "y": 5.87934,
+          "speed": 1.019925,
+          "vy": -0.015468,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 7.699872,
+          "speed": 1.353435,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -6.080954,
+          "y": 6.085068,
+          "speed": 0.928441,
+          "vy": 0.003053,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -7.62941,
+          "y": 0.0,
+          "speed": 1.381632,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -6.035978,
+          "y": -6.023434,
+          "speed": 0.936831,
+          "vy": 0.009103,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -7.43359,
+          "speed": 1.445875,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 6.085938,
+          "y": -6.088641,
+          "speed": 0.890892,
+          "vy": 0.001886,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 3.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 7.104463,
+          "y": 0.0,
+          "speed": 1.434336,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.717219,
+          "y": 5.742748,
+          "speed": 0.959238,
+          "vy": -0.017832,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 7.431995,
+          "speed": 1.330444,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.954106,
+          "y": 5.95917,
+          "speed": 0.87153,
+          "vy": 0.003545,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -7.355727,
+          "y": 0.0,
+          "speed": 1.35999,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.910365,
+          "y": -5.895019,
+          "speed": 0.873567,
+          "vy": 0.010395,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -7.147157,
+          "speed": 1.423395,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.965721,
+          "y": -5.968998,
+          "speed": 0.8208,
+          "vy": 0.002116,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 3.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 6.820963,
+          "y": 0.0,
+          "speed": 1.406741,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.58504,
+          "y": 5.616039,
+          "speed": 0.887448,
+          "vy": -0.020253,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 7.16927,
+          "speed": 1.30291,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.836098,
+          "y": 5.842257,
+          "speed": 0.804659,
+          "vy": 0.004072,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -7.086911,
+          "y": 0.0,
+          "speed": 1.333922,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.794888,
+          "y": -5.776373,
+          "speed": 0.798681,
+          "vy": 0.011685,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -6.865816,
+          "speed": 1.396004,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.856529,
+          "y": -5.860444,
+          "speed": 0.737489,
+          "vy": 0.002334,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 3.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 6.543699,
+          "y": 0.0,
+          "speed": 1.373252,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.463802,
+          "y": 5.500952,
+          "speed": 0.802629,
+          "vy": -0.022628,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 6.912719,
+          "speed": 1.269918,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.728471,
+          "y": 5.735879,
+          "speed": 0.726255,
+          "vy": 0.004627,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -6.823968,
+          "y": 0.0,
+          "speed": 1.302444,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.691358,
+          "y": -5.669319,
+          "speed": 0.71021,
+          "vy": 0.012913,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -6.590698,
+          "speed": 1.362489,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.760431,
+          "y": -5.765042,
+          "speed": 0.638709,
+          "vy": 0.002531,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 3.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 6.274014,
+          "y": 0.0,
+          "speed": 1.332533,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.355552,
+          "y": 5.399497,
+          "speed": 0.702659,
+          "vy": -0.024823,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 6.663562,
+          "speed": 1.230419,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.633,
+          "y": 5.641818,
+          "speed": 0.634643,
+          "vy": 0.005196,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -6.568123,
+          "y": 0.0,
+          "speed": 1.264394,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.601866,
+          "y": -5.575978,
+          "speed": 0.606032,
+          "vy": 0.013998,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -6.323207,
+          "speed": 1.321383,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.679832,
+          "y": -5.685189,
+          "speed": 0.522038,
+          "vy": 0.002701,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 4.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 6.013545,
+          "y": 0.0,
+          "speed": 1.283026,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.262672,
+          "y": 5.313974,
+          "speed": 0.585295,
+          "vy": -0.026673,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 6.423245,
+          "speed": 1.183256,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.551703,
+          "y": 5.562091,
+          "speed": 0.528137,
+          "vy": 0.005761,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -6.320854,
+          "y": 0.0,
+          "speed": 1.218439,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.528797,
+          "y": -5.498794,
+          "speed": 0.483974,
+          "vy": 0.014851,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -6.065074,
+          "speed": 1.270954,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.617483,
+          "y": -5.623629,
+          "speed": 0.385019,
+          "vy": 0.002842,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 4.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 5.764265,
+          "y": 0.0,
+          "speed": 1.222998,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.18788,
+          "y": 5.246974,
+          "speed": 0.448338,
+          "vy": -0.027996,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 6.19345,
+          "speed": 1.127213,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.486828,
+          "y": 5.498941,
+          "speed": 0.405191,
+          "vy": 0.0063,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -6.083923,
+          "y": 0.0,
+          "speed": 1.163116,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.474822,
+          "y": -5.440517,
+          "speed": 0.342009,
+          "vy": 0.015376,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -5.818403,
+          "speed": 1.20926,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.576468,
+          "y": -5.583441,
+          "speed": 0.225391,
+          "vy": 0.002966,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 4.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 5.528498,
+          "y": 0.0,
+          "speed": 1.150701,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.134211,
+          "y": 5.20135,
+          "speed": 0.289897,
+          "vy": -0.028614,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 5.976104,
+          "speed": 1.061116,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.440816,
+          "y": 5.454798,
+          "speed": 0.264637,
+          "vy": 0.006784,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -5.859392,
+          "y": -0.0,
+          "speed": 1.096936,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.442847,
+          "y": -5.404163,
+          "speed": 0.178566,
+          "vy": 0.015484,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -5.585701,
+          "speed": 1.134285,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.560146,
+          "y": -5.567857,
+          "speed": 0.043184,
+          "vy": 0.001356,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 4.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 5.308889,
+          "y": 0.0,
+          "speed": 1.064648,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.104931,
+          "y": 5.180143,
+          "speed": 0.108797,
+          "vy": -0.028386,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 5.773344,
+          "speed": 0.983991,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.416217,
+          "y": 5.43219,
+          "speed": 0.106009,
+          "vy": 0.007182,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -5.649599,
+          "y": -0.0,
+          "speed": 1.01859,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.435612,
+          "y": -5.392716,
+          "speed": 0.0,
+          "vy": 0.013522,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -5.369852,
+          "speed": 1.044232,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.56078,
+          "y": -5.567211,
+          "speed": 0.0,
+          "vy": -0.007661,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 4.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 5.108339,
+          "y": 0.0,
+          "speed": 0.963715,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.098544,
+          "y": 5.181605,
+          "speed": 0.0,
+          "vy": -0.027264,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 5.587448,
+          "speed": 0.895316,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.412218,
+          "y": 5.430275,
+          "speed": 0.0,
+          "vy": 0.007464,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -5.457103,
+          "y": -0.0,
+          "speed": 0.927131,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.434888,
+          "y": -5.39344,
+          "speed": 0.0,
+          "vy": -0.021189,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -5.174055,
+          "speed": 0.937728,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.562433,
+          "y": -5.565558,
+          "speed": 0.0,
+          "vy": -0.013767,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 5.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.929867,
+          "y": 0.0,
+          "speed": 0.847711,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.097082,
+          "y": 5.183067,
+          "speed": 0.0,
+          "vy": 0.005653,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 5.420756,
+          "speed": 0.794878,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.412222,
+          "y": 5.430271,
+          "speed": 0.0,
+          "vy": -0.008523,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -5.284592,
+          "y": -0.0,
+          "speed": 0.822128,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.428085,
+          "y": -5.400243,
+          "speed": 0.0,
+          "vy": -0.061979,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -5.001642,
+          "speed": 0.814671,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.564734,
+          "y": -5.563257,
+          "speed": 0.0,
+          "vy": -0.017516,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 5.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.776319,
+          "y": 0.0,
+          "speed": 0.718274,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.103582,
+          "y": 5.176566,
+          "speed": 0.0,
+          "vy": 0.07297,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 5.275569,
+          "speed": 0.683277,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.415323,
+          "y": 5.427169,
+          "speed": 0.0,
+          "vy": -0.02899,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -5.134685,
+          "y": -0.0,
+          "speed": 0.704548,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.417026,
+          "y": -5.411301,
+          "speed": 0.0,
+          "vy": -0.086017,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": -0.0,
+          "y": -4.855719,
+          "speed": 0.676959,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.5674,
+          "y": -5.560591,
+          "speed": 0.0,
+          "vy": -0.019464,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 5.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.649905,
+          "y": 0.0,
+          "speed": 0.579543,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.120744,
+          "y": 5.159404,
+          "speed": 0.0,
+          "vy": 0.148862,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 5.153842,
+          "speed": 0.563007,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.420654,
+          "y": 5.421839,
+          "speed": 0.0,
+          "vy": -0.042053,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -5.009549,
+          "y": -0.0,
+          "speed": 0.577451,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.403817,
+          "y": -5.424511,
+          "speed": 0.0,
+          "vy": -0.096311,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.738712,
+          "speed": 0.528965,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.570223,
+          "y": -5.557768,
+          "speed": 0.0,
+          "vy": -0.020129,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 5.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.551712,
+          "y": 0.0,
+          "speed": 0.437931,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.146455,
+          "y": 5.133693,
+          "speed": 0.0,
+          "vy": 0.197816,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 5.056778,
+          "speed": 0.438526,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.427263,
+          "y": 5.41523,
+          "speed": 0.0,
+          "vy": -0.048832,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.910474,
+          "y": -0.0,
+          "speed": 0.445977,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.390133,
+          "y": -5.438194,
+          "speed": 0.0,
+          "vy": -0.095861,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.651872,
+          "speed": 0.377394,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.573063,
+          "y": -5.554928,
+          "speed": 0.0,
+          "vy": -0.019975,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 5.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.48135,
+          "y": 0.0,
+          "speed": 0.301261,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.176642,
+          "y": 5.103506,
+          "speed": 0.0,
+          "vy": 0.219862,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.984492,
+          "speed": 0.315803,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.434369,
+          "y": 5.408124,
+          "speed": 0.0,
+          "vy": -0.050538,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.837521,
+          "y": -0.0,
+          "speed": 0.316765,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.377245,
+          "y": -5.451082,
+          "speed": 0.0,
+          "vy": -0.087467,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.594897,
+          "speed": 0.230483,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.57584,
+          "y": -5.552151,
+          "speed": 0.0,
+          "vy": -0.019404,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 6.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.43683,
+          "y": 0.0,
+          "speed": 0.17748,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.208037,
+          "y": 5.072111,
+          "speed": 0.0,
+          "vy": 0.221034,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.935816,
+          "speed": 0.201355,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.441361,
+          "y": 5.401132,
+          "speed": 0.0,
+          "vy": -0.048374,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.78935,
+          "y": -0.0,
+          "speed": 0.196904,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.366051,
+          "y": -5.462276,
+          "speed": 0.0,
+          "vy": -0.073627,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.565794,
+          "speed": 0.096665,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.578526,
+          "y": -5.549465,
+          "speed": 0.0,
+          "vy": -0.01875,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 6.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41471,
+          "y": 0.0,
+          "speed": 0.073247,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.238192,
+          "y": 5.041956,
+          "speed": 0.0,
+          "vy": 0.206971,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.908343,
+          "speed": 0.101053,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.447792,
+          "y": 5.3947,
+          "speed": 0.0,
+          "vy": -0.04346,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.763283,
+          "y": -0.0,
+          "speed": 0.092678,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.357128,
+          "y": -5.471199,
+          "speed": 0.0,
+          "vy": -0.056484,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.581132,
+          "y": -5.546859,
+          "speed": 0.0,
+          "vy": -0.01828,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 6.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.265405,
+          "y": 5.014743,
+          "speed": 0.0,
+          "vy": 0.182704,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.898701,
+          "speed": 0.018913,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.453364,
+          "y": 5.389129,
+          "speed": 0.0,
+          "vy": -0.036792,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.008168,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.350751,
+          "y": -5.477577,
+          "speed": 0.0,
+          "vy": -0.038323,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.583679,
+          "y": -5.544312,
+          "speed": 0.0,
+          "vy": -0.017774,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 6.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.288639,
+          "y": 4.991509,
+          "speed": 0.0,
+          "vy": 0.152811,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457908,
+          "y": 5.384585,
+          "speed": 0.0,
+          "vy": -0.029298,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.346821,
+          "y": -5.481507,
+          "speed": 0.0,
+          "vy": -0.021762,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.586087,
+          "y": -5.541904,
+          "speed": 0.0,
+          "vy": -0.016479,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 6.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.307432,
+          "y": 4.972716,
+          "speed": 0.0,
+          "vy": 0.120827,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.461383,
+          "y": 5.38111,
+          "speed": 0.0,
+          "vy": -0.021765,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.345014,
+          "y": -5.483314,
+          "speed": 0.0,
+          "vy": -0.00772,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.588251,
+          "y": -5.53974,
+          "speed": 0.0,
+          "vy": -0.014532,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 7.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.321701,
+          "y": 4.958447,
+          "speed": 0.0,
+          "vy": 0.089096,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.463826,
+          "y": 5.378667,
+          "speed": 0.0,
+          "vy": -0.01465,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.344951,
+          "y": -5.483377,
+          "speed": 0.0,
+          "vy": 0.003568,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.590102,
+          "y": -5.537889,
+          "speed": 0.0,
+          "vy": -0.012193,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 7.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.331647,
+          "y": 4.948502,
+          "speed": 0.0,
+          "vy": 0.059409,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.465325,
+          "y": 5.377168,
+          "speed": 0.0,
+          "vy": -0.00828,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.346238,
+          "y": -5.48209,
+          "speed": 0.0,
+          "vy": 0.01208,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591606,
+          "y": -5.536385,
+          "speed": 0.0,
+          "vy": -0.009686,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 7.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.337675,
+          "y": 4.942474,
+          "speed": 0.0,
+          "vy": 0.033028,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.466006,
+          "y": 5.376487,
+          "speed": 0.0,
+          "vy": -0.002863,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.348493,
+          "y": -5.479834,
+          "speed": 0.0,
+          "vy": 0.017957,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.592754,
+          "y": -5.535237,
+          "speed": 0.0,
+          "vy": -0.007194,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 7.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.340327,
+          "y": 4.939821,
+          "speed": 0.0,
+          "vy": 0.010732,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.466013,
+          "y": 5.376479,
+          "speed": 0.0,
+          "vy": 0.001496,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.351367,
+          "y": -5.47696,
+          "speed": 0.0,
+          "vy": 0.021461,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.593563,
+          "y": -5.534428,
+          "speed": 0.0,
+          "vy": -0.004857,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 7.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.340217,
+          "y": 4.939931,
+          "speed": 0.0,
+          "vy": -0.007114,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.4655,
+          "y": 5.376993,
+          "speed": 0.0,
+          "vy": 0.004779,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.354553,
+          "y": -5.473775,
+          "speed": 0.0,
+          "vy": 0.022932,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.594063,
+          "y": -5.533928,
+          "speed": 0.0,
+          "vy": -0.002775,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 8.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.337981,
+          "y": 4.942168,
+          "speed": 0.0,
+          "vy": -0.020487,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.464614,
+          "y": 5.377879,
+          "speed": 0.0,
+          "vy": 0.007036,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.357795,
+          "y": -5.470532,
+          "speed": 0.0,
+          "vy": 0.022746,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.594295,
+          "y": -5.533696,
+          "speed": 0.0,
+          "vy": -0.001009,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 8.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.334231,
+          "y": 4.945918,
+          "speed": 0.0,
+          "vy": -0.029628,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.463491,
+          "y": 5.379001,
+          "speed": 0.0,
+          "vy": 0.008366,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.360895,
+          "y": -5.467432,
+          "speed": 0.0,
+          "vy": 0.021293,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.594308,
+          "y": -5.533683,
+          "speed": 0.0,
+          "vy": 0.000412,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 8.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.32953,
+          "y": 4.950619,
+          "speed": 0.0,
+          "vy": -0.03497,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.462253,
+          "y": 5.380239,
+          "speed": 0.0,
+          "vy": 0.008899,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.363707,
+          "y": -5.46462,
+          "speed": 0.0,
+          "vy": 0.018944,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.594152,
+          "y": -5.533839,
+          "speed": 0.0,
+          "vy": 0.001484,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 8.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.324366,
+          "y": 4.955782,
+          "speed": 0.0,
+          "vy": -0.037066,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.460999,
+          "y": 5.381494,
+          "speed": 0.0,
+          "vy": 0.008785,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.366134,
+          "y": -5.462194,
+          "speed": 0.0,
+          "vy": 0.016039,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.593873,
+          "y": -5.534118,
+          "speed": 0.0,
+          "vy": 0.002225,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 8.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.319146,
+          "y": 4.961003,
+          "speed": 0.0,
+          "vy": -0.036533,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.459805,
+          "y": 5.382687,
+          "speed": 0.0,
+          "vy": 0.008177,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368123,
+          "y": -5.460204,
+          "speed": 0.0,
+          "vy": 0.012871,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.593516,
+          "y": -5.534475,
+          "speed": 0.0,
+          "vy": 0.002669,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 9.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.314184,
+          "y": 4.965964,
+          "speed": 0.0,
+          "vy": -0.033999,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45873,
+          "y": 5.383762,
+          "speed": 0.0,
+          "vy": 0.007223,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.369661,
+          "y": -5.458666,
+          "speed": 0.0,
+          "vy": 0.009684,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.593119,
+          "y": -5.534872,
+          "speed": 0.0,
+          "vy": 0.002857,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 9.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.309712,
+          "y": 4.970437,
+          "speed": 0.0,
+          "vy": -0.030067,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45781,
+          "y": 5.384683,
+          "speed": 0.0,
+          "vy": 0.006058,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.370761,
+          "y": -5.457566,
+          "speed": 0.0,
+          "vy": 0.006665,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.592715,
+          "y": -5.535276,
+          "speed": 0.0,
+          "vy": 0.002838,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 9.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.305876,
+          "y": 4.974273,
+          "speed": 0.0,
+          "vy": -0.025281,
+          "mode": "SIDESTEP",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457064,
+          "y": 5.385428,
+          "speed": 0.0,
+          "vy": 0.004798,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.37146,
+          "y": -5.456868,
+          "speed": 0.0,
+          "vy": 0.003949,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.592328,
+          "y": -5.535663,
+          "speed": 0.0,
+          "vy": 0.00266,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 9.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.302755,
+          "y": 4.977393,
+          "speed": 0.0,
+          "vy": -0.020115,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.456497,
+          "y": 5.385995,
+          "speed": 0.0,
+          "vy": 0.003539,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.371808,
+          "y": -5.45652,
+          "speed": 0.0,
+          "vy": 0.001625,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591976,
+          "y": -5.536015,
+          "speed": 0.0,
+          "vy": 0.002369,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 9.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.300368,
+          "y": 4.97978,
+          "speed": 0.0,
+          "vy": -0.014955,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.456103,
+          "y": 5.38639,
+          "speed": 0.0,
+          "vy": 0.002357,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.371866,
+          "y": -5.456462,
+          "speed": 0.0,
+          "vy": -0.000264,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591672,
+          "y": -5.536318,
+          "speed": 0.0,
+          "vy": 0.002008,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 10.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.298687,
+          "y": 4.981461,
+          "speed": 0.0,
+          "vy": -0.0101,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.455864,
+          "y": 5.386628,
+          "speed": 0.0,
+          "vy": 0.001302,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.371696,
+          "y": -5.456631,
+          "speed": 0.0,
+          "vy": -0.001707,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591423,
+          "y": -5.536568,
+          "speed": 0.0,
+          "vy": 0.001614,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 10.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.297649,
+          "y": 4.982499,
+          "speed": 0.0,
+          "vy": -0.005762,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.455761,
+          "y": 5.386732,
+          "speed": 0.0,
+          "vy": 0.000409,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.37136,
+          "y": -5.456967,
+          "speed": 0.0,
+          "vy": -0.002724,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.59123,
+          "y": -5.536761,
+          "speed": 0.0,
+          "vy": 0.001218,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 10.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.297168,
+          "y": 4.982981,
+          "speed": 0.0,
+          "vy": -0.002076,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.455768,
+          "y": 5.386725,
+          "speed": 0.0,
+          "vy": -0.000305,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.370915,
+          "y": -5.457412,
+          "speed": 0.0,
+          "vy": -0.003352,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591091,
+          "y": -5.5369,
+          "speed": 0.0,
+          "vy": 0.000841,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 10.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.297145,
+          "y": 4.983004,
+          "speed": 0.0,
+          "vy": 0.000892,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45586,
+          "y": 5.386632,
+          "speed": 0.0,
+          "vy": -0.00084,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.370412,
+          "y": -5.457915,
+          "speed": 0.0,
+          "vy": -0.003643,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591003,
+          "y": -5.536988,
+          "speed": 0.0,
+          "vy": 0.000503,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 10.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.297477,
+          "y": 4.982672,
+          "speed": 0.0,
+          "vy": 0.003133,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.456013,
+          "y": 5.386479,
+          "speed": 0.0,
+          "vy": -0.001204,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.369893,
+          "y": -5.458434,
+          "speed": 0.0,
+          "vy": -0.003659,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.590958,
+          "y": -5.537033,
+          "speed": 0.0,
+          "vy": 0.000213,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 11.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.298064,
+          "y": 4.982084,
+          "speed": 0.0,
+          "vy": 0.004682,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.456204,
+          "y": 5.386289,
+          "speed": 0.0,
+          "vy": -0.001414,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.369391,
+          "y": -5.458936,
+          "speed": 0.0,
+          "vy": -0.00346,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.590949,
+          "y": -5.537042,
+          "speed": 0.0,
+          "vy": -2.3e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 11.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.298814,
+          "y": 4.981334,
+          "speed": 0.0,
+          "vy": 0.005606,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.456412,
+          "y": 5.386081,
+          "speed": 0.0,
+          "vy": -0.001494,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368932,
+          "y": -5.459396,
+          "speed": 0.0,
+          "vy": -0.003107,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.590969,
+          "y": -5.537022,
+          "speed": 0.0,
+          "vy": -0.000204,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 11.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.299647,
+          "y": 4.980501,
+          "speed": 0.0,
+          "vy": 0.005994,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.456622,
+          "y": 5.385871,
+          "speed": 0.0,
+          "vy": -0.001466,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368531,
+          "y": -5.459796,
+          "speed": 0.0,
+          "vy": -0.002656,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.59101,
+          "y": -5.536981,
+          "speed": 0.0,
+          "vy": -0.000332,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 11.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.300495,
+          "y": 4.979654,
+          "speed": 0.0,
+          "vy": 0.005945,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45682,
+          "y": 5.385672,
+          "speed": 0.0,
+          "vy": -0.001358,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.3682,
+          "y": -5.460128,
+          "speed": 0.0,
+          "vy": -0.002154,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591064,
+          "y": -5.536927,
+          "speed": 0.0,
+          "vy": -0.000411,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 11.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.301305,
+          "y": 4.978844,
+          "speed": 0.0,
+          "vy": 0.005562,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.456999,
+          "y": 5.385494,
+          "speed": 0.0,
+          "vy": -0.001195,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.36794,
+          "y": -5.460387,
+          "speed": 0.0,
+          "vy": -0.001643,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591126,
+          "y": -5.536865,
+          "speed": 0.0,
+          "vy": -0.000448,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 12.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.302039,
+          "y": 4.97811,
+          "speed": 0.0,
+          "vy": 0.004942,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45715,
+          "y": 5.385342,
+          "speed": 0.0,
+          "vy": -0.000997,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367752,
+          "y": -5.460576,
+          "speed": 0.0,
+          "vy": -0.001153,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.59119,
+          "y": -5.536801,
+          "speed": 0.0,
+          "vy": -0.000452,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 12.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.302671,
+          "y": 4.977477,
+          "speed": 0.0,
+          "vy": 0.004176,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457273,
+          "y": 5.38522,
+          "speed": 0.0,
+          "vy": -0.000786,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367628,
+          "y": -5.460699,
+          "speed": 0.0,
+          "vy": -0.000709,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591252,
+          "y": -5.536739,
+          "speed": 0.0,
+          "vy": -0.000428,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 12.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303188,
+          "y": 4.97696,
+          "speed": 0.0,
+          "vy": 0.003342,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457365,
+          "y": 5.385127,
+          "speed": 0.0,
+          "vy": -0.000575,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367563,
+          "y": -5.460764,
+          "speed": 0.0,
+          "vy": -0.000325,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591309,
+          "y": -5.536682,
+          "speed": 0.0,
+          "vy": -0.000385,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 12.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303586,
+          "y": 4.976562,
+          "speed": 0.0,
+          "vy": 0.002503,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457429,
+          "y": 5.385064,
+          "speed": 0.0,
+          "vy": -0.000379,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367546,
+          "y": -5.460782,
+          "speed": 0.0,
+          "vy": -9e-06,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591359,
+          "y": -5.536632,
+          "speed": 0.0,
+          "vy": -0.00033,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 12.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.30387,
+          "y": 4.976279,
+          "speed": 0.0,
+          "vy": 0.00171,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457467,
+          "y": 5.385026,
+          "speed": 0.0,
+          "vy": -0.000204,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367567,
+          "y": -5.460761,
+          "speed": 0.0,
+          "vy": 0.000235,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.5914,
+          "y": -5.536591,
+          "speed": 0.0,
+          "vy": -0.000268,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 13.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.304047,
+          "y": 4.976101,
+          "speed": 0.0,
+          "vy": 0.000997,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457482,
+          "y": 5.38501,
+          "speed": 0.0,
+          "vy": -5.7e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367616,
+          "y": -5.460711,
+          "speed": 0.0,
+          "vy": 0.00041,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591432,
+          "y": -5.536559,
+          "speed": 0.0,
+          "vy": -0.000205,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 13.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.304133,
+          "y": 4.976015,
+          "speed": 0.0,
+          "vy": 0.000389,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45748,
+          "y": 5.385013,
+          "speed": 0.0,
+          "vy": 6e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367685,
+          "y": -5.460643,
+          "speed": 0.0,
+          "vy": 0.000521,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591456,
+          "y": -5.536535,
+          "speed": 0.0,
+          "vy": -0.000145,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 13.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.304144,
+          "y": 4.976005,
+          "speed": 0.0,
+          "vy": -0.000104,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457463,
+          "y": 5.385029,
+          "speed": 0.0,
+          "vy": 0.000147,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367764,
+          "y": -5.460564,
+          "speed": 0.0,
+          "vy": 0.000577,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591472,
+          "y": -5.536519,
+          "speed": 0.0,
+          "vy": -9e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 13.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.304095,
+          "y": 4.976054,
+          "speed": 0.0,
+          "vy": -0.000478,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457437,
+          "y": 5.385056,
+          "speed": 0.0,
+          "vy": 0.000206,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367847,
+          "y": -5.460481,
+          "speed": 0.0,
+          "vy": 0.000587,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.59148,
+          "y": -5.536511,
+          "speed": 0.0,
+          "vy": -4.2e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 13.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.304003,
+          "y": 4.976146,
+          "speed": 0.0,
+          "vy": -0.000739,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457405,
+          "y": 5.385088,
+          "speed": 0.0,
+          "vy": 0.000239,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.367928,
+          "y": -5.460399,
+          "speed": 0.0,
+          "vy": 0.000561,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591482,
+          "y": -5.536508,
+          "speed": 0.0,
+          "vy": -3e-06,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 14.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303883,
+          "y": 4.976265,
+          "speed": 0.0,
+          "vy": -0.000898,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45737,
+          "y": 5.385123,
+          "speed": 0.0,
+          "vy": 0.000251,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368003,
+          "y": -5.460325,
+          "speed": 0.0,
+          "vy": 0.000509,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.59148,
+          "y": -5.536511,
+          "speed": 0.0,
+          "vy": 2.7e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 14.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303749,
+          "y": 4.9764,
+          "speed": 0.0,
+          "vy": -0.000969,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457335,
+          "y": 5.385158,
+          "speed": 0.0,
+          "vy": 0.000245,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368069,
+          "y": -5.460259,
+          "speed": 0.0,
+          "vy": 0.000439,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591474,
+          "y": -5.536517,
+          "speed": 0.0,
+          "vy": 4.9e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 14.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303611,
+          "y": 4.976537,
+          "speed": 0.0,
+          "vy": -0.000967,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457302,
+          "y": 5.385191,
+          "speed": 0.0,
+          "vy": 0.000226,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368124,
+          "y": -5.460203,
+          "speed": 0.0,
+          "vy": 0.00036,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591466,
+          "y": -5.536525,
+          "speed": 0.0,
+          "vy": 6.3e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 14.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303479,
+          "y": 4.976669,
+          "speed": 0.0,
+          "vy": -0.000909,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457272,
+          "y": 5.38522,
+          "speed": 0.0,
+          "vy": 0.000198,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368168,
+          "y": -5.46016,
+          "speed": 0.0,
+          "vy": 0.000278,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591456,
+          "y": -5.536534,
+          "speed": 0.0,
+          "vy": 7e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 14.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303359,
+          "y": 4.97679,
+          "speed": 0.0,
+          "vy": -0.000812,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457247,
+          "y": 5.385246,
+          "speed": 0.0,
+          "vy": 0.000164,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.3682,
+          "y": -5.460128,
+          "speed": 0.0,
+          "vy": 0.000199,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591446,
+          "y": -5.536545,
+          "speed": 0.0,
+          "vy": 7.2e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 15.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303254,
+          "y": 4.976894,
+          "speed": 0.0,
+          "vy": -0.00069,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457227,
+          "y": 5.385266,
+          "speed": 0.0,
+          "vy": 0.000129,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368221,
+          "y": -5.460106,
+          "speed": 0.0,
+          "vy": 0.000126,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591436,
+          "y": -5.536554,
+          "speed": 0.0,
+          "vy": 6.9e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 15.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303169,
+          "y": 4.97698,
+          "speed": 0.0,
+          "vy": -0.000555,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457212,
+          "y": 5.385281,
+          "speed": 0.0,
+          "vy": 9.4e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368234,
+          "y": -5.460094,
+          "speed": 0.0,
+          "vy": 6.3e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591427,
+          "y": -5.536564,
+          "speed": 0.0,
+          "vy": 6.2e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 15.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303102,
+          "y": 4.977046,
+          "speed": 0.0,
+          "vy": -0.000419,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457202,
+          "y": 5.385291,
+          "speed": 0.0,
+          "vy": 6.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368238,
+          "y": -5.46009,
+          "speed": 0.0,
+          "vy": 1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591419,
+          "y": -5.536572,
+          "speed": 0.0,
+          "vy": 5.4e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 15.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303055,
+          "y": 4.977094,
+          "speed": 0.0,
+          "vy": -0.000289,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457196,
+          "y": 5.385297,
+          "speed": 0.0,
+          "vy": 3.2e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368235,
+          "y": -5.460092,
+          "speed": 0.0,
+          "vy": -3.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591412,
+          "y": -5.536579,
+          "speed": 0.0,
+          "vy": 4.4e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 15.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303024,
+          "y": 4.977124,
+          "speed": 0.0,
+          "vy": -0.000172,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457193,
+          "y": 5.385299,
+          "speed": 0.0,
+          "vy": 8e-06,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368228,
+          "y": -5.460099,
+          "speed": 0.0,
+          "vy": -6.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591407,
+          "y": -5.536584,
+          "speed": 0.0,
+          "vy": 3.4e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 16.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303009,
+          "y": 4.977139,
+          "speed": 0.0,
+          "vy": -7.2e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457194,
+          "y": 5.385299,
+          "speed": 0.0,
+          "vy": -1.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368218,
+          "y": -5.46011,
+          "speed": 0.0,
+          "vy": -8.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591403,
+          "y": -5.536588,
+          "speed": 0.0,
+          "vy": 2.5e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 16.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303006,
+          "y": 4.977142,
+          "speed": 0.0,
+          "vy": 1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457197,
+          "y": 5.385296,
+          "speed": 0.0,
+          "vy": -2.6e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368205,
+          "y": -5.460122,
+          "speed": 0.0,
+          "vy": -9.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.5914,
+          "y": -5.536591,
+          "speed": 0.0,
+          "vy": 1.6e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 16.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303013,
+          "y": 4.977135,
+          "speed": 0.0,
+          "vy": 7.2e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457201,
+          "y": 5.385291,
+          "speed": 0.0,
+          "vy": -3.5e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368192,
+          "y": -5.460135,
+          "speed": 0.0,
+          "vy": -9.4e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591399,
+          "y": -5.536592,
+          "speed": 0.0,
+          "vy": 8e-06,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 16.6,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303028,
+          "y": 4.977121,
+          "speed": 0.0,
+          "vy": 0.000116,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457207,
+          "y": 5.385286,
+          "speed": 0.0,
+          "vy": -4e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368179,
+          "y": -5.460148,
+          "speed": 0.0,
+          "vy": -9.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591398,
+          "y": -5.536593,
+          "speed": 0.0,
+          "vy": 2e-06,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 16.8,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303047,
+          "y": 4.977102,
+          "speed": 0.0,
+          "vy": 0.000144,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457213,
+          "y": 5.38528,
+          "speed": 0.0,
+          "vy": -4.2e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368167,
+          "y": -5.460161,
+          "speed": 0.0,
+          "vy": -8.3e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591398,
+          "y": -5.536593,
+          "speed": 0.0,
+          "vy": -3e-06,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 17.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303068,
+          "y": 4.97708,
+          "speed": 0.0,
+          "vy": 0.000156,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457219,
+          "y": 5.385274,
+          "speed": 0.0,
+          "vy": -4.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368156,
+          "y": -5.460172,
+          "speed": 0.0,
+          "vy": -7.2e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591399,
+          "y": -5.536592,
+          "speed": 0.0,
+          "vy": -7e-06,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 17.2,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303091,
+          "y": 4.977058,
+          "speed": 0.0,
+          "vy": 0.000157,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457224,
+          "y": 5.385269,
+          "speed": 0.0,
+          "vy": -3.7e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368147,
+          "y": -5.460181,
+          "speed": 0.0,
+          "vy": -6e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.5914,
+          "y": -5.53659,
+          "speed": 0.0,
+          "vy": -1e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 17.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303112,
+          "y": 4.977036,
+          "speed": 0.0,
+          "vy": 0.000149,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.457229,
+          "y": 5.385264,
+          "speed": 0.0,
+          "vy": -3.3e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368139,
+          "y": -5.460188,
+          "speed": 0.0,
+          "vy": -4.7e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591402,
+          "y": -5.536589,
+          "speed": 0.0,
+          "vy": -1.1e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 17.45,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 4.41019,
+          "y": 0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 5.303117,
+          "y": 4.977031,
+          "speed": 0.0,
+          "vy": 0.000145,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": -0.0,
+          "y": 4.89863,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": -5.45723,
+          "y": 5.385263,
+          "speed": 0.0,
+          "vy": -3.1e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V3",
+          "x": -4.755634,
+          "y": -0.0,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": -5.368138,
+          "y": -5.46019,
+          "speed": 0.0,
+          "vy": -4.4e-05,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "V4",
+          "x": 0.0,
+          "y": -4.560174,
+          "speed": 0.0,
+          "vy": -0.0,
+          "mode": "WAIT",
+          "done": false
+        },
+        {
+          "id": "P4",
+          "x": 5.591402,
+          "y": -5.536589,
+          "speed": 0.0,
+          "vy": -1.1e-05,
+          "mode": "WAIT",
+          "done": false
+        }
+      ]
+    }
+  ]
+}

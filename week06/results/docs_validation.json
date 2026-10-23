@@ -1,0 +1,11 @@
+{
+  "documentation_pages": 10,
+  "homepage_checked": true,
+  "local_links_checked": 431,
+  "chapter_anchors_checked": 162,
+  "image_references_checked": 2,
+  "code_blocks_preserved": 57,
+  "missing_links": 0,
+  "documentation_has_no_external_runtime_dependencies": true,
+  "validation_method": "Static HTML structure, local links, anchors and exact fenced-code text comparison; no browser visual verification."
+}

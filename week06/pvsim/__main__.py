@@ -6,6 +6,7 @@ from .export import save_result, save_replay
 from .experiments import run_sweep, make_plots
 from .social_force import make_policy
 from .benchmark import benchmark, sfm_parameter_sweep, failures
+from .radial_experiments import run_radial
 
 
 def demos(out):
@@ -33,13 +34,13 @@ def demos(out):
 def main():
     parser = argparse.ArgumentParser(description="Unified pedestrian-vehicle interaction simulator")
     sub = parser.add_subparsers(dest="command", required=True)
-    for command in ("run", "demo", "sweep", "benchmark", "failures", "sfm-sweep", "all"):
+    for command in ("run", "demo", "sweep", "benchmark", "failures", "sfm-sweep", "circle", "all"):
         p = sub.add_parser(command)
         p.add_argument("--out", type=Path, default=Path("results"))
         if command == "run":
             p.add_argument("--config", type=Path, default=Path("configs/default.json"))
             p.add_argument("--policy", choices=("reciprocal", "social_force", "sfm_guided", "sfm_guided_ungated"), default="reciprocal")
-        if command in ("sweep", "benchmark", "all"):
+        if command in ("sweep", "benchmark", "circle", "all"):
             p.add_argument("--seeds", type=int, default=5)
             p.add_argument("--plots", action="store_true", help="Requires matplotlib and numpy")
     args = parser.parse_args()
@@ -63,6 +64,8 @@ def main():
         sfm_parameter_sweep(args.out / "sfm_parameters" if args.command == "all" else args.out)
     if args.command in ("failures", "all"):
         failures(args.out / "failures" if args.command == "all" else args.out)
+    if args.command in ("circle", "all"):
+        run_radial(args.out / "circle_crossing" if args.command == "all" else args.out, args.seeds)
 
 
 if __name__ == "__main__":

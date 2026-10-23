@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>更新规则、诊断与评价口径 · 人车交互实验</title><style>
+:root{color-scheme:light;--ink:#243b47;--muted:#586e7b;--line:#dce6e9}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;color:var(--ink);background:#f3f6f7;font:15px/1.85 system-ui,"Microsoft YaHei",sans-serif}
+a{color:#086f83;text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:3px solid #e8a745;outline-offset:3px}
+.skip{position:absolute;top:-80px;background:white;padding:12px;z-index:5}.skip:focus{top:10px}
+.top{background:#103c48;color:white;padding:20px max(24px,calc((100vw - 1440px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{font-size:19px;font-weight:700;color:white}.top nav{display:flex;gap:22px;flex-wrap:wrap}.top a{color:white}
+.layout{max-width:1440px;margin:auto;display:grid;grid-template-columns:236px minmax(0,1fr);gap:28px;padding:30px 24px 80px}
+.sidebar{align-self:start;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;padding:6px 10px 12px 0}
+.sidebar h2{font-size:12px;letter-spacing:1px;color:var(--muted);margin:20px 12px 8px}.sidebar h2:first-child{margin-top:0}
+.sidebar a{display:block;padding:8px 12px;border-radius:6px;font-size:14px;color:var(--ink)}.sidebar a[aria-current=page]{background:#dceef0;color:#055f65;font-weight:700}
+main{min-width:0;background:white;border:1px solid var(--line);border-radius:10px;padding:34px 42px 48px;box-shadow:0 4px 20px #17364206}
+.meta{color:var(--muted);font-size:13px;display:flex;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:26px}
+h1{font-size:30px;line-height:1.5;margin:0 0 22px}h2{font-size:23px;line-height:1.6;margin:40px 0 16px;color:#146677}h3{font-size:18px;margin:30px 0 12px}h4{font-size:16px}p{margin:14px 0}li{margin:6px 0}
+code{background:#edf3f5;border-radius:4px;padding:2px 5px;font:13px/1.65 Consolas,monospace;overflow-wrap:anywhere}pre{background:#f0f5f6;border:1px solid var(--line);border-radius:7px;padding:18px;overflow:auto;line-height:1.65}pre code{padding:0;background:none;overflow-wrap:normal}
+.table-wrap{max-width:100%;overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:6px}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.75}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf2f4;font-weight:650;white-space:nowrap}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafb}
+img{display:block;max-width:100%;height:auto;margin:24px auto}blockquote{border-left:4px solid #5aa1a7;padding:4px 18px;margin:20px 0;background:#f2f8f8}
+.toc{background:#f6f9fa;border:1px solid var(--line);border-radius:7px;padding:14px 18px;margin:24px 0}.toc summary{cursor:pointer;font-weight:650}.toc ul{padding-left:20px;max-height:340px;overflow:auto}.toc li{margin:3px 0;font-size:14px}.toc .level-3{margin-left:16px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:8px;padding:20px;display:block;color:var(--ink)}.card:hover{border-color:#298892;background:#f5fafb;text-decoration:none}.card strong{display:block;font-size:17px;color:#096e7b}.card span{display:block;font-size:14px;color:var(--muted);margin-top:8px}
+footer{border-top:1px solid var(--line);margin-top:38px;padding-top:18px;font-size:13px;color:var(--muted)}
+@media(max-width:900px){.layout{grid-template-columns:190px minmax(0,1fr);gap:16px;padding:20px 16px}main{padding:26px 22px}.cards{grid-template-columns:1fr}}
+@media(max-width:650px){.top{padding:18px}.layout{display:block;padding:14px}.sidebar{position:static;max-height:none;padding:0 0 18px}.sidebar nav{display:flex;flex-wrap:wrap;gap:4px}.sidebar a{font-size:13px;padding:6px 9px}.sidebar h2{margin:12px 8px 6px}main{padding:24px 18px}h1{font-size:25px}h2{font-size:21px}}
+@media print{body{background:white}.top,.sidebar,.toc,.skip,.meta{display:none}.layout{display:block;padding:0}main{border:0;padding:0;box-shadow:none}.table-wrap,pre{overflow:visible}pre{white-space:pre-wrap}h1,h2,h3{break-after:avoid}tr,img{break-inside:avoid}a{color:inherit}}
+</style></head>
+<body><a class="skip" href="#content">跳转到正文</a>
+<header class="top"><a class="brand" href="index.html">Week06 · 人车交互实验</a>
+<nav aria-label="主要入口"><a href="../index.html">动态主页</a><a href="index.html">文档导航</a><a href="REPORT.html">实验报告</a></nav></header>
+<div class="layout"><aside class="sidebar" aria-label="文档导航"><h2>模型与实验</h2><nav><a href="index.html">文档导航</a><a href="../README.html">模型与规则概览</a><a href="MODEL.html">模型方程</a><a href="RULES.html" aria-current="page">规则与指标</a><a href="PARAMETERS.html">参数表</a><a href="REPORT.html">实验报告</a><a href="SENSITIVITY.html">灵敏度结果</a><a href="CIRCLE.html">圆环向心实验</a><a href="DELIVERY.html">文件与数据索引</a><a href="week06_%E4%BA%BA%E8%BD%A6%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AE%9E%E9%AA%8C.html">完整综合记录</a></nav><h2>交互回放</h2><nav><a href="../index.html">动态主页 · 向心穿越</a><a href="../results/demo/replay.html">直路与缩窄道路</a><a href="../results/benchmark/replay.html">直路三模型对比</a><a href="../results/failures/replay.html">失败案例与修正</a></nav></aside>
+<main id="content"><div class="meta"><span>本地离线文档</span><a href="RULES.md">查看 Markdown 源文档</a></div><h1 id="更新规则诊断与评价口径">更新规则、诊断与评价口径</h1><details class="toc" open><summary>本页目录</summary><ul><li class="level-2"><a href="#%E6%AF%8F%E4%B8%AA%E6%97%B6%E9%97%B4%E6%AD%A5">每个时间步</a></li><li class="level-2"><a href="#%E4%BA%A4%E4%BA%92%E8%A7%84%E5%88%99">交互规则</a></li><li class="level-2"><a href="#%E7%8A%B6%E6%80%81%E5%92%8C%E7%BB%88%E6%AD%A2%E5%88%86%E7%B1%BB">状态和终止分类</a></li><li class="level-2"><a href="#%E6%8C%87%E6%A0%87">指标</a></li><li class="level-2"><a href="#%E5%85%AC%E5%B9%B3%E5%AF%B9%E7%85%A7%E4%B8%8E%E8%BE%B9%E7%95%8C">公平对照与边界</a></li><li class="level-2"><a href="#%E5%90%91%E5%BF%83%E5%9C%BA%E6%99%AF%E5%B7%AE%E5%BC%82">向心场景差异</a></li></ul></details>
+<h2 id="每个时间步">每个时间步</h2>
+<ol>
+<li>对所有未退出主体读取同一个旧状态快照；向心场景先变换到主体各自局部坐标。</li>
+<li>同一策略根据期望运动、道路、相对位置和主体能力产生控制量。主模型和 SFM 不通过 <code>kind</code> 判断行人或车辆。</li>
+<li>受限积分得到下一状态；不覆盖速度上限不足所产生的真实制动过程。</li>
+<li>检查整个线性位移段的矩形接触、最近间距，以及分段线性道路边界。向心场景对不同朝向矩形使用连续SAT检测。</li>
+<li>记录碰撞、越界、互相通过、出口离开/对径目标到达等事件。</li>
+<li>达到退出、失败、持续停滞或观察时限条件后停止，输出原始轨迹与指标。</li>
+</ol>
+<h2 id="交互规则">交互规则</h2>
+<ul>
+<li>默认车向 +s、人向 −s；人选 +y 侧、可侧移车辆选 −y 侧。车辆横向能力为零时保持初始位置。</li>
+<li>相向近邻使用固定侧目标，直到对方尾部及纵向间距都已经通过，才恢复初始路径。多个来车持续保持交互状态。</li>
+<li>未实现动态路权、倒退、掉头、外部信号、停车港湾或智能体之间的显式协商。因此无解时等待是允许的结果。</li>
+<li>默认车辆起点根据最窄宽度预先靠边，<strong>宽度实验不是“车永远居中”</strong>。居中不动与允许侧移另外对照，避免把额外占位限制混入几何下限。</li>
+<li>SFM 的软墙不等于硬约束。越界即记录失败，不能通过裁剪位置掩盖。</li>
+</ul>
+<h2 id="状态和终止分类">状态和终止分类</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>条件/解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>completed</td>
+<td>直路中所有主体尾部离开目标端；向心场景中全部进入对径目标容差并停稳</td>
+</tr>
+<tr>
+<td>collision</td>
+<td>连续步内检测到两个物理矩形包络接触或重叠，接触也计为碰撞</td>
+</tr>
+<tr>
+<td>boundary_violation</td>
+<td>物理包络离开道路边界</td>
+</tr>
+<tr>
+<td>waiting_geometry</td>
+<td>全体未退出主体持续低速，且最窄断面不满足几何必要条件</td>
+</tr>
+<tr>
+<td>waiting_clearance</td>
+<td>全体持续低速，几何可放下但安全断面条件不满足</td>
+</tr>
+<tr>
+<td>waiting_alignment</td>
+<td>全体持续低速，安全总宽足够但固定主体的位置阻塞指定侧通道</td>
+</tr>
+<tr>
+<td>deadlock_policy</td>
+<td>全体持续低速，以上断面条件未解释停滞；需查看运动能力、选边、排斥力与局部目标</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>开放道路达到观察时限仍未全部退出，不能等同于死锁</td>
+</tr>
+</tbody>
+</table></div>
+<p>停滞判据：所有未退出主体二维速度模长小于 0.025 m/s，持续 8 s。短暂停车后恢复不算死锁，持续横移也不算停滞。当前是全体停滞检测，不能保证发现“部分主体永久等待、其他主体仍在动”的所有情况。</p>
+<p>诊断由几何条件分层给出，属于候选原因解释。尤其对任意新道路或纯 SFM，不能把断面检查直接当作因果证明。数据中同时保留间距、位置、事件和策略名，以便复查。</p>
+<h2 id="指标">指标</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>单位与含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>completion_time_s</td>
+<td>最后一个主体尾部离开时间；未完成为 null</td>
+</tr>
+<tr>
+<td>observation_time_s</td>
+<td>仿真实际观察时长；等待/碰撞时不等于完成时间</td>
+</tr>
+<tr>
+<td>pedestrians_passed / vehicles_passed</td>
+<td>开放道路中完成退出的唯一主体数</td>
+</tr>
+<tr>
+<td>pair_passages</td>
+<td>相向主体尾部相互错开且保留纵向间隔的事件数；仅用于直路对照</td>
+</tr>
+<tr>
+<td>min_pair_gap_m</td>
+<td>整个步内所有物理包络的最小欧氏间距；不是单独的横向间距</td>
+</tr>
+<tr>
+<td>min_wall_gap_m</td>
+<td>所有运动段内主体到墙的最小净间距</td>
+</tr>
+<tr>
+<td>safety_margins_satisfied</td>
+<td>无碰撞越界，且最小物理间距和边界间距满足设定裕度（含 1e−5 m 数值容差）</td>
+</tr>
+<tr>
+<td>total_agent_waiting_s</td>
+<td>各主体低速等待时间之和，是“主体·秒”，可以大于仿真时长</td>
+</tr>
+<tr>
+<td>speed_ceiling_unreachable_agent_steps</td>
+<td>当前保守目标上限无法在一步内达到的主体步数，不等同于必然碰撞</td>
+</tr>
+<tr>
+<td>mean_longitudinal_speed_m_s</td>
+<td>已观察时段中平均纵向进展速度；跨不同失败时刻比较需谨慎</td>
+</tr>
+</tbody>
+</table></div>
+<p>开放道路输出的每分钟通过数是有限初始批次的观察值，不能直接称为稳态道路容量。主要报告完成率、条件完成时间、间距和停滞分类。</p>
+<h2 id="公平对照与边界">公平对照与边界</h2>
+<p>三种模型使用同一场景对象的深拷贝：道路、尺寸、初始位置、速度、加减速上限、横向能力、步长、碰撞检测、退出定义和停滞判据相同。每个配置采用相同种子0–4，随机性只来自期望/初始速度的±8%独立扰动。</p>
+<p>纯 SFM 没有主模型的显式窄路慢行、选边和制动包络；这是待比较的策略差异，不是积分器差异。它也没有数据标定或完备的路径规划。因此结果支持“本实现的行为差异和修正效果”，不支持现实交通安全性能、所有社会力模型排名或一般性的无碰撞保证。</p>
+<h2 id="向心场景差异">向心场景差异</h2>
+<p>向心场景以对径目标到达数评价通过，完成的主体保留为静止实体。没有物理道路边界；不使用断面宽度等待标签、圈数和周期通量。碰撞检测为固定朝向OBB连续SAT。<code>min_pair_gap_m</code>是全步间距保守下界，不与直路精确欧氏间距直接比较。未完成时间仍为null；120 s超时与全体低速持续8 s的僵持分开记录。模型的局部坐标投影是保守适配，见<a href="CIRCLE.html">CIRCLE.md</a>。</p>
+
+<footer>Markdown 为源文档；修改后运行 <code>python -m pvsim.render_docs --root .</code> 更新网页。回放与实验数据由仿真代码另行生成。</footer></main></div></body></html>

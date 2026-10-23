@@ -10,5 +10,3 @@ sfm_tuned_wide,SFM：扩大作用范围，5 m 通过,social_force,completed,80.2
 sfm_narrow,SFM：3.2 m 窄路软边界不足,social_force,boundary_violation,,0,1,0,0.3275259520749785,-0.011402201088141106,9.349999999999984,False
 sfm_partial,部分修正：选边与制动，仍可能僵持,sfm_guided_ungated,deadlock_policy,,0,0,3,0.599999991336034,0.09999999999999998,91.65000000000076,True
 sfm_full,完整修正：解除已消除的冲突力,sfm_guided,completed,54.12082858369326,0,0,6,0.5999999699985743,0.09999999999999998,0.0,True
-ring_sfm,圆环：纯 SFM,social_force,boundary_violation,,0,1,0,0.354748288935788,-0.0012087577713601472,13.299999999999978,False
-ring_repair,圆环：SFM 加规则修正,sfm_guided,sustained,,0,0,30,0.5999999699985743,0.09999999999999998,0.9500000000000003,True
