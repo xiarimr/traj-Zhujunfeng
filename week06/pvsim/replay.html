@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>窄路人车交互 · 仿真回放</title>
+<style>
+:root{color-scheme:light;--ink:#172b3a;--muted:#5a6e7d;--paper:#f3f6f8;--line:#d6e0e6;--vehicle:#197b92;--person:#c46e24;--danger:#bc4157}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.55}
+main{max-width:1160px;margin:auto;padding:32px 26px}header{margin-bottom:24px}h1{font-size:27px;font-weight:600;letter-spacing:.01em;margin:4px 0 7px}p{margin:5px 0;color:var(--muted)}.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--vehicle)}
+.toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:end;margin:18px 0}.field{display:flex;flex-direction:column;gap:5px}.field.grow{flex:1;min-width:250px}label{color:var(--muted);font-size:12px}button,select,input{font:inherit}select,button{border:1px solid #bbcbd5;border-radius:6px;padding:9px 12px;background:#fff;color:var(--ink)}button{cursor:pointer;min-width:80px}button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:10px;margin:16px 0;overflow:hidden}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}.panelhead h2{font-size:15px;font-weight:600;margin:0}.legend{display:flex;gap:20px;color:var(--muted);font-size:12px}.dot{display:inline-block;width:11px;height:11px;background:var(--vehicle);margin-right:6px}.dot.person{background:var(--person);border-radius:50%}
+canvas{display:block;width:100%}#road{height:230px}#speed{height:210px}.timeline{display:flex;align-items:center;gap:12px;padding:0 18px 18px}.timeline input{flex:1;min-width:80px;accent-color:var(--vehicle)}output{font-variant-numeric:tabular-nums;min-width:100px;font-size:13px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:18px}.metric small{display:block;color:var(--muted)}.metric strong{font-size:21px;font-weight:500;font-variant-numeric:tabular-nums}.notes{padding:0 18px 16px;color:var(--muted);font-size:13px}.badge{padding:3px 8px;background:#eef4f7;border-radius:4px;font-size:12px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}td,th{text-align:left;padding:9px 18px;border-bottom:1px solid #edf1f4;white-space:nowrap}th{font-weight:500;color:var(--muted)}footer{font-size:12px;color:var(--muted);margin-top:20px}
+@media(max-width:640px){main{padding:18px 12px}h1{font-size:23px}.metrics{grid-template-columns:repeat(2,1fr)}.field.grow{min-width:100%;}.panelhead{padding:12px}#road{height:210px}}
+</style>
+</head>
+<body><main>
+<header><div class="eyebrow">PEDESTRIAN × VEHICLE / RESEARCH PROTOTYPE</div><h1>窄路中的相向通行</h1><p>同一运动模型，不同运动能力。观察侧移、减速、通行与等待。</p></header>
+<div class="toolbar">
+  <div class="field grow"><label for="scenario">实验场景</label><select id="scenario"></select></div>
+  <div class="field"><label for="rate">回放速度</label><select id="rate"><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option></select></div>
+  <div class="field"><label for="zoom">观察范围</label><select id="zoom"><option value="full">全路 / 等比例</option><option value="near">会车区域 / 等比例</option></select></div>
+  <button class="primary" id="play" type="button">播放</button><button id="restart" type="button">从头开始</button>
+</div>
+<div class="panel"><div class="panelhead"><h2>运动轨迹</h2><div class="legend"><span><i class="dot"></i>车辆 V →</span><span><i class="dot person"></i>行人 P ←</span></div><span id="status" class="badge" aria-live="polite"></span></div>
+<canvas id="road" aria-label="人车相向运动回放，道路与主体采用相同比例"></canvas>
+<div class="timeline"><output id="time"></output><input id="scrub" type="range" min="0" max="1000" value="0" aria-label="回放时间"></div></div>
+<div class="panel"><div class="panelhead"><h2>本次运行结果</h2><span id="threshold" class="badge"></span></div><div class="metrics" id="metrics"></div><div class="notes" id="reason"></div></div>
+<div class="panel"><div class="panelhead"><h2>纵向速度 · m/s</h2><span class="badge">实线 V1 / 虚线 P1 · 竖线为当前时刻</span></div><canvas id="speed" aria-label="车辆和行人速度随时间变化曲线"></canvas></div>
+<div class="panel"><div class="panelhead"><h2>主体状态</h2><span class="badge">当前记录帧</span></div><div class="tablewrap"><table><thead><tr><th>主体</th><th>状态</th><th>x / m</th><th>y / m</th><th>纵向 / m·s⁻¹</th><th>横向 / m·s⁻¹</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+<footer>回放来自保存的 Python 计算结果。通过数以整个主体离开道路为准；等待诊断时刻不是完成时间。此原型尚未用实测轨迹标定。</footer>
+</main>
+<script id="data" type="application/json">__SIMULATION_DATA__</script>
+<script>
+(()=>{'use strict';
+const data=JSON.parse(document.getElementById('data').textContent),el=id=>document.getElementById(id);
+const labels={sustained:'观察期内持续运行',completed:'全部通过',waiting_clearance:'安全间距不足 · 等待',waiting_geometry:'几何宽度不足 · 等待',waiting_alignment:'固定车道阻塞 · 等待',deadlock_policy:'策略僵持',timeout:'达到观察时限',collision:'检测到碰撞',boundary_violation:'检测到越界'};
+const modes={FREE:'正常前行',BRAKE:'减速',SIDESTEP:'侧移',PASS:'交互通行',FOLLOW:'跟随',WAIT:'等待',RECOVER:'回到原路径',DONE:'已通过'};
+const descriptions={completed:'全部主体已通过；请结合最小间距和越界数判断本次运行的安全性。',waiting_clearance:'几何包络仍可能并排放下，但指定的侧向安全间距无法同时满足；双方在当前不后退的策略下等待。',waiting_alignment:'道路总宽允许通行，但车辆固定的横向位置挡住了行人的指定绕行侧。允许车辆小幅靠边可作对照。',waiting_geometry:'最窄断面容不下双方几何包络。需要路外避车空间、退让或轮流通行规则。',deadlock_policy:'几何断面检验没有解释此次停滞。应检查运动能力、选边约定、局部目标与策略活性。',timeout:'仍有主体未完成，不能把这一观察时限当作总通过时间。',collision:'本次检测到真实包络接触；仿真没有用位置投影或瞬时制动隐藏碰撞。',boundary_violation:'本次运动越过道路边界，应修改路径规划或运动约束。'};
+data.forEach((d,i)=>{const o=document.createElement('option');o.value=i;o.textContent=d.label;el('scenario').append(o);});
+let index=0,t=0,playing=false,last=0;
+function current(){return data[index]}function end(){const tr=current().trace;return tr[tr.length-1].time}
+function frame(){const tr=current().trace;let lo=0,hi=tr.length-1;while(lo<hi){const mid=Math.ceil((lo+hi)/2);if(tr[mid].time<=t)lo=mid;else hi=mid-1;}return tr[lo]}
+function setup(canvas){const r=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return [ctx,r.width,r.height]}
+function ringRoad(){const [c,w,h]=setup(el('road')),d=current(),r=d.scenario.road,roadWidth=r.profile[0][1],R=r.length/(2*Math.PI),scale=Math.min(w-100,h-64)/(2*(R+roadWidth/2)),cx=w/2,cy=h/2;
+const radial=v=>(R+v)*scale;c.fillStyle='#edf2f5';c.beginPath();c.arc(cx,cy,radial(roadWidth/2),0,2*Math.PI);c.arc(cx,cy,radial(-roadWidth/2),0,2*Math.PI,true);c.fill();c.strokeStyle='#8eabb9';[-1,1].forEach(sign=>{c.beginPath();c.arc(cx,cy,radial(sign*roadWidth/2),0,2*Math.PI);c.stroke()});
+c.strokeStyle='#bbcbd5';c.setLineDash([4,5]);c.beginPath();c.arc(cx,cy,radial(0),0,2*Math.PI);c.stroke();c.setLineDash([]);c.fillStyle='#5a6e7d';c.font='13px "Microsoft YaHei",sans-serif';c.textAlign='center';c.fillText('周期环道 · '+r.length+' m',cx,cy-8);c.fillText('展开坐标映射 / 宽 '+roadWidth.toFixed(2)+' m',cx,cy+16);
+c.strokeStyle='#5a6e7d';c.beginPath();c.moveTo(cx,cy-radial(-roadWidth/2));c.lineTo(cx,cy-radial(roadWidth/2)-8);c.stroke();c.fillText('s = 0 检测线',cx,cy-radial(roadWidth/2)-14);
+for(const a of frame().agents){const p=d.scenario.agents.find(p=>p.id===a.id),angle=(a.x%r.length)/R-Math.PI/2,half=p.length/(2*R),outer=radial(a.y+p.width/2),inner=radial(a.y-p.width/2);c.fillStyle=p.kind==='vehicle'?'#197b92':'#c46e24';c.beginPath();c.arc(cx,cy,outer,angle-half,angle+half);c.arc(cx,cy,inner,angle+half,angle-half,true);c.closePath();c.fill();c.fillStyle='#172b3a';const rr=radial(a.y)+(p.kind==='vehicle'?-17:17);c.fillText(a.id,cx+rr*Math.cos(angle),cy+rr*Math.sin(angle)+4)}
+}
+function road(){if(current().scenario.road.periodic){ringRoad();return;}const [c,w,h]=setup(el('road')),d=current(),f=frame(),r=d.scenario.road,near=el('zoom').value==='near',lo=near?18:-3,hi=near?44:r.length+3;
+const scale=(w-44)/(hi-lo),X=x=>22+(x-lo)*scale,Y=y=>h/2-y*scale;
+c.fillStyle='#ffffff';c.fillRect(0,0,w,h);c.fillStyle='#edf2f5';c.beginPath();r.profile.forEach((p,i)=>i?c.lineTo(X(p[0]),Y(p[1]/2)):c.moveTo(X(p[0]),Y(p[1]/2)));[...r.profile].reverse().forEach(p=>c.lineTo(X(p[0]),Y(-p[1]/2)));c.closePath();c.fill();
+c.strokeStyle='#8eabb9';c.lineWidth=1.5;[-1,1].forEach(sign=>{c.beginPath();r.profile.forEach((p,i)=>i?c.lineTo(X(p[0]),Y(sign*p[1]/2)):c.moveTo(X(p[0]),Y(sign*p[1]/2)));c.stroke()});
+c.strokeStyle='#ced9df';c.setLineDash([5,6]);c.beginPath();c.moveTo(X(0),Y(0));c.lineTo(X(r.length),Y(0));c.stroke();c.setLineDash([]);
+c.font='12px "Segoe UI",sans-serif';c.fillStyle='#5a6e7d';c.textAlign='center';for(let x=Math.ceil(lo/5)*5;x<=hi;x+=5){c.fillText(x+' m',X(x),h-17)}
+for(const a of f.agents){if(a.done)continue;const p=d.scenario.agents.find(p=>p.id===a.id),isCar=p.kind==='vehicle',color=isCar?'#197b92':'#c46e24';
+c.fillStyle=color;c.globalAlpha=.13;c.fillRect(X(a.x-p.length/2)-2,Y(a.y+p.width/2)-2,p.length*scale+4,p.width*scale+4);c.globalAlpha=1;
+c.fillStyle=color;c.fillRect(X(a.x-p.length/2),Y(a.y+p.width/2),Math.max(p.length*scale,2),Math.max(p.width*scale,2));
+c.strokeStyle='#ffffff';c.lineWidth=1;c.beginPath();c.moveTo(X(a.x)-3*p.direction,Y(a.y)-3);c.lineTo(X(a.x)+3*p.direction,Y(a.y));c.lineTo(X(a.x)-3*p.direction,Y(a.y)+3);c.stroke();
+c.fillStyle='#172b3a';c.textAlign='center';c.fillText(a.id,X(a.x),isCar?Y(a.y-p.width/2)+17:Y(a.y+p.width/2)-8);
+}c.fillStyle='#5a6e7d';c.textAlign='left';c.fillText('最窄 '+d.feasibility.minimum_road_width_m.toFixed(2)+' m',18,23);
+}
+function speed(){const [c,w,h]=setup(el('speed')),d=current(),tr=d.trace,ids=['V1','P1'],maxV=Math.max(1,...tr.flatMap(f=>f.agents.filter(a=>ids.includes(a.id)).map(a=>a.speed)))*1.12;
+const x0=50,x1=w-22,y0=h-30,y1=20,X=z=>x0+z/end()*(x1-x0),Y=v=>y0-v/maxV*(y0-y1);c.font='12px "Segoe UI",sans-serif';c.textAlign='right';
+for(let k=0;k<5;k++){const v=maxV*k/4;c.strokeStyle='#e4ebef';c.beginPath();c.moveTo(x0,Y(v));c.lineTo(x1,Y(v));c.stroke();c.fillStyle='#5a6e7d';c.fillText(v.toFixed(1),x0-9,Y(v)+4)}
+c.textAlign='center';for(let k=0;k<5;k++){const s=end()*k/4;c.fillText(s.toFixed(0)+' s',X(s),h-8)}
+ids.forEach((id,i)=>{c.strokeStyle=i?'#c46e24':'#197b92';c.lineWidth=2;c.setLineDash(i?[5,4]:[]);c.beginPath();let started=false;for(const f of tr){const a=f.agents.find(a=>a.id===id);if(!a||a.done)continue;started?c.lineTo(X(f.time),Y(a.speed)):c.moveTo(X(f.time),Y(a.speed));started=true;}c.stroke()});
+c.setLineDash([]);c.lineWidth=1;c.strokeStyle='#5a6e7d';c.beginPath();c.moveTo(X(t),y1);c.lineTo(X(t),y0);c.stroke();
+}
+function draw(){road();speed();el('time').textContent=t.toFixed(1)+' / '+end().toFixed(1)+' s';el('scrub').value=t/end()*1000;const f=frame();el('rows').replaceChildren();for(const a of f.agents){const tr=document.createElement('tr');[a.id,modes[a.mode]||a.mode,a.x.toFixed(2),a.y.toFixed(2),a.done?'—':a.speed.toFixed(2),a.done?'—':a.vy.toFixed(2)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td)});el('rows').append(tr)}}
+function select(){index=Number(el('scenario').value);t=0;playing=false;el('play').textContent='播放';const d=current(),m=d.metrics;
+el('road').style.height=d.scenario.road.periodic?'400px':'230px';el('zoom').disabled=!!d.scenario.road.periodic;
+el('status').textContent='终局：'+(labels[m.status]||m.status);el('threshold').textContent='几何 '+d.feasibility.physical_width_threshold_m.toFixed(2)+' m / 安全 '+d.feasibility.safe_width_threshold_m.toFixed(2)+' m';
+el('reason').textContent=descriptions[m.status]||'';el('metrics').replaceChildren();const values=[['通过人数 / 车数',m.pedestrians_passed+'/'+m.pedestrians_total+' 人 · '+m.vehicles_passed+'/'+m.vehicles_total+' 车'],['全部完成用时',m.completion_time_s===null?'未完成':m.completion_time_s.toFixed(2)+' s'],['最小主体间距',m.min_pair_gap_m.toFixed(3)+' m'],['碰撞对数 / 越界主体数',m.collision_pairs+' / '+m.boundary_violations]];
+if(d.scenario.road.periodic){values[0]=['互相通过事件',String(m.pair_passages)];values[1]=['累计检测线通过人 / 车次',Object.entries(m.detector_crossings).filter(([id])=>d.scenario.agents.find(p=>p.id===id).kind==='pedestrian').reduce((s,[,v])=>s+v,0)+' / '+Object.entries(m.detector_crossings).filter(([id])=>d.scenario.agents.find(p=>p.id===id).kind==='vehicle').reduce((s,[,v])=>s+v,0)];el('reason').textContent=(descriptions[m.status]||'观察期内未检测到碰撞、越界或全体持续停滞；不代表无限时域稳定性。')+' 圆环使用周期展开坐标，不模拟真实刚体转弯扫掠。'}
+for(const [name,value]of values){const box=document.createElement('div');box.className='metric';const small=document.createElement('small'),strong=document.createElement('strong');small.textContent=name;strong.textContent=value;box.append(small,strong);el('metrics').append(box)}draw()}
+el('scenario').addEventListener('change',select);el('play').addEventListener('click',()=>{if(t>=end())t=0;playing=!playing;el('play').textContent=playing?'暂停':'播放'});el('restart').addEventListener('click',()=>{t=0;playing=false;el('play').textContent='播放';draw()});el('scrub').addEventListener('input',()=>{t=Number(el('scrub').value)/1000*end();draw()});el('zoom').addEventListener('change',draw);new ResizeObserver(draw).observe(el('road'));
+function tick(now){if(playing){t=Math.min(end(),t+Math.min((now-last)/1000,.1)*Number(el('rate').value));if(t>=end()){playing=false;el('play').textContent='播放'}draw()}last=now;requestAnimationFrame(tick)}select();requestAnimationFrame(tick);
+})();
+</script></body></html>

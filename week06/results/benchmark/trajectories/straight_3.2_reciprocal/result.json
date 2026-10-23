@@ -1,0 +1,5343 @@
+{
+  "policy": {
+    "name": "reciprocal",
+    "parameters": {}
+  },
+  "scenario": {
+    "name": "corridor",
+    "seed": 0,
+    "road": {
+      "length": 60.0,
+      "profile": [
+        [
+          0.0,
+          3.2
+        ],
+        [
+          60.0,
+          3.2
+        ]
+      ],
+      "periodic": false
+    },
+    "settings": {
+      "dt": 0.05,
+      "max_time": 160.0,
+      "horizon": 6.0,
+      "reaction_buffer": 0.6,
+      "lateral_clearance": 0.2,
+      "wall_clearance": 0.1,
+      "longitudinal_clearance": 0.6,
+      "stall_time": 8.0,
+      "stop_speed": 0.025,
+      "record_every": 10,
+      "clearance_tolerance": 1e-05,
+      "squeeze_speed_fraction": 0.35,
+      "comfort_extra_gap": 0.6
+    },
+    "agents": [
+      {
+        "id": "V1",
+        "kind": "vehicle",
+        "length": 4.5,
+        "width": 1.8,
+        "desired_speed": 3.165322488732023,
+        "max_accel": 1.5,
+        "max_brake": 3.0,
+        "lateral_speed": 0.0,
+        "lateral_accel": 0.4,
+        "direction": 1,
+        "side": -1,
+        "home_y": -0.6,
+        "mass": 1500.0,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "V2",
+        "kind": "vehicle",
+        "length": 4.5,
+        "width": 1.8,
+        "desired_speed": 3.123818113411345,
+        "max_accel": 1.5,
+        "max_brake": 3.0,
+        "lateral_speed": 0.0,
+        "lateral_accel": 0.4,
+        "direction": 1,
+        "side": -1,
+        "home_y": -0.6,
+        "mass": 1500.0,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "P1",
+        "kind": "pedestrian",
+        "length": 0.5,
+        "width": 0.6,
+        "desired_speed": 1.2834788888128157,
+        "max_accel": 1.2,
+        "max_brake": 2.0,
+        "lateral_speed": 0.7,
+        "lateral_accel": 1.0,
+        "direction": -1,
+        "side": 1,
+        "home_y": -0.6,
+        "mass": 70.0,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "P2",
+        "kind": "pedestrian",
+        "length": 0.5,
+        "width": 0.6,
+        "desired_speed": 1.2498546840609364,
+        "max_accel": 1.2,
+        "max_brake": 2.0,
+        "lateral_speed": 0.7,
+        "lateral_accel": 1.0,
+        "direction": -1,
+        "side": 1,
+        "home_y": -0.6,
+        "mass": 70.0,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      },
+      {
+        "id": "P3",
+        "kind": "pedestrian",
+        "length": 0.5,
+        "width": 0.6,
+        "desired_speed": 1.3023451420446706,
+        "max_accel": 1.2,
+        "max_brake": 2.0,
+        "lateral_speed": 0.7,
+        "lateral_accel": 1.0,
+        "direction": -1,
+        "side": 1,
+        "home_y": -0.6,
+        "mass": 70.0,
+        "speed_tau": 0.7,
+        "lateral_tau": 0.8,
+        "encounter_speed": 1.0
+      }
+    ],
+    "initial_states": [
+      {
+        "spec": {
+          "id": "V1",
+          "kind": "vehicle",
+          "length": 4.5,
+          "width": 1.8,
+          "desired_speed": 3.165322488732023,
+          "max_accel": 1.5,
+          "max_brake": 3.0,
+          "lateral_speed": 0.0,
+          "lateral_accel": 0.4,
+          "direction": 1,
+          "side": -1,
+          "home_y": -0.6,
+          "mass": 1500.0,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 16.0,
+        "y": -0.6,
+        "speed": 3.165322488732023,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "V2",
+          "kind": "vehicle",
+          "length": 4.5,
+          "width": 1.8,
+          "desired_speed": 3.123818113411345,
+          "max_accel": 1.5,
+          "max_brake": 3.0,
+          "lateral_speed": 0.0,
+          "lateral_accel": 0.4,
+          "direction": 1,
+          "side": -1,
+          "home_y": -0.6,
+          "mass": 1500.0,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 7.0,
+        "y": -0.6,
+        "speed": 3.123818113411345,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "P1",
+          "kind": "pedestrian",
+          "length": 0.5,
+          "width": 0.6,
+          "desired_speed": 1.2834788888128157,
+          "max_accel": 1.2,
+          "max_brake": 2.0,
+          "lateral_speed": 0.7,
+          "lateral_accel": 1.0,
+          "direction": -1,
+          "side": 1,
+          "home_y": -0.6,
+          "mass": 70.0,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 44.0,
+        "y": -0.6,
+        "speed": 1.2834788888128157,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "P2",
+          "kind": "pedestrian",
+          "length": 0.5,
+          "width": 0.6,
+          "desired_speed": 1.2498546840609364,
+          "max_accel": 1.2,
+          "max_brake": 2.0,
+          "lateral_speed": 0.7,
+          "lateral_accel": 1.0,
+          "direction": -1,
+          "side": 1,
+          "home_y": -0.6,
+          "mass": 70.0,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 46.5,
+        "y": -0.6,
+        "speed": 1.2498546840609364,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      },
+      {
+        "spec": {
+          "id": "P3",
+          "kind": "pedestrian",
+          "length": 0.5,
+          "width": 0.6,
+          "desired_speed": 1.3023451420446706,
+          "max_accel": 1.2,
+          "max_brake": 2.0,
+          "lateral_speed": 0.7,
+          "lateral_accel": 1.0,
+          "direction": -1,
+          "side": 1,
+          "home_y": -0.6,
+          "mass": 70.0,
+          "speed_tau": 0.7,
+          "lateral_tau": 0.8,
+          "encounter_speed": 1.0
+        },
+        "x": 49.0,
+        "y": -0.6,
+        "speed": 1.3023451420446706,
+        "vy": 0.0,
+        "mode": "FREE",
+        "committed": false,
+        "done": false,
+        "exit_time": null,
+        "waiting_time": 0.0,
+        "path_length": 0.0,
+        "peak_decel": 0.0
+      }
+    ],
+    "metadata": {
+      "width": 3.2,
+      "centered_vehicle": false,
+      "vehicle_lateral_speed": 0.0,
+      "initial_gap": 28.0,
+      "speed_jitter": 0.08
+    }
+  },
+  "feasibility": {
+    "minimum_road_width_m": 3.2,
+    "physical_width_threshold_m": 2.4,
+    "safe_width_threshold_m": 2.8000000000000003,
+    "physical_cross_section_fits": true,
+    "safe_cross_section_fits": true,
+    "fixed_pose_cross_section_fits": true,
+    "scope": "Necessary cross-section conditions at the narrowest section; no global path or liveness guarantee."
+  },
+  "metrics": {
+    "status": "completed",
+    "observation_time_s": 48.39999999999939,
+    "completion_time_s": 48.35763015172847,
+    "pedestrians_passed": 3,
+    "vehicles_passed": 2,
+    "pedestrians_total": 3,
+    "vehicles_total": 2,
+    "collision_pairs": 0,
+    "boundary_violations": 0,
+    "pair_passages": 6,
+    "detector_crossings": null,
+    "total_laps": null,
+    "longitudinal_distance_m": 242.09257899174995,
+    "mean_longitudinal_speed_m_s": 1.0003825578171612,
+    "effective_speed_planned_horizon_m_s": null,
+    "pair_passages_per_min_planned": null,
+    "safety_margins_satisfied": true,
+    "min_pair_gap_m": 0.5999999699985743,
+    "min_wall_gap_m": 0.09999999999999998,
+    "speed_ceiling_unreachable_agent_steps": 0,
+    "total_agent_waiting_s": 0.0,
+    "pedestrian_flow_per_min": 3.719008264462857,
+    "vehicle_flow_per_min": 2.479338842975238,
+    "agents": [
+      {
+        "id": "V1",
+        "exit_time_s": 30.981710870214,
+        "waiting_time_s": 0.0,
+        "path_length_m": 46.307890938844864,
+        "peak_decel_m_s2": 2.9999999999999982
+      },
+      {
+        "id": "V2",
+        "exit_time_s": 35.901280322114765,
+        "waiting_time_s": 0.0,
+        "path_length_m": 55.402191384733,
+        "peak_decel_m_s2": 1.1205402853075919
+      },
+      {
+        "id": "P1",
+        "exit_time_s": 43.575087029863994,
+        "waiting_time_s": 0.0,
+        "path_length_m": 45.24422547754739,
+        "peak_decel_m_s2": 0.7144936506849753
+      },
+      {
+        "id": "P2",
+        "exit_time_s": 46.56359930978633,
+        "waiting_time_s": 0.0,
+        "path_length_m": 47.77173017954959,
+        "peak_decel_m_s2": 0.6664590724680064
+      },
+      {
+        "id": "P3",
+        "exit_time_s": 48.35763015172847,
+        "waiting_time_s": 0.0,
+        "path_length_m": 50.263700705118836,
+        "peak_decel_m_s2": 0.6611174733992664
+      }
+    ]
+  },
+  "events": [
+    {
+      "time": 18.65000000000013,
+      "type": "pair_passage",
+      "agents": [
+        "V1",
+        "P1"
+      ]
+    },
+    {
+      "time": 20.15000000000015,
+      "type": "pair_passage",
+      "agents": [
+        "V1",
+        "P2"
+      ]
+    },
+    {
+      "time": 21.50000000000017,
+      "type": "pair_passage",
+      "agents": [
+        "V1",
+        "P3"
+      ]
+    },
+    {
+      "time": 22.500000000000185,
+      "type": "pair_passage",
+      "agents": [
+        "V2",
+        "P1"
+      ]
+    },
+    {
+      "time": 24.000000000000206,
+      "type": "pair_passage",
+      "agents": [
+        "V2",
+        "P2"
+      ]
+    },
+    {
+      "time": 25.350000000000225,
+      "type": "pair_passage",
+      "agents": [
+        "V2",
+        "P3"
+      ]
+    },
+    {
+      "time": 30.981710870214,
+      "type": "exit",
+      "agent": "V1"
+    },
+    {
+      "time": 35.901280322114765,
+      "type": "exit",
+      "agent": "V2"
+    },
+    {
+      "time": 43.575087029863994,
+      "type": "exit",
+      "agent": "P1"
+    },
+    {
+      "time": 46.56359930978633,
+      "type": "exit",
+      "agent": "P2"
+    },
+    {
+      "time": 48.35763015172847,
+      "type": "exit",
+      "agent": "P3"
+    }
+  ],
+  "trace": [
+    {
+      "time": 0.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 16.0,
+          "y": -0.6,
+          "speed": 3.165322,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 7.0,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 44.0,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 46.5,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 49.0,
+          "y": -0.6,
+          "speed": 1.302345,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 0.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 17.212637,
+          "y": -0.6,
+          "speed": 1.934136,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 8.560526,
+          "y": -0.6,
+          "speed": 3.096164,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 43.438179,
+          "y": -0.4625,
+          "speed": 1.021702,
+          "vy": 0.5,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 45.879952,
+          "y": -0.5925,
+          "speed": 1.185589,
+          "vy": 0.1,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 48.348827,
+          "y": -0.6,
+          "speed": 1.302345,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 1.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 17.995819,
+          "y": -0.6,
+          "speed": 1.331805,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 10.002347,
+          "y": -0.6,
+          "speed": 2.694584,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 42.965416,
+          "y": -0.1275,
+          "speed": 0.89694,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 45.351434,
+          "y": -0.405,
+          "speed": 0.975048,
+          "vy": 0.6,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 47.697961,
+          "y": -0.6,
+          "speed": 1.296217,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 1.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 18.574081,
+          "y": -0.6,
+          "speed": 1.044734,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 11.227275,
+          "y": -0.6,
+          "speed": 2.250607,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 42.535099,
+          "y": 0.2225,
+          "speed": 0.837478,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 44.894544,
+          "y": -0.0575,
+          "speed": 0.874704,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 47.101988,
+          "y": -0.5475,
+          "speed": 1.08,
+          "vy": 0.3,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 2.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 19.054679,
+          "y": -0.6,
+          "speed": 0.907917,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 12.23789,
+          "y": -0.6,
+          "speed": 1.842576,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 42.125012,
+          "y": 0.5725,
+          "speed": 0.809139,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 44.471792,
+          "y": 0.2925,
+          "speed": 0.826881,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 46.609392,
+          "y": -0.2675,
+          "speed": 0.924724,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 2.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 19.488731,
+          "y": -0.6,
+          "speed": 0.84271,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 13.059942,
+          "y": -0.6,
+          "speed": 1.459659,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 41.724566,
+          "y": 0.867329,
+          "speed": 0.795632,
+          "vy": 0.443561,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 44.06531,
+          "y": 0.6425,
+          "speed": 0.804088,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 46.169623,
+          "y": 0.0825,
+          "speed": 0.85072,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 3.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 19.900598,
+          "y": -0.6,
+          "speed": 0.811632,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 13.681702,
+          "y": -0.6,
+          "speed": 1.10567,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 41.328715,
+          "y": 1.025527,
+          "speed": 0.789195,
+          "vy": 0.23263,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 43.666582,
+          "y": 0.907613,
+          "speed": 0.793225,
+          "vy": 0.389849,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 45.75503,
+          "y": 0.4325,
+          "speed": 0.81545,
+          "vy": 0.7,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 3.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 20.301892,
+          "y": -0.6,
+          "speed": 0.79682,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 14.183031,
+          "y": -0.6,
+          "speed": 0.936959,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 40.935055,
+          "y": 1.108496,
+          "speed": 0.786127,
+          "vy": 0.122005,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 43.27155,
+          "y": 1.046655,
+          "speed": 0.788048,
+          "vy": 0.20446,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 45.352437,
+          "y": 0.769345,
+          "speed": 0.79864,
+          "vy": 0.574207,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 4.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 20.698147,
+          "y": -0.6,
+          "speed": 0.789761,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 14.626962,
+          "y": -0.6,
+          "speed": 0.856551,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 40.542437,
+          "y": 1.15201,
+          "speed": 0.784665,
+          "vy": 0.063987,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 42.87828,
+          "y": 1.119576,
+          "speed": 0.78558,
+          "vy": 0.107231,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 44.955563,
+          "y": 0.974138,
+          "speed": 0.790628,
+          "vy": 0.301149,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 4.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 21.092001,
+          "y": -0.6,
+          "speed": 0.786397,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 15.043538,
+          "y": -0.6,
+          "speed": 0.818229,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 40.150318,
+          "y": 1.174831,
+          "speed": 0.783968,
+          "vy": 0.033559,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 42.485849,
+          "y": 1.157821,
+          "speed": 0.784404,
+          "vy": 0.056239,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 44.561414,
+          "y": 1.081544,
+          "speed": 0.78681,
+          "vy": 0.157941,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 5.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 21.484709,
+          "y": -0.6,
+          "speed": 0.784793,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 15.447077,
+          "y": -0.6,
+          "speed": 0.799964,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 39.758435,
+          "y": 1.1868,
+          "speed": 0.783636,
+          "vy": 0.0176,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 42.093818,
+          "y": 1.177879,
+          "speed": 0.783844,
+          "vy": 0.029495,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 44.168565,
+          "y": 1.137875,
+          "speed": 0.78499,
+          "vy": 0.082834,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 5.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 21.876873,
+          "y": -0.6,
+          "speed": 0.784029,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 15.844402,
+          "y": -0.6,
+          "speed": 0.79126,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 39.366666,
+          "y": 1.193077,
+          "speed": 0.783477,
+          "vy": 0.009231,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 41.701977,
+          "y": 1.188398,
+          "speed": 0.783577,
+          "vy": 0.015469,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 43.776335,
+          "y": 1.167418,
+          "speed": 0.784123,
+          "vy": 0.043443,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 6.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 22.268776,
+          "y": -0.6,
+          "speed": 0.783665,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 16.238765,
+          "y": -0.6,
+          "speed": 0.787111,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 38.97495,
+          "y": 1.196369,
+          "speed": 0.783402,
+          "vy": 0.004841,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 41.310228,
+          "y": 1.193915,
+          "speed": 0.783449,
+          "vy": 0.008113,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 43.384399,
+          "y": 1.182912,
+          "speed": 0.78371,
+          "vy": 0.022784,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 6.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 22.660556,
+          "y": -0.6,
+          "speed": 0.783491,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 16.631717,
+          "y": -0.6,
+          "speed": 0.785134,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 38.58326,
+          "y": 1.198096,
+          "speed": 0.783366,
+          "vy": 0.002539,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 40.918522,
+          "y": 1.196809,
+          "speed": 0.783389,
+          "vy": 0.004255,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 42.992604,
+          "y": 1.191038,
+          "speed": 0.783513,
+          "vy": 0.011949,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 7.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 23.052276,
+          "y": -0.6,
+          "speed": 0.783409,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 17.023996,
+          "y": -0.6,
+          "speed": 0.784191,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 38.191582,
+          "y": 1.199001,
+          "speed": 0.783349,
+          "vy": 0.001332,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 40.526836,
+          "y": 1.198326,
+          "speed": 0.78336,
+          "vy": 0.002232,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 42.600877,
+          "y": 1.1953,
+          "speed": 0.783419,
+          "vy": 0.006267,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 7.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 23.443969,
+          "y": -0.6,
+          "speed": 0.783369,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 17.415955,
+          "y": -0.6,
+          "speed": 0.783742,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 37.79991,
+          "y": 1.199476,
+          "speed": 0.783341,
+          "vy": 0.000698,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 40.135161,
+          "y": 1.199122,
+          "speed": 0.783346,
+          "vy": 0.00117,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 42.209181,
+          "y": 1.197535,
+          "speed": 0.783374,
+          "vy": 0.003287,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 8.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 23.835647,
+          "y": -0.6,
+          "speed": 0.78335,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 17.80776,
+          "y": -0.6,
+          "speed": 0.783528,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 37.408241,
+          "y": 1.199725,
+          "speed": 0.783337,
+          "vy": 0.000366,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 39.74349,
+          "y": 1.19954,
+          "speed": 0.783339,
+          "vy": 0.000614,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 41.8175,
+          "y": 1.198707,
+          "speed": 0.783353,
+          "vy": 0.001724,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 8.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 24.22732,
+          "y": -0.6,
+          "speed": 0.783341,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 18.199493,
+          "y": -0.6,
+          "speed": 0.783426,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 37.016573,
+          "y": 1.199856,
+          "speed": 0.783335,
+          "vy": 0.000192,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 39.351821,
+          "y": 1.199759,
+          "speed": 0.783336,
+          "vy": 0.000322,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 41.425827,
+          "y": 1.199322,
+          "speed": 0.783343,
+          "vy": 0.000904,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 9.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 24.618989,
+          "y": -0.6,
+          "speed": 0.783337,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 18.591192,
+          "y": -0.6,
+          "speed": 0.783378,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 36.624906,
+          "y": 1.199924,
+          "speed": 0.783334,
+          "vy": 0.000101,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 38.960153,
+          "y": 1.199873,
+          "speed": 0.783335,
+          "vy": 0.000169,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 41.034157,
+          "y": 1.199644,
+          "speed": 0.783338,
+          "vy": 0.000474,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 9.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 25.010657,
+          "y": -0.6,
+          "speed": 0.783335,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 18.982873,
+          "y": -0.6,
+          "speed": 0.783354,
+          "vy": 0.0,
+          "mode": "BRAKE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 36.233239,
+          "y": 1.19996,
+          "speed": 0.783334,
+          "vy": 5.3e-05,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 38.568486,
+          "y": 1.199934,
+          "speed": 0.783334,
+          "vy": 8.9e-05,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 40.642489,
+          "y": 1.199813,
+          "speed": 0.783335,
+          "vy": 0.000249,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 10.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 25.402325,
+          "y": -0.6,
+          "speed": 0.783334,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 19.374547,
+          "y": -0.6,
+          "speed": 0.783343,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 35.841572,
+          "y": 1.199979,
+          "speed": 0.783334,
+          "vy": 2.8e-05,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 38.176819,
+          "y": 1.199965,
+          "speed": 0.783334,
+          "vy": 4.6e-05,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 40.250822,
+          "y": 1.199902,
+          "speed": 0.783334,
+          "vy": 0.00013,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 10.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 25.793992,
+          "y": -0.6,
+          "speed": 0.783334,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 19.766217,
+          "y": -0.6,
+          "speed": 0.783338,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 35.449905,
+          "y": 1.199989,
+          "speed": 0.783333,
+          "vy": 1.5e-05,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 37.785153,
+          "y": 1.199982,
+          "speed": 0.783333,
+          "vy": 2.4e-05,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 39.859155,
+          "y": 1.199949,
+          "speed": 0.783334,
+          "vy": 6.8e-05,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 11.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 26.185658,
+          "y": -0.6,
+          "speed": 0.783334,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 20.157886,
+          "y": -0.6,
+          "speed": 0.783336,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 35.058239,
+          "y": 1.199994,
+          "speed": 0.783333,
+          "vy": 8e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 37.393486,
+          "y": 1.19999,
+          "speed": 0.783333,
+          "vy": 1.3e-05,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 39.467488,
+          "y": 1.199973,
+          "speed": 0.783334,
+          "vy": 3.6e-05,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 11.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 26.577325,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 20.549553,
+          "y": -0.6,
+          "speed": 0.783334,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 34.666572,
+          "y": 1.199997,
+          "speed": 0.783333,
+          "vy": 4e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 37.001819,
+          "y": 1.199995,
+          "speed": 0.783333,
+          "vy": 7e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 39.075821,
+          "y": 1.199986,
+          "speed": 0.783333,
+          "vy": 1.9e-05,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 12.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 26.968992,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 20.94122,
+          "y": -0.6,
+          "speed": 0.783334,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 34.274905,
+          "y": 1.199998,
+          "speed": 0.783333,
+          "vy": 2e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 36.610153,
+          "y": 1.199997,
+          "speed": 0.783333,
+          "vy": 4e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 38.684155,
+          "y": 1.199993,
+          "speed": 0.783333,
+          "vy": 1e-05,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 12.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 27.360659,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 21.332887,
+          "y": -0.6,
+          "speed": 0.783334,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 33.883239,
+          "y": 1.199999,
+          "speed": 0.783333,
+          "vy": 1e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 36.218486,
+          "y": 1.199999,
+          "speed": 0.783333,
+          "vy": 2e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 38.292488,
+          "y": 1.199996,
+          "speed": 0.783333,
+          "vy": 5e-06,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 13.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 27.752325,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 21.724554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 33.491572,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 1e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 35.826819,
+          "y": 1.199999,
+          "speed": 0.783333,
+          "vy": 1e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 37.900821,
+          "y": 1.199998,
+          "speed": 0.783333,
+          "vy": 3e-06,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 13.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 28.143992,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 22.11622,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 33.099905,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 35.435153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 1e-06,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 37.509155,
+          "y": 1.199999,
+          "speed": 0.783333,
+          "vy": 1e-06,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 14.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 28.535659,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 22.507887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 32.708239,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 35.043486,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 37.117488,
+          "y": 1.199999,
+          "speed": 0.783333,
+          "vy": 1e-06,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 14.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 28.927325,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 22.899554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 32.316572,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 34.651819,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 36.725821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 15.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 29.318992,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 23.29122,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 31.924905,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 34.260153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 36.334155,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 15.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 29.710659,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 23.682887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 31.533239,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 33.868486,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 35.942488,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 16.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 30.102325,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 24.074554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 31.141572,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 33.476819,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 35.550821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 16.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 30.493992,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 24.46622,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 30.749905,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 33.085153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 35.159155,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 17.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 30.885659,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 24.857887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 30.358239,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 32.693486,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 34.767488,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 17.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 31.277325,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 25.249554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 29.966572,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 32.301819,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 34.375821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 18.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 31.668992,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 25.64122,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 29.574905,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 31.910153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 33.984155,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 18.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 32.060659,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 26.032887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 29.183239,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 31.518486,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 33.592488,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 19.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 32.452325,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 26.424554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 28.791572,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 31.126819,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 33.200821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 19.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 32.843992,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 26.81622,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 28.399905,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 30.735153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 32.809155,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 20.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 33.235659,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 27.207887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 28.008239,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 30.343486,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 32.417488,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 20.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 33.627325,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 27.599554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 27.616572,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 29.951819,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 32.025821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 21.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 34.018992,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 27.99122,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 27.224905,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 29.560153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 31.634155,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 21.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 34.410659,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 28.382887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 26.833239,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 29.168486,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 31.242488,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 22.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 35.008575,
+          "y": -0.6,
+          "speed": 1.533333,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 28.774554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 26.441572,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 28.776819,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 30.850821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 22.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 35.981036,
+          "y": -0.6,
+          "speed": 2.275495,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 29.16622,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 26.049905,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 28.385153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 30.459155,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 23.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 37.260968,
+          "y": -0.6,
+          "speed": 2.741232,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 29.557887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 25.582131,
+          "y": 1.0625,
+          "speed": 1.021363,
+          "vy": -0.5,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 27.993486,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 30.067488,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 23.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 38.699349,
+          "y": -0.6,
+          "speed": 2.963201,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 29.949554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 25.058435,
+          "y": 0.7275,
+          "speed": 1.056561,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 27.601819,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 29.675821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 24.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 40.213247,
+          "y": -0.6,
+          "speed": 3.068992,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 30.34122,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 24.527083,
+          "y": 0.3775,
+          "speed": 1.066624,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 27.210153,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 29.284155,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 24.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 41.763135,
+          "y": -0.6,
+          "speed": 3.119411,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 30.732887,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 23.992307,
+          "y": 0.0275,
+          "speed": 1.07142,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 26.747858,
+          "y": 1.0625,
+          "speed": 1.003086,
+          "vy": -0.5,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 28.892488,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 25.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 43.330177,
+          "y": -0.6,
+          "speed": 3.143441,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 31.124554,
+          "y": -0.6,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 23.449763,
+          "y": -0.267329,
+          "speed": 1.110017,
+          "vy": -0.443561,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 26.236669,
+          "y": 0.7275,
+          "speed": 1.026978,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 28.500821,
+          "y": 1.2,
+          "speed": 0.783333,
+          "vy": 0.0,
+          "mode": "PASS",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 25.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 44.905394,
+          "y": -0.6,
+          "speed": 3.154894,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 31.53872,
+          "y": -0.6,
+          "speed": 1.008333,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 22.874664,
+          "y": -0.425527,
+          "speed": 1.180944,
+          "vy": -0.23263,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 25.721828,
+          "y": 0.3775,
+          "speed": 1.031407,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 28.09862,
+          "y": 1.185,
+          "speed": 0.885862,
+          "vy": -0.15,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 26.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 46.484507,
+          "y": -0.6,
+          "speed": 3.160352,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 32.249137,
+          "y": -0.6,
+          "speed": 1.758333,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 22.269875,
+          "y": -0.508496,
+          "speed": 1.229215,
+          "vy": -0.122005,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 25.20548,
+          "y": 0.0275,
+          "speed": 1.033518,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 27.598382,
+          "y": 0.9725,
+          "speed": 1.055941,
+          "vy": -0.65,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 26.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 48.065478,
+          "y": -0.6,
+          "speed": 3.162954,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 33.326575,
+          "y": -0.6,
+          "speed": 2.440026,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 21.647163,
+          "y": -0.55201,
+          "speed": 1.256138,
+          "vy": -0.063987,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 24.682057,
+          "y": -0.267329,
+          "speed": 1.072123,
+          "vy": -0.443561,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 27.063654,
+          "y": 0.6225,
+          "speed": 1.078073,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 27.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 49.647333,
+          "y": -0.6,
+          "speed": 3.164194,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 34.655851,
+          "y": -0.6,
+          "speed": 2.797923,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 21.014881,
+          "y": -0.574831,
+          "speed": 1.270042,
+          "vy": -0.033559,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 24.125437,
+          "y": -0.425527,
+          "speed": 1.144731,
+          "vy": -0.23263,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 26.521397,
+          "y": 0.2725,
+          "speed": 1.088622,
+          "vy": -0.7,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 27.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 51.22961,
+          "y": -0.6,
+          "speed": 3.164784,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 36.106887,
+          "y": -0.6,
+          "speed": 2.968497,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 20.377756,
+          "y": -0.5868,
+          "speed": 1.276963,
+          "vy": -0.0176,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 23.538397,
+          "y": -0.508496,
+          "speed": 1.194211,
+          "vy": -0.122005,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 25.975544,
+          "y": -0.077344,
+          "speed": 1.093791,
+          "vy": -0.696875,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 28.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 52.812088,
+          "y": -0.6,
+          "speed": 3.165066,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 37.615954,
+          "y": -0.6,
+          "speed": 3.049792,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 19.738245,
+          "y": -0.593077,
+          "speed": 1.280343,
+          "vy": -0.009231,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 22.932982,
+          "y": -0.55201,
+          "speed": 1.221816,
+          "vy": -0.063987,
+          "mode": "RECOVER",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 25.414468,
+          "y": -0.325887,
+          "speed": 1.153365,
+          "vy": -0.365483,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 28.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 54.394662,
+          "y": -0.6,
+          "speed": 3.1652,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 39.152679,
+          "y": -0.6,
+          "speed": 3.088537,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 19.097576,
+          "y": -0.596369,
+          "speed": 1.281976,
+          "vy": -0.004841,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 22.317753,
+          "y": -0.574831,
+          "speed": 1.236074,
+          "vy": -0.033559,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 24.819047,
+          "y": -0.456239,
+          "speed": 1.21813,
+          "vy": -0.191682,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 29.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 55.977282,
+          "y": -0.6,
+          "speed": 3.165264,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 40.702585,
+          "y": -0.6,
+          "speed": 3.107003,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 18.456348,
+          "y": -0.598096,
+          "speed": 1.28276,
+          "vy": -0.002539,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 21.697558,
+          "y": -0.5868,
+          "speed": 1.243172,
+          "vy": -0.0176,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 24.197905,
+          "y": -0.524603,
+          "speed": 1.258604,
+          "vy": -0.100529,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 29.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 57.559923,
+          "y": -0.6,
+          "speed": 3.165295,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 42.258773,
+          "y": -0.6,
+          "speed": 3.115804,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 17.814854,
+          "y": -0.599001,
+          "speed": 1.283136,
+          "vy": -0.001332,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 21.074916,
+          "y": -0.593077,
+          "speed": 1.246638,
+          "vy": -0.009231,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 23.561993,
+          "y": -0.560457,
+          "speed": 1.280509,
+          "vy": -0.052724,
+          "mode": "RECOVER",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 30.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 59.142575,
+          "y": -0.6,
+          "speed": 3.165309,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 43.817956,
+          "y": -0.6,
+          "speed": 3.119999,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 17.173231,
+          "y": -0.599476,
+          "speed": 1.283315,
+          "vy": -0.000698,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 20.451087,
+          "y": -0.596369,
+          "speed": 1.248313,
+          "vy": -0.004841,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 22.918353,
+          "y": -0.579261,
+          "speed": 1.291666,
+          "vy": -0.027652,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 30.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 60.725232,
+          "y": -0.6,
+          "speed": 3.165316,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "V2",
+          "x": 45.378566,
+          "y": -0.6,
+          "speed": 3.121998,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 16.531547,
+          "y": -0.599725,
+          "speed": 1.283401,
+          "vy": -0.000366,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 19.826685,
+          "y": -0.598096,
+          "speed": 1.249118,
+          "vy": -0.002539,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 22.270842,
+          "y": -0.589123,
+          "speed": 1.297181,
+          "vy": -0.014502,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 31.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 46.939855,
+          "y": -0.6,
+          "speed": 3.122951,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 15.889835,
+          "y": -0.599856,
+          "speed": 1.283442,
+          "vy": -0.000192,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 19.202008,
+          "y": -0.599001,
+          "speed": 1.249503,
+          "vy": -0.001332,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 21.621435,
+          "y": -0.594296,
+          "speed": 1.299863,
+          "vy": -0.007606,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 31.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 48.501469,
+          "y": -0.6,
+          "speed": 3.123405,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 15.248108,
+          "y": -0.599924,
+          "speed": 1.283461,
+          "vy": -0.000101,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 18.577201,
+          "y": -0.599476,
+          "speed": 1.249687,
+          "vy": -0.000698,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 20.971108,
+          "y": -0.597008,
+          "speed": 1.301157,
+          "vy": -0.003989,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 32.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 50.063238,
+          "y": -0.6,
+          "speed": 3.123621,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 14.606374,
+          "y": -0.59996,
+          "speed": 1.28347,
+          "vy": -5.3e-05,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 17.952331,
+          "y": -0.599725,
+          "speed": 1.249775,
+          "vy": -0.000366,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 20.320341,
+          "y": -0.598431,
+          "speed": 1.301777,
+          "vy": -0.002092,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 32.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 51.62508,
+          "y": -0.6,
+          "speed": 3.123724,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 13.964638,
+          "y": -0.599979,
+          "speed": 1.283475,
+          "vy": -2.8e-05,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 17.327431,
+          "y": -0.599856,
+          "speed": 1.249817,
+          "vy": -0.000192,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 19.67411,
+          "y": -0.599177,
+          "speed": 1.285308,
+          "vy": -0.001097,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 33.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 53.186957,
+          "y": -0.6,
+          "speed": 3.123773,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 13.3229,
+          "y": -0.599989,
+          "speed": 1.283477,
+          "vy": -1.5e-05,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 16.702516,
+          "y": -0.599924,
+          "speed": 1.249836,
+          "vy": -0.000101,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 19.03483,
+          "y": -0.599568,
+          "speed": 1.273719,
+          "vy": -0.000575,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 33.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 54.748851,
+          "y": -0.6,
+          "speed": 3.123797,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 12.681161,
+          "y": -0.599994,
+          "speed": 1.283478,
+          "vy": -8e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 16.077595,
+          "y": -0.59996,
+          "speed": 1.249846,
+          "vy": -5.3e-05,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 18.400249,
+          "y": -0.599774,
+          "speed": 1.265896,
+          "vy": -0.000302,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 34.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 56.310752,
+          "y": -0.6,
+          "speed": 3.123808,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 12.039422,
+          "y": -0.599997,
+          "speed": 1.283478,
+          "vy": -4e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 15.452671,
+          "y": -0.599979,
+          "speed": 1.249851,
+          "vy": -2.8e-05,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 17.768835,
+          "y": -0.599881,
+          "speed": 1.260627,
+          "vy": -0.000158,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 34.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 57.872658,
+          "y": -0.6,
+          "speed": 3.123813,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 11.397682,
+          "y": -0.599998,
+          "speed": 1.283479,
+          "vy": -2e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 14.827745,
+          "y": -0.599989,
+          "speed": 1.249853,
+          "vy": -1.5e-05,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 17.139554,
+          "y": -0.599938,
+          "speed": 1.257085,
+          "vy": -8.3e-05,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 35.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 59.434565,
+          "y": -0.6,
+          "speed": 3.123816,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 10.755943,
+          "y": -0.599999,
+          "speed": 1.283479,
+          "vy": -1e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 14.202818,
+          "y": -0.599994,
+          "speed": 1.249854,
+          "vy": -8e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 16.511705,
+          "y": -0.599967,
+          "speed": 1.254705,
+          "vy": -4.4e-05,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 35.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 60.996474,
+          "y": -0.6,
+          "speed": 3.123817,
+          "vy": 0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P1",
+          "x": 10.114204,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -1e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 13.577891,
+          "y": -0.599997,
+          "speed": 1.249854,
+          "vy": -4e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 15.884818,
+          "y": -0.599983,
+          "speed": 1.253107,
+          "vy": -2.3e-05,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 36.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 9.472464,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 12.952964,
+          "y": -0.599998,
+          "speed": 1.249854,
+          "vy": -2e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 15.258576,
+          "y": -0.599991,
+          "speed": 1.252036,
+          "vy": -1.2e-05,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 36.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 8.830725,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 12.328037,
+          "y": -0.599999,
+          "speed": 1.249855,
+          "vy": -1e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 14.632768,
+          "y": -0.599995,
+          "speed": 1.251317,
+          "vy": -6e-06,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 37.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 8.188985,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 11.703109,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -1e-06,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 14.00725,
+          "y": -0.599998,
+          "speed": 1.250835,
+          "vy": -3e-06,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 37.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 7.547246,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 11.078182,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 13.381927,
+          "y": -0.599999,
+          "speed": 1.250512,
+          "vy": -2e-06,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 38.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 6.905507,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 10.453255,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 12.756734,
+          "y": -0.599999,
+          "speed": 1.250295,
+          "vy": -1e-06,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 38.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 6.263767,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 9.828327,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 12.131629,
+          "y": -0.6,
+          "speed": 1.25015,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 39.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 5.622028,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 9.2034,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 11.506582,
+          "y": -0.6,
+          "speed": 1.250053,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 39.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 4.980288,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 8.578473,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 10.881575,
+          "y": -0.6,
+          "speed": 1.249987,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 40.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 4.338549,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 7.953545,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 10.256594,
+          "y": -0.6,
+          "speed": 1.249944,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 40.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 3.696809,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 7.328618,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 9.631631,
+          "y": -0.6,
+          "speed": 1.249914,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 41.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 3.05507,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 6.703691,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 9.006679,
+          "y": -0.6,
+          "speed": 1.249895,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 41.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 2.41333,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 6.078763,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 8.381736,
+          "y": -0.6,
+          "speed": 1.249881,
+          "vy": -0.0,
+          "mode": "BRAKE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 42.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 1.771591,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 5.453836,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 7.756798,
+          "y": -0.6,
+          "speed": 1.249873,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 42.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 1.129852,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 4.828909,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 7.131863,
+          "y": -0.6,
+          "speed": 1.249867,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 43.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": 0.488112,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 4.203981,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 6.506931,
+          "y": -0.6,
+          "speed": 1.249863,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 43.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.153627,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P2",
+          "x": 3.579054,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 5.882,
+          "y": -0.6,
+          "speed": 1.24986,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 44.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": 2.954127,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 5.257071,
+          "y": -0.6,
+          "speed": 1.249858,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 44.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": 2.329199,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 4.632142,
+          "y": -0.6,
+          "speed": 1.249857,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 45.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": 1.704272,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 4.007214,
+          "y": -0.6,
+          "speed": 1.249856,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 45.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": 1.079345,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 3.382286,
+          "y": -0.6,
+          "speed": 1.249856,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 46.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": 0.454417,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 2.757358,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 46.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": -0.17051,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        },
+        {
+          "id": "P3",
+          "x": 2.13243,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "FOLLOW",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 47.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": -0.295496,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P3",
+          "x": 1.501766,
+          "y": -0.6,
+          "speed": 1.273332,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 47.5,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": -0.295496,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P3",
+          "x": 0.860465,
+          "y": -0.6,
+          "speed": 1.288517,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 48.0,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": -0.295496,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P3",
+          "x": 0.213996,
+          "y": -0.6,
+          "speed": 1.295755,
+          "vy": -0.0,
+          "mode": "FREE",
+          "done": false
+        }
+      ]
+    },
+    {
+      "time": 48.4,
+      "agents": [
+        {
+          "id": "V1",
+          "x": 62.307891,
+          "y": -0.6,
+          "speed": 3.165319,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "V2",
+          "x": 62.402191,
+          "y": -0.6,
+          "speed": 3.123818,
+          "vy": 0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P1",
+          "x": -0.281975,
+          "y": -0.6,
+          "speed": 1.283479,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P2",
+          "x": -0.295496,
+          "y": -0.6,
+          "speed": 1.249855,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        },
+        {
+          "id": "P3",
+          "x": -0.305026,
+          "y": -0.6,
+          "speed": 1.298702,
+          "vy": -0.0,
+          "mode": "DONE",
+          "done": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+﻿case,label,policy,status,completion_time_s,collision_pairs,boundary_violations,pair_passages,min_pair_gap_m,min_wall_gap_m,total_agent_waiting_s,safety_margins_satisfied
+width_wait,空间不足：2.6 m 等待,reciprocal,waiting_clearance,,0,0,0,0.6000000000304375,0.09999999999999998,55.75000000000013,True
+width_repair,扩大宽度：2.8 m 通过,reciprocal,completed,76.81770203693601,0,0,6,0.19999999999999907,0.09999999999999998,0.0,True
+fixed_center,车居中：2.9 m 阻塞,reciprocal,waiting_alignment,,0,0,0,0.6000000001050729,0.10000000000000192,53.20000000000009,True
+move_vehicle,允许车侧移：2.9 m 通过,reciprocal,completed,64.36423320172618,0,0,6,0.2999999999999745,0.10000000000000042,0.0,True
+excess_speed,制动距离不足：初速 12 m/s,reciprocal,collision,,1,0,0,0.0,0.09999999999999998,0.0,False
+speed_repair,只降低初始/期望车速：1.5 m/s,reciprocal,completed,35.453389429506174,0,0,1,0.4703333977713174,0.09999999999999998,0.0,True
+sfm_short,SFM：短作用距离导致风险,social_force,collision,,1,0,0,0.0,0.09999999999999998,0.0,False
+sfm_tuned_wide,SFM：扩大作用范围，5 m 通过,social_force,completed,80.20500667603348,0,0,6,0.31768397623865013,0.09999999999999998,71.80000000000058,True
+sfm_narrow,SFM：3.2 m 窄路软边界不足,social_force,boundary_violation,,0,1,0,0.3275259520749785,-0.011402201088141106,9.349999999999984,False
+sfm_partial,部分修正：选边与制动，仍可能僵持,sfm_guided_ungated,deadlock_policy,,0,0,3,0.599999991336034,0.09999999999999998,91.65000000000076,True
+sfm_full,完整修正：解除已消除的冲突力,sfm_guided,completed,54.12082858369326,0,0,6,0.5999999699985743,0.09999999999999998,0.0,True
+ring_sfm,圆环：纯 SFM,social_force,boundary_violation,,0,1,0,0.354748288935788,-0.0012087577713601472,13.299999999999978,False
+ring_repair,圆环：SFM 加规则修正,sfm_guided,sustained,,0,0,30,0.5999999699985743,0.09999999999999998,0.9500000000000003,True

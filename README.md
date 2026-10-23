@@ -1,7 +1,7 @@
 # 交通流与轨迹建模：每周实验
 
-本仓库汇集五周的交通流与轨迹研究工作，涵盖数据可视化、微观行人建模、轨迹预测、
-流量—密度分析和车辆跟驰仿真。各周工作按同一层级组织，详细方法、参数、结果和复现步骤见对应周的 README。
+本仓库汇集六周的交通流与轨迹研究工作，涵盖数据可视化、微观行人建模、轨迹预测、
+流量—密度分析、车辆跟驰仿真和窄路人车交互。各周工作按同一层级组织，详细方法、参数、结果和复现步骤见对应周的 README。
 
 ## 工作索引
 
@@ -12,6 +12,7 @@
 | week03 | 神经网络轨迹预测 | TrajNet++ 无交互、网格分辨率与池化规则对比 | [week03/README.md](week03/README.md) |
 | week04 | 流量—密度基本图 | NGSIM 轨迹的时间窗口、测量方法与车道对比 | [week04/README.md](week04/README.md) |
 | week05 | 车辆跟驰模型 | OVM、FVDM、IDM 的车队、人工双车与实测双车实验 | [week05/README.md](week05/README.md) |
+| week06 | 窄路人车交互 | 统一规则、社会力基线与修正策略的场景对照和灵敏度分析 | [week06/README.md](week06/README.md) |
 
 ## 每周工作
 
@@ -45,6 +46,12 @@
 - **主要发现**：微小扰动可形成走停波；IDM 在所选实测案例共同有效时段内误差最低，但部分场景提前触发负速度。拟合误差与物理合理性需分别评价，不能据此给出普遍模型排名。
 - **结果与文档**：[车队](week05/platoon_experiments/results/)、[人工双车](week05/two_vehicle_experiments/artificial/results/)和[实测双车](week05/two_vehicle_experiments/ngsim/results/)分别保存图表、指标与报告；详见 [实验结论](week05/实验结论.md) 和 [本周 README](week05/README.md)。
 
+### week06 · 窄路人车交互模型
+
+- **实验内容**：以统一运动方程和能力参数描述人车，在直路、局部缩窄与周期圆环中比较统一规则、社会力基线及修正策略，开展灵敏度分析与失败案例对照。
+- **主要发现**：所设尺寸与安全裕度下，断面下限为 2.8 m；宽度足够仍可能因车辆居中而阻塞，小幅侧移可解除所测案例的阻塞。规则修正改善了部分社会力基线的越界与僵持，但尚未经实测标定，圆环也不含真实车辆转弯扫掠。
+- **结果与文档**：[仿真结果](week06/results/)保存 700 次运行的统计、图表和离线回放（含重复配置，非独立样本）；详见 [实验报告](week06/REPORT.md)、[灵敏度分析](week06/SENSITIVITY.md) 和 [本周 README](week06/README.md)。
+
 ## 目录与数据
 
 ```text
@@ -54,6 +61,7 @@ pedestrian_dataset/
 ├── week03/                 神经网络轨迹预测
 ├── week04/                 流量—密度基本图
 ├── week05/                 车辆跟驰模型
+├── week06/                 窄路人车交互模型
 ├── datasets/               ETH、UCY、Circle Antipode 数据
 ├── pyproject.toml          基础 Python 依赖
 ├── uv.lock                 基础依赖锁定文件
@@ -70,6 +78,7 @@ pedestrian_dataset/
 | Circle Antipode | [圆环对穿数据](datasets/circle-10m-64-1.txt) | 实验与模型说明见 [week02](week02/README.md) |
 | circle_classroom | 入口与划分见 [week03](week03/README.md) | TrajNet++ 课堂实验数据 |
 | NGSIM I-80 | [week04/data/](week04/data/) | [来源说明](week04/data/使用说明.txt)；week05 实测双车实验只读复用 |
+| 人车交互仿真场景 | [week06/configs/](week06/configs/) · [场景工厂](week06/pvsim/scenarios.py) | 人工配置与种子生成，不依赖实测轨迹；参数见 [week06/PARAMETERS.md](week06/PARAMETERS.md) |
 
 week05 的 NPZ/NPY 时间序列在本地生成，已加入 Git 忽略规则。数据来源、单位、
 质量限制与使用条件以对应数据说明和周文档为准。
@@ -85,6 +94,7 @@ week05 的 NPZ/NPY 时间序列在本地生成，已加入 Git 忽略规则。�
 | week03 | [requirements-classroom.txt](week03/model/requirements-classroom.txt) 与 [运行说明](week03/README.md) |
 | week04 | `numpy`、`pandas`、`matplotlib`；见 [运行说明](week04/README.md) |
 | week05 | [requirements.txt](week05/requirements.txt) 与 [运行说明](week05/README.md) |
+| week06 | Python ≥ 3.9，核心仿真仅用标准库；绘图依赖见 [requirements-plot.txt](week06/requirements-plot.txt)，命令见 [运行说明](week06/README.md) |
 
 仓库根目录的基础环境使用 uv 管理，Python 版本见 `.python-version`。安装基础依赖：
 
@@ -93,4 +103,5 @@ uv sync --no-install-project
 ```
 
 该命令跳过本项目的包构建，仅安装根目录声明的依赖；其他周所需依赖需按各自说明补充。
-周文档中的相对运行路径以其实验目录为准，从总目录启动时需加上对应的 `weekNN/` 前缀。
+运行前先确认周文档指定的工作目录：脚本路径可按需加上 `weekNN/` 前缀；
+week06 的 `python -m pvsim ...` 命令需先进入 `week06/` 目录执行。

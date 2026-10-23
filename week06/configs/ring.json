@@ -1,0 +1,6 @@
+{
+  "type": "ring",
+  "scenario": {"width": 3.2, "circumference": 80.0, "duration": 180.0,
+    "pedestrians": 3, "vehicles": 2, "seed": 0},
+  "settings": {"dt": 0.05, "record_every": 10}
+}

@@ -1,0 +1,482 @@
+[
+  {
+    "A_m_s2": 2,
+    "B_m": 0.4,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 0.4,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 0.4,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 0.8,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 0.8,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 0.8,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 1.5,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 1.5,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 1.5,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 2.5,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 2.5,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 2,
+    "B_m": 2.5,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 0.4,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 0.4,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 0.4,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 0.8,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 0.8,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 0.8,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 1.5,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 1.5,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 1.5,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 2.5,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 2.5,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 4,
+    "B_m": 2.5,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 0.4,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 0.4,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 0.4,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 0.8,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 0.8,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 0.8,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 1.5,
+    "seed": 100,
+    "status": "completed",
+    "completion_time_s": 49.962988713855474,
+    "min_pair_gap_m": 0.47355994800764445,
+    "min_wall_gap_m": 0.0030628724661956874,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 1.5,
+    "seed": 101,
+    "status": "boundary_violation",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.3958814540794222,
+    "min_wall_gap_m": -0.0011380955135038007,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 1.5,
+    "seed": 102,
+    "status": "completed",
+    "completion_time_s": 48.80781800480392,
+    "min_pair_gap_m": 0.474011318067044,
+    "min_wall_gap_m": 0.003534820655854365,
+    "safe": false
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 2.5,
+    "seed": 100,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 1.4094675619614705,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 2.5,
+    "seed": 101,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 1.1905969325033823,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 8,
+    "B_m": 2.5,
+    "seed": 102,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 1.4043632456547357,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 0.4,
+    "seed": 100,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 0.4,
+    "seed": 101,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 0.4,
+    "seed": 102,
+    "status": "collision",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.0,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": false
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 0.8,
+    "seed": 100,
+    "status": "boundary_violation",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.2889911727140273,
+    "min_wall_gap_m": -0.008266588226394977,
+    "safe": false
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 0.8,
+    "seed": 101,
+    "status": "boundary_violation",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.11909689804551249,
+    "min_wall_gap_m": -0.01778155851339308,
+    "safe": false
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 0.8,
+    "seed": 102,
+    "status": "boundary_violation",
+    "completion_time_s": null,
+    "min_pair_gap_m": 0.27035010844377183,
+    "min_wall_gap_m": -0.0128297734199731,
+    "safe": false
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 1.5,
+    "seed": 100,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 1.576113371401405,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 1.5,
+    "seed": 101,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 1.4354386812267705,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 1.5,
+    "seed": 102,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 1.569796387488637,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 2.5,
+    "seed": 100,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 3.142512918573196,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 2.5,
+    "seed": 101,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 2.9235881796023975,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  },
+  {
+    "A_m_s2": 16,
+    "B_m": 2.5,
+    "seed": 102,
+    "status": "deadlock_policy",
+    "completion_time_s": null,
+    "min_pair_gap_m": 3.1373657021091503,
+    "min_wall_gap_m": 0.09999999999999998,
+    "safe": true
+  }
+]
