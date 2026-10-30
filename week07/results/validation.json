@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "independent_min_separation_m": 1.0200684475107513,
+  "checked_pairs": 4950,
+  "checked_intervals": 186,
+  "arrived": 100,
+  "max_segment_speed_m_s": 2.0000000000000093,
+  "inter_sample_crossing_test": "passed",
+  "half_timestep_validation": {
+    "passed": true,
+    "independent_min_separation_m": 1.020014048986916,
+    "checked_pairs": 4950,
+    "checked_intervals": 371,
+    "arrived": 100,
+    "max_segment_speed_m_s": 2.0000000000000218
+  },
+  "half_timestep_metrics": {
+    "model": "predictive",
+    "count": 100,
+    "arrived": 100,
+    "arrival_rate": 1.0,
+    "all_arrival_time_s": 18.55,
+    "simulated_time_s": 18.55,
+    "minimum_separation_m": 1.020014048986916,
+    "minimum_sampled_separation_m": 1.0200182927862085,
+    "violating_pair_count": 0,
+    "max_speed_m_s": 2.0000000000000218,
+    "mean_path_length_m": 31.278359914241587,
+    "max_final_goal_error_m": 0.9999013846542197,
+    "initial_minimum_separation_m": 4.6355605980437256,
+    "initial_nearest_neighbor_cv": 0.018866924174495276,
+    "filter_scaling_steps": 0
+  },
+  "deterministic_repeat": "passed"
+}

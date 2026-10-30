@@ -1,7 +1,7 @@
 # 交通流与轨迹建模：每周实验
 
-本仓库汇集六周的交通流与轨迹研究工作，涵盖数据可视化、微观行人建模、轨迹预测、
-流量—密度分析、车辆跟驰仿真和窄路人车交互。各周工作按同一层级组织，详细方法、参数、结果和复现步骤见对应周的 README。
+本仓库汇集七周的交通流与轨迹研究工作，涵盖数据可视化、微观行人建模、轨迹预测、
+流量—密度分析、车辆跟驰仿真、窄路人车交互和三维无人机群避碰。各周工作按同一层级组织，详细方法、参数、结果和复现步骤见对应周的 README。
 
 ## 工作索引
 
@@ -13,6 +13,7 @@
 | week04 | 流量—密度基本图 | NGSIM 轨迹的时间窗口、测量方法与车道对比 | [week04/README.md](week04/README.md) |
 | week05 | 车辆跟驰模型 | OVM、FVDM、IDM 的车队、人工双车与实测双车实验 | [week05/README.md](week05/README.md) |
 | week06 | 窄路与向心人车交互 | 直路、缩窄道路和圆周向心穿越的策略对照与灵敏度分析 | [week06/README.md](week06/README.md) |
+| week07 | 三维无人机群避碰 | 100 架无人机球面均匀布点、对径飞行、预测避碰与连续间距验证 | [week07/README.md](week07/README.md) |
 
 ## 每周工作
 
@@ -52,6 +53,12 @@
 - **主要发现**：所设直路安全断面下限为 2.8 m，位置与侧移能力也影响通行；向心场景中，默认 4 人 4 车的三种策略均僵持，单人单车的规则模型与修正版可完成。模型未经实测标定，主体朝向固定，尚不包含真实车辆转向。
 - **结果与文档**：[仿真结果](week06/results/)保存 668 次运行（含 120 次向心实验及重复配置，非独立样本）；[动态主页](week06/index.html)提供离线回放，[文档导航](week06/docs/index.html)汇集[实验报告](week06/docs/REPORT.md)、[向心实验](week06/docs/CIRCLE.md)与[灵敏度分析](week06/docs/SENSITIVITY.md)，运行方法见 [本周 README](week06/README.md)。
 
+### week07 · 100 架无人机三维球面对径飞行
+
+- **实验内容**：在半径 15 m 的球面上用 Fibonacci 方法近似均匀布置 100 架无人机，同时飞向各自对径目标；采用目标吸引、5 s 冲突预测、切向绕行和安全速度投影构成的自定义运动学模型，与不避碰的直线飞行对照。速度上限为 2 m/s，安全间距为 1 m，时间步为 0.1 s，不限制加速度。
+- **主要发现**：主模型 100 架全部到达，用时 18.6 s，连续轨迹最小机间距为 1.020068 m，违规机对数为 0，平均累计路程为 31.33890 m；直线对照在球心发生冲突，4950 个机对均侵犯安全距离。时间步减半至 0.05 s 后仍全部安全到达，用时 18.55 s；结论限于本次场景与参数。
+- **结果与文档**：[三维交互回放](week07/index.html)可离线播放、旋转和缩放；[GIF 动画](week07/results/simulation.gif)、[轨迹图](week07/results/trajectories.png)、[指标图](week07/results/diagnostics.png)与[对比表](week07/results/comparison.csv)展示仿真结果。[源代码](week07/simulation.py)、[独立验证结果](week07/results/validation.json)和复现方法见 [本周 README](week07/README.md)。
+
 ## 目录与数据
 
 ```text
@@ -62,6 +69,7 @@ pedestrian_dataset/
 ├── week04/                 流量—密度基本图
 ├── week05/                 车辆跟驰模型
 ├── week06/                 窄路与向心人车交互模型
+├── week07/                 三维无人机群球面对径飞行与避碰
 ├── datasets/               ETH、UCY、Circle Antipode 数据
 ├── pyproject.toml          基础 Python 依赖
 ├── uv.lock                 基础依赖锁定文件
@@ -79,6 +87,7 @@ pedestrian_dataset/
 | circle_classroom | 入口与划分见 [week03](week03/README.md) | TrajNet++ 课堂实验数据 |
 | NGSIM I-80 | [week04/data/](week04/data/) | [来源说明](week04/data/使用说明.txt)；week05 实测双车实验只读复用 |
 | 人车交互仿真场景 | [week06/configs/](week06/configs/) · [直路场景](week06/pvsim/scenarios.py) · [向心场景](week06/pvsim/radial.py) | 人工配置与种子生成，不依赖实测轨迹；参数见 [参数表](week06/docs/PARAMETERS.md) |
+| 无人机球面对径仿真 | [场景与模型](week07/simulation.py) · [主模型轨迹](week07/results/predictive/) · [失败对照轨迹](week07/results/straight/) | 确定性的 Fibonacci 球面布点，不依赖外部数据；保存 CSV、NPZ、指标与单机结果，说明见 [week07](week07/README.md) |
 
 week05 的 NPZ/NPY 时间序列在本地生成，已加入 Git 忽略规则。数据来源、单位、
 质量限制与使用条件以对应数据说明和周文档为准。
@@ -95,6 +104,7 @@ week05 的 NPZ/NPY 时间序列在本地生成，已加入 Git 忽略规则。�
 | week04 | `numpy`、`pandas`、`matplotlib`；见 [运行说明](week04/README.md) |
 | week05 | [requirements.txt](week05/requirements.txt) 与 [运行说明](week05/README.md) |
 | week06 | Python ≥ 3.9，核心仿真仅用标准库；[绘图依赖](week06/requirements-plot.txt)、[文档渲染依赖](week06/requirements-docs.txt)按需安装，命令见 [运行说明](week06/README.md) |
+| week07 | Python ≥ 3.9，仿真依赖 `numpy`，绘图与 GIF 另需 `matplotlib`、`Pillow`；见 [requirements.txt](week07/requirements.txt) 与 [运行说明](week07/README.md)，已有回放无需 Python 即可浏览 |
 
 仓库根目录的基础环境使用 uv 管理，Python 版本见 `.python-version`。安装基础依赖：
 

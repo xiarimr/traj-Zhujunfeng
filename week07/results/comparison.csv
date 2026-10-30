@@ -1,0 +1,3 @@
+﻿model,count,arrived,arrival_rate,all_arrival_time_s,simulated_time_s,minimum_separation_m,minimum_sampled_separation_m,violating_pair_count,max_speed_m_s,mean_path_length_m,max_final_goal_error_m,initial_minimum_separation_m,initial_nearest_neighbor_cv,filter_scaling_steps
+predictive,100,100,1.0,18.6,18.6,1.0200684475107513,1.020083626949116,0,2.0000000000000093,31.338895706347863,0.9965763438583313,4.6355605980437256,0.018866924174495276,0
+straight,100,100,1.0,14.5,14.5,1.8944459117067825e-16,7.43336600097626e-16,4950,2.000000000000012,28.999999999999936,1.000000000000039,4.6355605980437256,0.018866924174495276,0
